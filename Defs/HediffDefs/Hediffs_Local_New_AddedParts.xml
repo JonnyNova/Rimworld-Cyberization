@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- Robotics -->
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>RoboticEye</defName>
+    <label>robotic eye</label>
+    <labelNoun>a robotic eye</labelNoun>
+    <spawnThingOnRemoved>RoboticEye</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0.65</partEfficiency>
+      <betterThanNatural>false</betterThanNatural>
+    </addedPartProps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>RoboticArm</defName>
+    <label>robotic arm</label>
+    <labelNoun>a robotic arm</labelNoun>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>11</power>
+            <cooldownTime>2</cooldownTime>
+          </li>
+        </tools>
+      </li>
+    </comps>
+    <spawnThingOnRemoved>RoboticArm</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>RoboticHand</defName>
+    <label>robotic hand</label>
+    <labelNoun>a robotic hand</labelNoun>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>2</cooldownTime>
+          </li>
+        </tools>
+      </li>
+    </comps>
+    <spawnThingOnRemoved>RoboticHand</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>RoboticLeg</defName>
+    <label>robotic leg</label>
+    <labelNoun>a robotic leg</labelNoun>
+    <spawnThingOnRemoved>RoboticLeg</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>false</betterThanNatural>
+    </addedPartProps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>RoboticJaw</defName>
+    <label>robotic jaw</label>
+    <labelNoun>a robotic jaw</labelNoun>
+    <spawnThingOnRemoved>RoboticJaw</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>false</betterThanNatural>
+    </addedPartProps>
+  </HediffDef>
+
+  <!-- Bionics -->
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>BionicLung</defName>
+    <label>bionic lung</label>
+    <labelNoun>a bionic lung</labelNoun>
+    <spawnThingOnRemoved>BionicLung</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>BionicKidney</defName>
+    <label>bionic kidney</label>
+    <labelNoun>a bionic kidney</labelNoun>
+    <spawnThingOnRemoved>BionicKidney</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>BionicLiver</defName>
+    <label>bionic liver</label>
+    <labelNoun>a bionic liver</labelNoun>
+    <spawnThingOnRemoved>BionicLiver</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+
+  <!-- Glittertech -->
+
+  <HediffDef Name="addedPartGlittertech" Abstract="True">
+      <hediffClass>Hediff_Implant</hediffClass>
+      <defaultLabelColor>(244,210,131)</defaultLabelColor>
+      <isBad>false</isBad>
+      <addedPartProps>
+         <partEfficiency>1</partEfficiency>
+         <betterThanNatural>true</betterThanNatural>
+      </addedPartProps>
+   </HediffDef>
+
+     <HediffDef ParentName="addedPartGlittertech">
+    <defName>CombatImplant</defName>
+    <label>combat implant</label>
+    <labelNoun>a combat implant</labelNoun>
+    <spawnThingOnRemoved>CombatImplant</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+  </HediffDef>
+
+  <HediffDef ParentName="addedPartGlittertech">
+    <defName>DomesticImplant</defName>
+    <label>domestic implant</label>
+    <labelNoun>a domestic implant</labelNoun>
+    <spawnThingOnRemoved>DomesticImplant</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+  </HediffDef>
+
+  <HediffDef ParentName="addedPartGlittertech">
+    <defName>CreativeImplant</defName>
+    <label>creative implant</label>
+    <labelNoun>a creative implant</labelNoun>
+    <spawnThingOnRemoved>CreativeImplant</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+  </HediffDef>
+
+  <HediffDef ParentName="addedPartGlittertech">
+    <defName>LaborImplant</defName>
+    <label>labor implant</label>
+    <labelNoun>a labor implant</labelNoun>
+    <spawnThingOnRemoved>LaborImplant</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+  </HediffDef>
+
+  <HediffDef ParentName="addedPartGlittertech">
+    <defName>MedicalImplant</defName>
+    <label>medical implant</label>
+    <labelNoun>a medical implant</labelNoun>
+    <spawnThingOnRemoved>MedicalImplant</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+  </HediffDef>
+  
+  <!-- Archotechs -->
+
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>ArchotechVibroblade</defName>
+    <label>Archotech vibroblade</label>
+    <labelNoun>an archotech vibroblade</labelNoun>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>vibroblade</label>
+            <capacities>
+              <li>Cut</li>
+            </capacities>
+            <power>35.0</power>
+            <cooldownTime>2</cooldownTime>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          </li>
+        </tools>
+      </li>
+    </comps>
+    <spawnThingOnRemoved>ArchotechVibroblade</spawnThingOnRemoved>
+    <addedPartProps>
+      <isGoodWeapon>true</isGoodWeapon>
+      <solid>true</solid>
+      <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+  
+</Defs>

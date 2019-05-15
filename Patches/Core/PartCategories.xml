@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationSequence">
+    <success>Normal</success>
+    <operations>
+
+     <!-- Bionics -->
+
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[@Name="BodyPartBionicBase"]</xpath>
+      <value>
+        <thingCategories Inherit = "False"><li>BionicBodyParts</li></thingCategories>
+      </value>
+    </li> 
+
+    <!-- Archotech -->
+
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[@Name="BodyPartArchotechBase"]</xpath>
+      <value>
+        <thingCategories Inherit = "False"><li>ArchotechBodyParts</li></thingCategories>
+      </value>
+    </li> 
+    
+   </operations>
+  </Operation>
+</Patch>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!--Prostheses-->
+  
+  <ThingCategoryDef>
+    <defName>RoboticBodyParts</defName>
+    <label>Robotic parts</label>
+    <parent>BodyPartsArtificial</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+    <defName>BionicBodyParts</defName>
+    <label>Bionic parts</label>
+    <parent>BodyPartsArtificial</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+    <defName>GlittertechParts</defName>
+    <label>Glittertech parts</label>
+    <parent>BodyPartsArtificial</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+    <defName>ArchotechBodyParts</defName>
+    <label>archotech parts</label>
+    <parent>BodyPartsArtificial</parent>
+  </ThingCategoryDef>
+  
+</Defs>
