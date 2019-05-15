@@ -4,8 +4,8 @@
 
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>RoboticEye</defName>
-    <label>robotic eye</label>
-    <labelNoun>a robotic eye</labelNoun>
+    <label>robotic visual orb</label>
+    <labelNoun>a robotic visual orb</labelNoun>
     <spawnThingOnRemoved>RoboticEye</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>

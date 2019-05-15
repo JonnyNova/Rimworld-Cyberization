@@ -5,10 +5,10 @@
 
   <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallRoboticEye</defName>
-    <label>install robotic eye</label>
-    <description>Install a robotic eye.</description>
+    <label>install robotic visual orb</label>
+    <description>Install a robotic visual orb.</description>
     <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
-    <jobString>Installing robotic eye.</jobString>
+    <jobString>Installing robotic visual orb.</jobString>
     <workAmount>2000</workAmount>
     <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
     <skillRequirements>

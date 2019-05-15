@@ -33,7 +33,7 @@
 
   <ThingDef ParentName="BodyPartRoboticBase">
     <defName>RoboticEye</defName>
-    <label>robotic eye</label>
+    <label>robotic visual orb</label>
 	  <description>A robotic eye replacement. It is high resolution but still doesn't quite make up what an eye does.  It doesn't bleed and feels no pain. It is the best possible workaround for a missing eye given the tech level.</description>
     <techLevel>Spacer</techLevel>
     <costList>
