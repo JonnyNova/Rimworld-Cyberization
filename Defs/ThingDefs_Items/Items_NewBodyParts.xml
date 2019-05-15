@@ -135,7 +135,9 @@
     <techLevel>Spacer</techLevel>
     <costList>
       <Plasteel>4</Plasteel>
+      <Neutroamine>4</Neutroamine>
       <ComponentSpacer>2</ComponentSpacer>
+      <MedicineUltratech>2</MedicineUltratech>
     </costList>
     <statBases>
       <WorkToMake>13000</WorkToMake>
@@ -153,7 +155,9 @@
     <techLevel>Spacer</techLevel>
     <costList>
       <Plasteel>10</Plasteel>
+      <Neutroamine>10</Neutroamine>
       <ComponentSpacer>3</ComponentSpacer>
+      <MedicineUltratech>3</MedicineUltratech>
     </costList>
     <statBases>
       <WorkToMake>26000</WorkToMake>
@@ -171,7 +175,9 @@
     <techLevel>Spacer</techLevel>
     <costList>
       <Plasteel>10</Plasteel>
+      <Neutroamine>10</Neutroamine>
       <ComponentSpacer>3</ComponentSpacer>
+      <MedicineUltratech>3</MedicineUltratech>
     </costList>
     <statBases>
       <WorkToMake>18000</WorkToMake>
@@ -189,7 +195,9 @@
     <techLevel>Spacer</techLevel>
     <costList>
       <Plasteel>15</Plasteel>
+      <Neutroamine>15</Neutroamine>
       <ComponentSpacer>4</ComponentSpacer>
+      <MedicineUltratech>4</MedicineUltratech>
     </costList>
     <statBases>
       <WorkToMake>38000</WorkToMake>
@@ -207,7 +215,9 @@
     <techLevel>Spacer</techLevel>
     <costList>
       <Plasteel>15</Plasteel>
+      <Neutroamine>15</Neutroamine>
       <ComponentSpacer>4</ComponentSpacer>
+      <MedicineUltratech>4</MedicineUltratech>
     </costList>
     <statBases>
       <WorkToMake>26000</WorkToMake>
@@ -225,7 +235,9 @@
     <techLevel>Spacer</techLevel>
     <costList>
       <Plasteel>15</Plasteel>
+      <Neutroamine>15</Neutroamine>
       <ComponentSpacer>4</ComponentSpacer>
+      <MedicineUltratech>4</MedicineUltratech>
     </costList>
     <statBases>
       <WorkToMake>26000</WorkToMake>
@@ -242,8 +254,10 @@
 	  <description>An advanced brain implant. This combines the effects of the painshunt and sleepshunt. The user will experience less pain and require less sleep per day.</description>
     <techLevel>Spacer</techLevel>
     <costList>
-      <Plasteel>15</Plasteel>
-      <ComponentSpacer>1</ComponentSpacer>
+      <Sleepshunt>1</Sleepshunt>
+      <Painshunt>1</Painshunt>
+      <Plasteel>1</Plasteel>
+      <Neutroamine>1</Neutroamine>
     </costList>
     <statBases>
       <WorkToMake>26000</WorkToMake>
