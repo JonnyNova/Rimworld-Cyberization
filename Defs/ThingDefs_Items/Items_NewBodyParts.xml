@@ -27,7 +27,7 @@
         <Crafting>6</Crafting>
       </skillRequirements>
       <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-      <researchPrerequisite>Prosthetics</researchPrerequisite>
+      <researchPrerequisite>RoboticBodyParts</researchPrerequisite>
     </recipeMaker>
   </ThingDef>
 

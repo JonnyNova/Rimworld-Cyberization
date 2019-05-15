@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>RoboticBodyParts</defName>
+    <label>Robotic Prosthetics</label>
+    <description>Build better prostheses from increased knowledge of electronics. These robotic parts perform mostly on par with biological limbs.</description>
+    <baseCost>900</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>Prosthetics</li>
+      <li>MicroelectronicsBasics</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <researchViewX>9</researchViewX>
+    <researchViewY>5</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

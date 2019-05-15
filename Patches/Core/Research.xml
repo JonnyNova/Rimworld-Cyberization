@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationSequence">
+    <success>Normal</success>
+    <operations>
+
+    <li Class="PatchOperationReplace">
+      <xpath>Defs/ResearchProjectDef[defName="Bionics"]/prerequisites</xpath>
+      <value>
+        <prerequisites>
+          <li>RoboticBodyParts</li>
+          <li>Fabrication</li>
+        </prerequisites>
+      </value>
+    </li> 
+    
+   </operations>
+  </Operation>
+</Patch>
