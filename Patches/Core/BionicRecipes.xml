@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationSequence">
+    <success>Normal</success>
+    <operations>
+
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="BionicArm" or defName="BionicLeg" or defName="BionicSpine" or defName="BionicHeart"]/costList</xpath>
+      <value>
+        <Neutroamine>15</Neutroamine>
+      </value>
+    </li>
+
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="BionicEye" or defName="BionicStomach" or defName="BionicEar"]/costList</xpath>
+      <value>
+        <Neutroamine>10</Neutroamine>
+      </value>
+    </li>
+
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="BionicEye" or defName="BionicArm" or defName="BionicLeg" or defName="BionicSpine"]/costList</xpath>
+      <value>
+        <MedicineUltratech>4</MedicineUltratech>
+      </value>
+    </li>
+    
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="BionicHeart" or defName="BionicStomach" or defName="BionicEar"]/costList</xpath>
+      <value>
+        <MedicineUltratech>3</MedicineUltratech>
+      </value>
+    </li>
+
+   </operations>
+  </Operation>
+</Patch>

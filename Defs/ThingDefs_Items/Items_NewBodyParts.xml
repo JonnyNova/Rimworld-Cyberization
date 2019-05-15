@@ -135,8 +135,8 @@
     <techLevel>Spacer</techLevel>
     <costList>
       <Plasteel>4</Plasteel>
-      <Neutroamine>4</Neutroamine>
       <ComponentSpacer>2</ComponentSpacer>
+      <Neutroamine>4</Neutroamine>
       <MedicineUltratech>2</MedicineUltratech>
     </costList>
     <statBases>
@@ -155,8 +155,8 @@
     <techLevel>Spacer</techLevel>
     <costList>
       <Plasteel>10</Plasteel>
-      <Neutroamine>10</Neutroamine>
       <ComponentSpacer>3</ComponentSpacer>
+      <Neutroamine>10</Neutroamine>
       <MedicineUltratech>3</MedicineUltratech>
     </costList>
     <statBases>
@@ -175,8 +175,8 @@
     <techLevel>Spacer</techLevel>
     <costList>
       <Plasteel>10</Plasteel>
-      <Neutroamine>10</Neutroamine>
       <ComponentSpacer>3</ComponentSpacer>
+      <Neutroamine>10</Neutroamine>
       <MedicineUltratech>3</MedicineUltratech>
     </costList>
     <statBases>
@@ -195,8 +195,8 @@
     <techLevel>Spacer</techLevel>
     <costList>
       <Plasteel>15</Plasteel>
-      <Neutroamine>15</Neutroamine>
       <ComponentSpacer>4</ComponentSpacer>
+      <Neutroamine>15</Neutroamine>
       <MedicineUltratech>4</MedicineUltratech>
     </costList>
     <statBases>
@@ -215,8 +215,8 @@
     <techLevel>Spacer</techLevel>
     <costList>
       <Plasteel>15</Plasteel>
-      <Neutroamine>15</Neutroamine>
       <ComponentSpacer>4</ComponentSpacer>
+      <Neutroamine>15</Neutroamine>
       <MedicineUltratech>4</MedicineUltratech>
     </costList>
     <statBases>
@@ -235,8 +235,8 @@
     <techLevel>Spacer</techLevel>
     <costList>
       <Plasteel>15</Plasteel>
-      <Neutroamine>15</Neutroamine>
       <ComponentSpacer>4</ComponentSpacer>
+      <Neutroamine>15</Neutroamine>
       <MedicineUltratech>4</MedicineUltratech>
     </costList>
     <statBases>
