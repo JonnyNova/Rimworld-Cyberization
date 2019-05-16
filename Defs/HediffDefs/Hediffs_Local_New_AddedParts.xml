@@ -2,7 +2,15 @@
 <Defs>
   <!-- Robotics -->
 
-  <HediffDef ParentName="AddedBodyPartBase">
+  <HediffDef Name="RoboticBodyPartBase" ParentName="AddedBodyPartBase" Abstract="True">
+    <comps>
+      <li Class="FrontierDevelopments.Cyberization.AddedPartSolarFlareVulnerabilityProperties">
+        <partEffectiveness>0.0</partEffectiveness>
+      </li>
+    </comps>
+  </HediffDef>
+  
+  <HediffDef ParentName="RoboticBodyPartBase">
     <defName>RoboticEye</defName>
     <label>robotic visual orb</label>
     <labelNoun>a robotic visual orb</labelNoun>
@@ -14,7 +22,7 @@
     </addedPartProps>
   </HediffDef>
 
-  <HediffDef ParentName="AddedBodyPartBase">
+  <HediffDef ParentName="RoboticBodyPartBase">
     <defName>RoboticArm</defName>
     <label>robotic arm</label>
     <labelNoun>a robotic arm</labelNoun>
@@ -38,7 +46,7 @@
     </addedPartProps>
   </HediffDef>
 
-  <HediffDef ParentName="AddedBodyPartBase">
+  <HediffDef ParentName="RoboticBodyPartBase">
     <defName>RoboticHand</defName>
     <label>robotic hand</label>
     <labelNoun>a robotic hand</labelNoun>
@@ -62,7 +70,7 @@
     </addedPartProps>
   </HediffDef>
 
-  <HediffDef ParentName="AddedBodyPartBase">
+  <HediffDef ParentName="RoboticBodyPartBase">
     <defName>RoboticLeg</defName>
     <label>robotic leg</label>
     <labelNoun>a robotic leg</labelNoun>
@@ -73,7 +81,7 @@
     </addedPartProps>
   </HediffDef>
 
-  <HediffDef ParentName="AddedBodyPartBase">
+  <HediffDef ParentName="RoboticBodyPartBase">
     <defName>RoboticJaw</defName>
     <label>robotic jaw</label>
     <labelNoun>a robotic jaw</labelNoun>
@@ -86,7 +94,15 @@
 
   <!-- Bionics -->
 
-  <HediffDef ParentName="AddedBodyPartBase">
+  <HediffDef Name="BionicBodyPartBase" ParentName="AddedBodyPartBase" Abstract="True">
+    <comps>
+      <li Class="FrontierDevelopments.Cyberization.AddedPartSolarFlareVulnerabilityProperties">
+        <partEffectiveness>0.5</partEffectiveness>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName="BionicBodyPartBase">
     <defName>BionicHand</defName>
     <label>bionic hand</label>
     <labelNoun>a bionic hand</labelNoun>
@@ -110,7 +126,7 @@
     </addedPartProps>
   </HediffDef>
 
-  <HediffDef ParentName="AddedBodyPartBase">
+  <HediffDef ParentName="BionicBodyPartBase">
     <defName>BionicLung</defName>
     <label>bionic lung</label>
     <labelNoun>a bionic lung</labelNoun>
@@ -121,7 +137,7 @@
     </addedPartProps>
   </HediffDef>
 
-  <HediffDef ParentName="AddedBodyPartBase">
+  <HediffDef ParentName="BionicBodyPartBase">
     <defName>BionicKidney</defName>
     <label>bionic kidney</label>
     <labelNoun>a bionic kidney</labelNoun>
@@ -132,7 +148,7 @@
     </addedPartProps>
   </HediffDef>
 
-  <HediffDef ParentName="AddedBodyPartBase">
+  <HediffDef ParentName="BionicBodyPartBase">
     <defName>BionicLiver</defName>
     <label>bionic liver</label>
     <labelNoun>a bionic liver</labelNoun>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    
+    <!-- Add comp slots to those that need it -->
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/HediffDef[defName="BionicEye" or defName="BionicLeg" or defName="BionicSpine" or defName="BionicHeart" or defName="BionicStomach" or defName="BionicEar"]</xpath>
+                <value>
+                    <comps>
+                    </comps>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+    <!-- Add solar flare vulnerability -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="BionicEye" or defName="BionicArm" or defName="BionicLeg" or defName="BionicSpine" or defName="BionicHeart" or defName="BionicStomach" or defName="BionicEar" or defName="PowerClaw"]/comps</xpath>
+        <value>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartSolarFlareVulnerabilityProperties">
+                <partEffectiveness>0.5</partEffectiveness>
+            </li>
+        </value>
+    </Operation>
+</Patch>
