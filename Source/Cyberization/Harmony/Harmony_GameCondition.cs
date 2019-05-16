@@ -38,7 +38,8 @@ namespace FrontierDevelopments.Cyberization.Harmony
             [HarmonyPostfix]
             static void UpdateSolarFlareVulnerableParts(GameCondition __instance)
             {
-                GetPawnsToNotify(__instance).Do(pawn => HediffsToUpdate(pawn).Do(hediff => pawn.health.Notify_HediffChanged(hediff)));
+                if(__instance.def == GameConditionDefOf.SolarFlare)
+                    GetPawnsToNotify(__instance).Do(pawn => HediffsToUpdate(pawn).Do(hediff => pawn.health.Notify_HediffChanged(hediff)));
             }
         }
 
@@ -48,7 +49,8 @@ namespace FrontierDevelopments.Cyberization.Harmony
             [HarmonyPostfix]
             static void UpdateSolarFlareVulnerableParts(GameCondition __instance)
             {
-                GetPawnsToNotify(__instance).Do(pawn => HediffsToUpdate(pawn).Do(hediff => pawn.health.Notify_HediffChanged(hediff)));
+                if(__instance.def == GameConditionDefOf.SolarFlare)
+                    GetPawnsToNotify(__instance).Do(pawn => HediffsToUpdate(pawn).Do(hediff => pawn.health.Notify_HediffChanged(hediff)));
             }
         }
     }
