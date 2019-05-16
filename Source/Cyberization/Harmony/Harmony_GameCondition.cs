@@ -10,11 +10,7 @@ namespace FrontierDevelopments.Cyberization.Harmony
     {
         private static bool PawnHasVulnerablePart(Pawn pawn)
         {
-            return pawn.health.hediffSet.hediffs
-                .OfType<HediffWithComps>()
-                .SelectMany(hediff => hediff.comps)
-                .OfType<AddedPartSolarFlareVulnerability>()
-                .Any();
+            return HediffsToUpdate(pawn).Any();
         }
 
         private static IEnumerable<HediffWithComps> HediffsToUpdate(Pawn pawn)
