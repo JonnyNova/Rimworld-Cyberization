@@ -1,3 +1,5 @@
+using System.Reflection;
+using Harmony;
 using Verse;
 
 namespace FrontierDevelopments.Cyberization
@@ -6,7 +8,8 @@ namespace FrontierDevelopments.Cyberization
     {
         public Mod(ModContentPack content) : base(content)
         {
-            
+            var harmony = HarmonyInstance.Create("frontierdevelopment.cyberization");
+            harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
     }
 }

@@ -52,7 +52,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cyberization\Harmony\Harmony_PartEffectiveness.cs" />
     <Compile Include="Cyberization\Mod.cs" />
+    <Compile Include="Cyberization\AddedPartEffectivenessModifier.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
