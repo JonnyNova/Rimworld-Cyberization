@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationSequence">
+    <success>Normal</success>
+    <operations>
+
+    <li Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="Human"]/recipes</xpath>
+      <value>
+        <recipes>
+          <li>InstallArchotechEye</li>
+          <li>InstallArchotechArm</li>
+          <li>InstallArchotechLeg</li>
+          <li>InstallVirboblade</li>
+          <li>InstallBionicEye</li>
+          <li>InstallBionicEar</li>
+          <li>InstallBionicArm</li>
+          <li>InstallBionicHand</li>
+          <li>InstallBionicLeg</li>
+          <li>InstallPowerClaw</li>
+          <li>InstallBionicSpine</li>
+          <li>InstallBionicHeart</li>
+          <li>InstallBionicLung</li>
+          <li>InstallBionicStomach</li>
+          <li>InstallBionicKidney</li>
+          <li>InstallBionicLiver</li>
+          <li>InstallPainshunt</li>
+          <li>InstallSleepshunt</li>
+          <li>InstallMegashunt</li>
+          <li>InstallRoboticEye</li>
+          <li>InstallCochlearImplant</li>
+          <li>InstallRoboticArm</li>
+          <li>InstallRoboticHand</li>
+          <li>InstallRoboticLeg</li>
+          <li>InstallRoboticJaw</li>
+          <li>InstallSimpleProstheticHeart</li>
+          <li>InstallSimpleProstheticArm</li>
+          <li>InstallSimpleProstheticLeg</li>
+          <li>InstallPegLeg</li>
+          <li>InstallWoodenFoot</li>
+          <li>InstallDenture</li>
+          <li>InstallJoywire</li>
+          <li>InstallPainstopper</li>
+          <li>InstallNaturalHeart</li>
+          <li>InstallNaturalLung</li>
+          <li>InstallNaturalKidney</li>
+          <li>InstallNaturalLiver</li>
+          <li>ExciseCarcinoma</li>
+          <li>AdministerMechSerumHealer</li>
+          <li>RemoveBodyPart</li>
+          <li>Euthanize</li>
+          <li>Anesthetize</li>
+        </recipes>
+      </value>
+    </li> 
+    
+    </operations>
+  </Operation>
+</Patch>

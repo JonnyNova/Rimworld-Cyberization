@@ -1,15 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <RecipeDef Name="SurgeryFleshNewPart" ParentName ="SurgeryFlesh" Abstract="True">
-    <recipeUsers>
-      <li>Human</li>
-    </recipeUsers>
-  </RecipeDef>
-
   <!-- Install robotic parts -->
 
-  <RecipeDef ParentName="SurgeryFleshNewPart">
+  <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallRoboticEye</defName>
     <label>install robotic visual orb</label>
     <description>Install a robotic visual orb.</description>
@@ -52,7 +46,7 @@
     <addsHediff>RoboticEye</addsHediff>
   </RecipeDef>
 
-  <RecipeDef ParentName="SurgeryFleshNewPart">
+  <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallRoboticArm</defName>
     <label>install robotic arm</label>
     <description>Install a robotic arm.</description>
@@ -95,7 +89,7 @@
     <addsHediff>RoboticArm</addsHediff>
   </RecipeDef>
 
-  <RecipeDef ParentName="SurgeryFleshNewPart">
+  <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallRoboticHand</defName>
     <label>install robotic hand</label>
     <description>Install a robotic hand.</description>
@@ -138,7 +132,7 @@
     <addsHediff>RoboticHand</addsHediff>
   </RecipeDef>
 
-  <RecipeDef ParentName="SurgeryFleshNewPart">
+  <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallRoboticLeg</defName>
     <label>install robotic leg</label>
     <description>Install a robotic leg.</description>
@@ -181,7 +175,7 @@
     <addsHediff>RoboticLeg</addsHediff>
   </RecipeDef>
 
-  <RecipeDef ParentName="SurgeryFleshNewPart">
+  <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallRoboticJaw</defName>
     <label>install robotic jaw</label>
     <description>Install a robotic jaw.</description>
@@ -227,7 +221,50 @@
 
   <!-- Install New Bionics -->
 
-  <RecipeDef ParentName="SurgeryFleshNewPart">
+    <RecipeDef ParentName="SurgeryFlesh">
+    <defName>InstallBionicHand</defName>
+    <label>install bionic hand</label>
+    <description>Install a bionic hand.</description>
+    <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
+    <jobString>Installing bionic hand.</jobString>
+    <workAmount>2500</workAmount>
+    <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>2</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>BionicHand</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+        <li>BionicHand</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Hand</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>BionicHand</addsHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallBionicLung</defName>
     <label>install bionic lung</label>
     <description>Install a bionic lung.</description>
@@ -269,7 +306,7 @@
     <addsHediff>BionicLung</addsHediff>
   </RecipeDef>
 
-  <RecipeDef ParentName="SurgeryFleshNewPart">
+  <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallBionicKidney</defName>
     <label>install bionic kidney</label>
     <description>Install a bionic kidney.</description>
@@ -311,7 +348,7 @@
     <addsHediff>BionicKidney</addsHediff>
   </RecipeDef>
 
-  <RecipeDef ParentName="SurgeryFleshNewPart">
+  <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallBionicLiver</defName>
     <label>install bionic liver</label>
     <description>Install a bionic liver.</description>
@@ -353,7 +390,7 @@
     <addsHediff>BionicLiver</addsHediff>
   </RecipeDef>
 
-  <RecipeDef ParentName="SurgeryFleshNewPart">
+  <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallPainshunt</defName>
     <label>install painshunt</label>
     <description>Install a painshunt.</description>
@@ -396,8 +433,8 @@
     <addsHediff>Painshunt</addsHediff>
   </RecipeDef>
 
-  <RecipeDef ParentName="SurgeryFleshNewPart">
-    <defName>InstallSleephunt</defName>
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>InstallSleepshunt</defName>
     <label>install sleepshunt</label>
     <description>Install a sleepshunt.</description>
     <workerClass>Recipe_InstallImplant</workerClass>
@@ -439,7 +476,7 @@
     <addsHediff>Sleepshunt</addsHediff>
   </RecipeDef>
 
-  <RecipeDef ParentName="SurgeryFleshNewPart">
+  <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallMegashunt</defName>
     <label>install megashunt</label>
     <description>Install a megashunt.</description>
@@ -485,7 +522,7 @@
 
   <!-- Install New Archotech Parts -->
 
-  <RecipeDef ParentName="SurgeryFleshNewPart">
+  <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallVirboblade</defName>
     <label>install archotech virboblade</label>
     <description>Install a vibroblade.</description>

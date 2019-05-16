@@ -87,6 +87,30 @@
   <!-- Bionics -->
 
   <HediffDef ParentName="AddedBodyPartBase">
+    <defName>BionicHand</defName>
+    <label>bionic hand</label>
+    <labelNoun>a bionic hand</labelNoun>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>10</power>
+            <cooldownTime>2</cooldownTime>
+          </li>
+        </tools>
+      </li>
+    </comps>
+    <spawnThingOnRemoved>RoboticHand</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+    </addedPartProps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedBodyPartBase">
     <defName>BionicLung</defName>
     <label>bionic lung</label>
     <labelNoun>a bionic lung</labelNoun>
