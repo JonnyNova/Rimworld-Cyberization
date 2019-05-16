@@ -33,6 +33,7 @@ namespace FrontierDevelopments.Cyberization
         public bool BreakDown()
         {
             if (_brokenDown) return false;
+            Pawn.health.Notify_HediffChanged(parent);
             _brokenDown = true;
             if (Pawn.Faction == Faction.OfPlayer) 
                 Find.LetterStack.ReceiveLetter(
@@ -48,6 +49,7 @@ namespace FrontierDevelopments.Cyberization
         public bool Repair()
         {
             if (!_brokenDown) return false;
+            Pawn.health.Notify_HediffChanged(parent);
             _brokenDown = false;
             return true;
         }
