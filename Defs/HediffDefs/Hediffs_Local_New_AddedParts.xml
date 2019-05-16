@@ -7,6 +7,9 @@
       <li Class="FrontierDevelopments.Cyberization.AddedPartSolarFlareVulnerabilityProperties">
         <partEffectiveness>0.0</partEffectiveness>
       </li>
+      <li Class="FrontierDevelopments.Cyberization.AddedPartBreakdownableProperties">
+        <partEffectiveness>0.0</partEffectiveness>
+      </li>
     </comps>
     <addedPartProps>
       <betterThanNatural>false</betterThanNatural>
@@ -97,6 +100,9 @@
   <HediffDef Name="BionicBodyPartBase" ParentName="AddedBodyPartBase" Abstract="True">
     <comps>
       <li Class="FrontierDevelopments.Cyberization.AddedPartSolarFlareVulnerabilityProperties">
+        <partEffectiveness>0.5</partEffectiveness>
+      </li>
+      <li Class="FrontierDevelopments.Cyberization.AddedPartBreakdownableProperties">
         <partEffectiveness>0.5</partEffectiveness>
       </li>
     </comps>

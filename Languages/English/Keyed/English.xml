@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <Cyberization.AddPartBreakdown.Label>Cybernetic part breakdown</Cyberization.AddPartBreakdown.Label>
+    <Cyberization.AddPartBreakdown.Text>{0}'s {1} has broken down. It will need to be repaired to restore full functionality.</Cyberization.AddPartBreakdown.Text>  
+</LanguageData>
