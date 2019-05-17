@@ -3,7 +3,7 @@ using System.Linq;
 using Harmony;
 using Verse;
 
-namespace FrontierDevelopments.Cyberization
+namespace FrontierDevelopments.Cyberization.Power
 {
     public interface IPowerProvider
     {

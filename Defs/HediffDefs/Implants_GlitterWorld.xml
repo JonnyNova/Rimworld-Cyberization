@@ -10,7 +10,7 @@
             <betterThanNatural>true</betterThanNatural>
         </addedPartProps>
         <comps>
-            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>3</powerPerTick>
             </li>
         </comps>

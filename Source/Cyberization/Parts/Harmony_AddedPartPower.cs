@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+using FrontierDevelopments.Cyberization.Power;
 using Harmony;
 using RimWorld;
 using Verse;
 
-namespace FrontierDevelopments.Cyberization.Harmony
+namespace FrontierDevelopments.Cyberization.Parts
 {
     public class Harmony_AddedPartPower
     {

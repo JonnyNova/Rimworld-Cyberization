@@ -16,7 +16,7 @@
         <defName>EnergyCell</defName>
         <label>Energy Cell</label>
         <comps>
-            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerProviderProperties">
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerProviderProperties">
                 <maxEnergy>500000</maxEnergy>
                 <maxRate>8</maxRate>
             </li>

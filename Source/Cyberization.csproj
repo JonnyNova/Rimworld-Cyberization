@@ -52,20 +52,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cyberization\AddedPartEnergyNeed.cs" />
-    <Compile Include="Cyberization\AddedPartMaintenance.cs" />
-    <Compile Include="Cyberization\AddedPartPowerConsumer.cs" />
-    <Compile Include="Cyberization\AddedPartPowerProvider.cs" />
-    <Compile Include="Cyberization\AddedPartSolarFlareVulnerability.cs" />
-    <Compile Include="Cyberization\CompPowerProvider.cs" />
-    <Compile Include="Cyberization\Harmony\Harmony_AddedPartPower.cs" />
-    <Compile Include="Cyberization\Harmony\Harmony_GameCondition.cs" />
-    <Compile Include="Cyberization\Harmony\Harmony_PartEffectiveness.cs" />
-    <Compile Include="Cyberization\AddedPartBreakdownable.cs" />
-    <Compile Include="Cyberization\IncidentWorker_AddedPartBreakdown.cs" />
-    <Compile Include="Cyberization\IPowerProvider.cs" />
     <Compile Include="Cyberization\Mod.cs" />
-    <Compile Include="Cyberization\AddedPartEffectivenessModifier.cs" />
+    <Compile Include="Cyberization\Parts\AddedPartBreakdownable.cs" />
+    <Compile Include="Cyberization\Parts\AddedPartEffectivenessModifier.cs" />
+    <Compile Include="Cyberization\Parts\AddedPartEnergyNeed.cs" />
+    <Compile Include="Cyberization\Parts\AddedPartMaintenance.cs" />
+    <Compile Include="Cyberization\Parts\AddedPartPowerConsumer.cs" />
+    <Compile Include="Cyberization\Parts\AddedPartPowerProvider.cs" />
+    <Compile Include="Cyberization\Parts\AddedPartSolarFlareVulnerability.cs" />
+    <Compile Include="Cyberization\Parts\Harmony_AddedPartPower.cs" />
+    <Compile Include="Cyberization\Parts\Harmony_PartEffectiveness.cs" />
+    <Compile Include="Cyberization\Parts\Harmony_SolarFlare.cs" />
+    <Compile Include="Cyberization\Parts\IncidentWorker_AddedPartBreakdown.cs" />
+    <Compile Include="Cyberization\Power\CompPowerProvider.cs" />
+    <Compile Include="Cyberization\Power\IPowerProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Cyberization\Implants" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

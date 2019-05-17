@@ -4,7 +4,7 @@ using Harmony;
 using RimWorld;
 using Verse;
 
-namespace FrontierDevelopments.Cyberization.Harmony
+namespace FrontierDevelopments.Cyberization.Parts
 {
     public class Harmony_GameCondition
     {

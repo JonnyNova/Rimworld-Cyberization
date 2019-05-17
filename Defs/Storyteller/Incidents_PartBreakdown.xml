@@ -10,7 +10,7 @@
             <li>Map_PlayerHome</li>
             <li>Map_Misc</li>
         </targetTags>
-        <workerClass>FrontierDevelopments.Cyberization.IncidentWorker_AddedPartBreakdown</workerClass>
+        <workerClass>FrontierDevelopments.Cyberization.Parts.IncidentWorker_AddedPartBreakdown</workerClass>
         <baseChance>25</baseChance>
         <minRefireDays>0</minRefireDays>
     </IncidentDef>

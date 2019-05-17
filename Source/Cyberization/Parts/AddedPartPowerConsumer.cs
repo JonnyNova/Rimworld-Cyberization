@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using FrontierDevelopments.Cyberization.Power;
 using RimWorld;
 using Verse;
 
-namespace FrontierDevelopments.Cyberization
+namespace FrontierDevelopments.Cyberization.Parts
 {
     public class AddedPartPowerConsumerProperties : HediffCompProperties
     {

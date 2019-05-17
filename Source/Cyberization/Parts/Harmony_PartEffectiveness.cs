@@ -4,7 +4,7 @@ using System.Reflection.Emit;
 using Harmony;
 using Verse;
 
-namespace FrontierDevelopments.Cyberization.Harmony
+namespace FrontierDevelopments.Cyberization.Parts
 {
     class Harmony_PartEffectiveness
     {

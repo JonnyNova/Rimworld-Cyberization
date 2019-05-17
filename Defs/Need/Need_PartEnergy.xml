@@ -2,7 +2,7 @@
 <Defs>
     <NeedDef>
         <defName>Need_PartEnergy</defName>
-        <needClass>FrontierDevelopments.Cyberization.AddedPartEnergyNeed</needClass>
+        <needClass>FrontierDevelopments.Cyberization.Parts.AddedPartEnergyNeed</needClass>
         <label>partEnergy</label>
         <description>Energy for cybernetic parts</description>
         <listPriority>50</listPriority>

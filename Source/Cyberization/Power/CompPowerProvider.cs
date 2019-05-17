@@ -1,6 +1,6 @@
 using Verse;
 
-namespace FrontierDevelopments.Cyberization
+namespace FrontierDevelopments.Cyberization.Power
 {
     public class CompPowerProviderProperties : CompProperties
     {

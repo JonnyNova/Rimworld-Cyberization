@@ -1,6 +1,7 @@
+using FrontierDevelopments.Cyberization.Power;
 using Verse;
 
-namespace FrontierDevelopments.Cyberization
+namespace FrontierDevelopments.Cyberization.Parts
 {
     public class AddedPartPowerProviderProperties : HediffCompProperties
     {

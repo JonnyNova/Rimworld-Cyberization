@@ -3,7 +3,7 @@ using System.Linq;
 using RimWorld;
 using Verse;
 
-namespace FrontierDevelopments.Cyberization
+namespace FrontierDevelopments.Cyberization.Parts
 {
     public class IncidentWorker_AddedPartBreakdown : IncidentWorker
     {

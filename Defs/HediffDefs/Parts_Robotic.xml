@@ -2,13 +2,13 @@
 <Defs>
     <HediffDef Name="RoboticBodyPartBase" ParentName="AddedBodyPartBase" Abstract="True">
         <comps>
-            <li Class="FrontierDevelopments.Cyberization.AddedPartSolarFlareVulnerabilityProperties">
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartSolarFlareVulnerabilityProperties">
                 <partEffectiveness>0.0</partEffectiveness>
             </li>
-            <li Class="FrontierDevelopments.Cyberization.AddedPartBreakdownableProperties">
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartBreakdownableProperties">
                 <partEffectiveness>0.0</partEffectiveness>
             </li>
-            <li Class="FrontierDevelopments.Cyberization.AddedPartMaintenanceProperties">
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartMaintenanceProperties">
                 <maxCondition>450000</maxCondition>
             </li>
         </comps>
@@ -20,7 +20,7 @@
 
     <HediffDef Name="RoboticBodyPartSmallBase" ParentName="RoboticBodyPartBase" Abstract="True">
         <comps>
-            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>1</powerPerTick>
             </li>
         </comps>
@@ -28,7 +28,7 @@
 
     <HediffDef Name="RoboticBodyPartMediumBase" ParentName="RoboticBodyPartBase" Abstract="True">
         <comps>
-            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>2</powerPerTick>
             </li>
         </comps>
@@ -36,7 +36,7 @@
 
     <HediffDef Name="RoboticBodyPartLargeBase" ParentName="RoboticBodyPartBase" Abstract="True">
         <comps>
-            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>3</powerPerTick>
             </li>
         </comps>
