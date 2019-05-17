@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <HediffDef Name="RoboticBodyPartBase" ParentName="AddedBodyPartBase" Abstract="True">
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartSolarFlareVulnerabilityProperties">
+                <partEffectiveness>0.0</partEffectiveness>
+            </li>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartBreakdownableProperties">
+                <partEffectiveness>0.0</partEffectiveness>
+            </li>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartMaintenanceProperties">
+                <maxCondition>450000</maxCondition>
+            </li>
+        </comps>
+        <addedPartProps>
+            <solid>true</solid>
+            <betterThanNatural>false</betterThanNatural>
+        </addedPartProps>
+    </HediffDef>
+
+    <HediffDef Name="RoboticBodyPartSmallBase" ParentName="RoboticBodyPartBase" Abstract="True">
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>1</powerPerTick>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef Name="RoboticBodyPartMediumBase" ParentName="RoboticBodyPartBase" Abstract="True">
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>2</powerPerTick>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef Name="RoboticBodyPartLargeBase" ParentName="RoboticBodyPartBase" Abstract="True">
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>3</powerPerTick>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="RoboticBodyPartSmallBase">
+        <defName>RoboticEye</defName>
+        <label>robotic visual orb</label>
+        <labelNoun>a robotic visual orb</labelNoun>
+        <spawnThingOnRemoved>RoboticEye</spawnThingOnRemoved>
+        <addedPartProps>
+            <partEfficiency>0.65</partEfficiency>
+        </addedPartProps>
+    </HediffDef>
+
+    <HediffDef ParentName="RoboticBodyPartMediumBase">
+        <defName>RoboticArm</defName>
+        <label>robotic arm</label>
+        <labelNoun>a robotic arm</labelNoun>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>fist</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>11</power>
+                        <cooldownTime>2</cooldownTime>
+                    </li>
+                </tools>
+            </li>
+        </comps>
+        <spawnThingOnRemoved>RoboticArm</spawnThingOnRemoved>
+    </HediffDef>
+
+    <HediffDef ParentName="RoboticBodyPartSmallBase">
+        <defName>RoboticHand</defName>
+        <label>robotic hand</label>
+        <labelNoun>a robotic hand</labelNoun>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>fist</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>9</power>
+                        <cooldownTime>2</cooldownTime>
+                    </li>
+                </tools>
+            </li>
+        </comps>
+        <spawnThingOnRemoved>RoboticHand</spawnThingOnRemoved>
+    </HediffDef>
+
+    <HediffDef ParentName="RoboticBodyPartLargeBase">
+        <defName>RoboticLeg</defName>
+        <label>robotic leg</label>
+        <labelNoun>a robotic leg</labelNoun>
+        <spawnThingOnRemoved>RoboticLeg</spawnThingOnRemoved>
+    </HediffDef>
+
+    <HediffDef ParentName="RoboticBodyPartSmallBase">
+        <defName>RoboticJaw</defName>
+        <label>robotic jaw</label>
+        <labelNoun>a robotic jaw</labelNoun>
+        <spawnThingOnRemoved>RoboticJaw</spawnThingOnRemoved>
+    </HediffDef>
+</Defs>

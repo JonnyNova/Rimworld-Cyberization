@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <HediffDef Name="GlitterWorldImplantBase" Abstract="True">
+        <hediffClass>Hediff_Implant</hediffClass>
+        <defaultLabelColor>(244,210,131)</defaultLabelColor>
+        <isBad>false</isBad>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1</partEfficiency>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>3</powerPerTick>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="GlitterWorldImplantBase">
+        <defName>CombatImplant</defName>
+        <label>combat implant</label>
+        <labelNoun>a combat implant</labelNoun>
+        <spawnThingOnRemoved>CombatImplant</spawnThingOnRemoved>
+        <stages>
+            <li>
+                <statOffsets>
+                    <MeleeHitChance>1.15</MeleeHitChance>
+                    <MeleeDPS>1.15</MeleeDPS>
+                    <ShootingAccuracyPawn>+1</ShootingAccuracyPawn>
+                    <AimingDelayFactor>-0.25</AimingDelayFactor>
+                    <HuntingStealth>+0.15</HuntingStealth>
+                </statOffsets>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef ParentName="GlitterWorldImplantBase">
+        <defName>DomesticImplant</defName>
+        <label>domestic implant</label>
+        <labelNoun>a domestic implant</labelNoun>
+        <stages>
+            <li>
+                <statOffsets>
+                    <PlantWorkSpeed>+0.25</PlantWorkSpeed>
+                    <PlantHarvestYield>0.15</PlantHarvestYield>
+                    <CookSpeed>+0.25</CookSpeed>
+                    <ButcheryFleshSpeed>+0.25</ButcheryFleshSpeed>
+                    <ButcheryFleshEfficiency>+0.15</ButcheryFleshEfficiency>
+                    <AnimalGatherSpeed>+0.25</AnimalGatherSpeed>
+                    <AnimalGatherYield>0.15</AnimalGatherYield>
+                    <DrugCookingSpeed>+0.25</DrugCookingSpeed>
+                </statOffsets>
+            </li>
+        </stages>
+        <spawnThingOnRemoved>DomesticImplant</spawnThingOnRemoved>
+    </HediffDef>
+
+    <HediffDef ParentName="GlitterWorldImplantBase">
+        <defName>CreativeImplant</defName>
+        <label>creative implant</label>
+        <labelNoun>a creative implant</labelNoun>
+        <stages>
+            <li>
+                <statOffsets>
+                    <NegotiationAbility>+0.20</NegotiationAbility>
+                    <SocialImpact>+0.1</SocialImpact>
+                    <DrugSynthesisSpeed>+0.25</DrugSynthesisSpeed>
+                    <ResearchSpeed>+0.15</ResearchSpeed>
+                    <SculptingSpeed>+0.25</SculptingSpeed>
+                </statOffsets>
+            </li>
+        </stages>
+        <spawnThingOnRemoved>CreativeImplant</spawnThingOnRemoved>
+    </HediffDef>
+
+    <HediffDef ParentName="GlitterWorldImplantBase">
+        <defName>LaborImplant</defName>
+        <label>labor implant</label>
+        <labelNoun>a labor implant</labelNoun>
+        <stages>
+            <li>
+                <statOffsets>
+                    <MiningSpeed>+0.25</MiningSpeed>
+                    <SmoothingSpeed>+0.25</SmoothingSpeed>
+                    <ConstructionSpeed>+0.25</ConstructionSpeed>
+                    <ConstructSuccessChance>+0.15</ConstructSuccessChance>
+                    <ButcheryMechanoidEfficiency>+0.15</ButcheryMechanoidEfficiency>
+                    <ButcheryMechanoidSpeed>+0.25</ButcheryMechanoidSpeed>
+                    <SmeltingSpeed>+0.25</SmeltingSpeed>
+                    <SmithingSpeed>+0.25</SmithingSpeed>
+                    <TailoringSpeed>+0.25</TailoringSpeed>
+                </statOffsets>
+            </li>
+        </stages>
+        <spawnThingOnRemoved>LaborImplant</spawnThingOnRemoved>
+    </HediffDef>
+
+    <HediffDef ParentName="GlitterWorldImplantBase">
+        <defName>MedicalImplant</defName>
+        <label>medical implant</label>
+        <labelNoun>a medical implant</labelNoun>
+        <stages>
+            <li>
+                <statOffsets>
+                    <MedicalOperationSpeed>+0.25</MedicalOperationSpeed>
+                    <MedicalSurgerySuccessChance>+0.15</MedicalSurgerySuccessChance>
+                    <MedicalTendQuality>+0.15</MedicalTendQuality>
+                    <MedicalTendSpeed>+0.15</MedicalTendSpeed>
+                </statOffsets>
+            </li>
+        </stages>
+        <spawnThingOnRemoved>MedicalImplant</spawnThingOnRemoved>
+    </HediffDef>
+</Defs>

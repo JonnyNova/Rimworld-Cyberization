@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <HediffDef Name="ArchotechBodyPartBase" ParentName="AddedBodyPartBase" Abstract="True">
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1.5</partEfficiency>
+        </addedPartProps>
+    </HediffDef>
+
+    <HediffDef Name="ArchotechBodyPartOrganBase" ParentName="AddedBodyPartBase" Abstract="True">
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>4</powerPerTick>
+                <essential>true</essential>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef Name="ArchotechBodyPartSmallBase" ParentName="AddedBodyPartBase" Abstract="True">
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>3</powerPerTick>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef Name="ArchotechBodyPartMediumBase" ParentName="AddedBodyPartBase" Abstract="True">
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>4</powerPerTick>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef Name="ArchotechBodyPartLargeBase" ParentName="AddedBodyPartBase" Abstract="True">
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>5</powerPerTick>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="ArchotechBodyPartSmallBase">
+        <defName>ArchotechVibroblade</defName>
+        <label>Archotech vibroblade</label>
+        <labelNoun>an archotech vibroblade</labelNoun>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>vibroblade</label>
+                        <capacities>
+                            <li>Cut</li>
+                        </capacities>
+                        <power>35.0</power>
+                        <cooldownTime>2</cooldownTime>
+                        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                    </li>
+                </tools>
+            </li>
+        </comps>
+        <spawnThingOnRemoved>ArchotechVibroblade</spawnThingOnRemoved>
+        <addedPartProps>
+            <isGoodWeapon>true</isGoodWeapon>
+        </addedPartProps>
+    </HediffDef>
+</Defs>

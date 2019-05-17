@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <HediffDef Name="BionicWorldImplantBase" Abstract="True">
+        <hediffClass>Hediff_Implant</hediffClass>
+        <defaultLabelColor>(244,210,131)</defaultLabelColor>
+        <isBad>false</isBad>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1</partEfficiency>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>2</powerPerTick>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="BionicWorldImplantBase">
+        <defName>Painshunt</defName>
+        <label>painshunt</label>
+        <labelNoun>a painshunt</labelNoun>
+        <stages>
+            <li>
+                <painFactor>0.5</painFactor>
+            </li>
+        </stages>
+        <spawnThingOnRemoved>Painshunt</spawnThingOnRemoved>
+    </HediffDef>
+
+    <HediffDef ParentName="BionicWorldImplantBase">
+        <defName>Sleepshunt</defName>
+        <label>sleepshunt</label>
+        <labelNoun>a sleepshunt</labelNoun>
+        <stages>
+            <li>
+                <restFallFactor>0.5</restFallFactor>
+            </li>
+        </stages>
+        <spawnThingOnRemoved>Sleepshunt</spawnThingOnRemoved>
+    </HediffDef>
+
+    <HediffDef ParentName="BionicWorldImplantBase">
+        <defName>Megashunt</defName>
+        <label>megashunt</label>
+        <labelNoun>a megashunt</labelNoun>
+        <stages>
+            <li>
+                <restFallFactor>0.5</restFallFactor>
+                <painFactor>0.5</painFactor>
+            </li>
+        </stages>
+        <spawnThingOnRemoved>Megashunt</spawnThingOnRemoved>
+    </HediffDef>
+</Defs>
