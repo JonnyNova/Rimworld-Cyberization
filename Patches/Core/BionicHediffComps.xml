@@ -25,6 +25,47 @@
         </value>
     </Operation>
 
+    <!-- Add power consumption for small parts -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="BionicEye" or defName="BionicEar"]/comps</xpath>
+        <value>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>2</powerPerTick>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- Add power consumption for medium parts -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="BionicArm" or defName="PowerClaw"]/comps</xpath>
+        <value>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>3</powerPerTick>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- Add power consumption for big parts -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="BionicLeg" or defName="BionicSpine"]/comps</xpath>
+        <value>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>4</powerPerTick>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- Add power consumption for non idle organs -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="BionicHeart" or defName="BionicStomach"]/comps</xpath>
+        <value>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>3</powerPerTick>
+                <essential>true</essential>
+            </li>
+        </value>
+    </Operation>
+
     <!-- Add solar flare vulnerability -->
     <Operation Class="PatchOperationAdd">
         <xpath>Defs/HediffDef[defName="BionicEye" or defName="BionicArm" or defName="BionicLeg" or defName="BionicSpine" or defName="BionicHeart" or defName="BionicStomach" or defName="BionicEar" or defName="PowerClaw"]/comps</xpath>

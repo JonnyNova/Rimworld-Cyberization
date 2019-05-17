@@ -52,12 +52,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cyberization\AddedPartEnergyNeed.cs" />
     <Compile Include="Cyberization\AddedPartMaintenance.cs" />
+    <Compile Include="Cyberization\AddedPartPowerConsumer.cs" />
+    <Compile Include="Cyberization\AddedPartPowerProvider.cs" />
     <Compile Include="Cyberization\AddedPartSolarFlareVulnerability.cs" />
+    <Compile Include="Cyberization\CompPowerProvider.cs" />
+    <Compile Include="Cyberization\Harmony\Harmony_AddedPartPower.cs" />
     <Compile Include="Cyberization\Harmony\Harmony_GameCondition.cs" />
     <Compile Include="Cyberization\Harmony\Harmony_PartEffectiveness.cs" />
     <Compile Include="Cyberization\AddedPartBreakdownable.cs" />
     <Compile Include="Cyberization\IncidentWorker_AddedPartBreakdown.cs" />
+    <Compile Include="Cyberization\IPowerProvider.cs" />
     <Compile Include="Cyberization\Mod.cs" />
     <Compile Include="Cyberization\AddedPartEffectivenessModifier.cs" />
   </ItemGroup>

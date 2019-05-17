@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+    <!-- Add comp slots to those that need it -->
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/HediffDef[defName="ArchotechEye" or defName="ArchotechLeg" or defName="ArchotechSpine" or defName="ArchotechHeart" or defName="ArchotechStomach" or defName="ArchotechEar"]</xpath>
+                <value>
+                    <comps>
+                    </comps>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
+    <!-- Add power consumption for organs -->
+<!--    <Operation Class="PatchOperationAdd">-->
+<!--        <xpath>Defs/HediffDef[defName="ArchotechHeart" or defName="ArchotechStomach"]/comps</xpath>-->
+<!--        <value>-->
+<!--            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">-->
+<!--                <powerPerTick>4</powerPerTick>-->
+<!--                <essential>true></essential>-->
+<!--            </li>-->
+<!--        </value>-->
+<!--    </Operation>-->
+    
+    <!-- Add power consumption for small parts -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="ArchotechEye" or defName="ArchotechEar"]/comps</xpath>
+        <value>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>3</powerPerTick>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- Add power consumption for medium parts -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="ArchotechArm"]/comps</xpath>
+        <value>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>4</powerPerTick>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- Add power consumption for large parts -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="ArchotechLeg" or defName="ArchotechSpine"]/comps</xpath>
+        <value>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerConsumerProperties">
+                <powerPerTick>5</powerPerTick>
+            </li>
+        </value>
+    </Operation>
+</Patch>

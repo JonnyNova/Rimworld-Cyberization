@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <HediffDef Name="EnergyCellBase" Abstract="True">
+        <hediffClass>Hediff_Implant</hediffClass>
+        <defaultLabelColor>(0.5, 0.5, 0.9)</defaultLabelColor>
+        <isBad>false</isBad>
+        <causesNeed>Need_PartEnergy</causesNeed>
+        <addedPartProps>
+            <solid>true</solid>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+    </HediffDef>
+
+    <HediffDef ParentName="EnergyCellBase">
+        <defName>EnergyCell</defName>
+        <label>Energy Cell</label>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartPowerProviderProperties">
+                <maxEnergy>500000</maxEnergy>
+                <maxRate>8</maxRate>
+            </li>
+        </comps>
+    </HediffDef>
+    
+</Defs>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <NeedDef>
+        <defName>Need_PartEnergy</defName>
+        <needClass>FrontierDevelopments.Cyberization.AddedPartEnergyNeed</needClass>
+        <label>partEnergy</label>
+        <description>Energy for cybernetic parts</description>
+        <listPriority>50</listPriority>
+        <onlyIfCausedByHediff>true</onlyIfCausedByHediff>
+        <showForCaravanMembers>true</showForCaravanMembers>
+    </NeedDef>
+</Defs>
