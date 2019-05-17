@@ -10,6 +10,9 @@
       <li Class="FrontierDevelopments.Cyberization.AddedPartBreakdownableProperties">
         <partEffectiveness>0.0</partEffectiveness>
       </li>
+      <li Class="FrontierDevelopments.Cyberization.AddedPartMaintenanceProperties">
+        <maxCondition>450000</maxCondition>
+      </li>
     </comps>
     <addedPartProps>
       <betterThanNatural>false</betterThanNatural>
@@ -104,6 +107,9 @@
       </li>
       <li Class="FrontierDevelopments.Cyberization.AddedPartBreakdownableProperties">
         <partEffectiveness>0.5</partEffectiveness>
+      </li>
+      <li Class="FrontierDevelopments.Cyberization.AddedPartMaintenanceProperties">
+        <maxCondition>900000</maxCondition>
       </li>
     </comps>
     <addedPartProps>

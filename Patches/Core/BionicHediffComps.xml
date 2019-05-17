@@ -15,6 +15,16 @@
         </operations>
     </Operation>
 
+    <!-- Add maintenance -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="BionicEye" or defName="BionicArm" or defName="BionicLeg" or defName="BionicSpine" or defName="BionicHeart" or defName="BionicStomach" or defName="BionicEar" or defName="PowerClaw"]/comps</xpath>
+        <value>
+            <li Class="FrontierDevelopments.Cyberization.AddedPartMaintenanceProperties">
+                <maxCondition>900000</maxCondition>
+            </li>
+        </value>
+    </Operation>
+
     <!-- Add solar flare vulnerability -->
     <Operation Class="PatchOperationAdd">
         <xpath>Defs/HediffDef[defName="BionicEye" or defName="BionicArm" or defName="BionicLeg" or defName="BionicSpine" or defName="BionicHeart" or defName="BionicStomach" or defName="BionicEar" or defName="PowerClaw"]/comps</xpath>
