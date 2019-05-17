@@ -135,7 +135,7 @@
         </tools>
       </li>
     </comps>
-    <spawnThingOnRemoved>RoboticHand</spawnThingOnRemoved>
+    <spawnThingOnRemoved>BionicHand</spawnThingOnRemoved>
     <addedPartProps>
       <solid>true</solid>
     </addedPartProps>
