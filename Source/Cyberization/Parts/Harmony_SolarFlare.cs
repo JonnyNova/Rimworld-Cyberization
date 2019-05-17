@@ -8,24 +8,15 @@ namespace FrontierDevelopments.Cyberization.Parts
 {
     public class Harmony_GameCondition
     {
-        private static bool PawnHasVulnerablePart(Pawn pawn)
+        private static IEnumerable<AddedPartSolarFlareVulnerability> PartsToUpdate(ICollection<Map> maps)
         {
-            return HediffsToUpdate(pawn).Any();
-        }
-
-        private static IEnumerable<HediffWithComps> HediffsToUpdate(Pawn pawn)
-        {
-            return pawn.health.hediffSet.hediffs
-                .OfType<HediffWithComps>()
-                .Where(hediff => hediff.TryGetComp<AddedPartSolarFlareVulnerability>() != null);
-        }
-        
-        private static IEnumerable<Pawn> GetPawnsToNotify(GameCondition condition)
-        {
-            return condition.AffectedMaps
+            return maps
                 .SelectMany(map => map.listerThings.ThingsMatching(ThingRequest.ForGroup(ThingRequestGroup.Pawn)))
                 .OfType<Pawn>()
-                .Where(pawn => PawnHasVulnerablePart(pawn));
+                .SelectMany(pawn => pawn.health.hediffSet.hediffs)
+                .OfType<HediffWithComps>()
+                .SelectMany(hediff => hediff.comps)
+                .OfType<AddedPartSolarFlareVulnerability>();
         }
 
         [HarmonyPatch(typeof(GameCondition), nameof(GameCondition.Init))]
@@ -35,7 +26,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             static void UpdateSolarFlareVulnerableParts(GameCondition __instance)
             {
                 if(__instance.def == GameConditionDefOf.SolarFlare)
-                    GetPawnsToNotify(__instance).Do(pawn => HediffsToUpdate(pawn).Do(hediff => pawn.health.Notify_HediffChanged(hediff)));
+                    PartsToUpdate(__instance.AffectedMaps).Do(part => part.SolarFlare(true));
             }
         }
 
@@ -46,7 +37,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             static void UpdateSolarFlareVulnerableParts(GameCondition __instance)
             {
                 if(__instance.def == GameConditionDefOf.SolarFlare)
-                    GetPawnsToNotify(__instance).Do(pawn => HediffsToUpdate(pawn).Do(hediff => pawn.health.Notify_HediffChanged(hediff)));
+                    PartsToUpdate(__instance.AffectedMaps).Do(part => part.SolarFlare(false));
             }
         }
     }
