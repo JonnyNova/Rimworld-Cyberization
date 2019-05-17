@@ -14,17 +14,6 @@
             </li>
         </operations>
     </Operation>
-
-    <!-- Add power consumption for organs -->
-<!--    <Operation Class="PatchOperationAdd">-->
-<!--        <xpath>Defs/HediffDef[defName="ArchotechHeart" or defName="ArchotechStomach"]/comps</xpath>-->
-<!--        <value>-->
-<!--            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">-->
-<!--                <powerPerTick>4</powerPerTick>-->
-<!--                <essential>true></essential>-->
-<!--            </li>-->
-<!--        </value>-->
-<!--    </Operation>-->
     
     <!-- Add power consumption for small parts -->
     <Operation Class="PatchOperationAdd">
