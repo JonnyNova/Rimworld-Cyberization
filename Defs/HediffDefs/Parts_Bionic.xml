@@ -24,6 +24,7 @@
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>3</powerPerTick>
                 <essential>true</essential>
+                <priority>1</priority>
             </li>
         </comps>
     </HediffDef>
