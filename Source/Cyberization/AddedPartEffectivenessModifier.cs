@@ -1,6 +1,6 @@
 using Verse;
 
-namespace FrontierDevelopments.Cyberization.Harmony
+namespace FrontierDevelopments.Cyberization
 {
     public interface AddedPartEffectivenessModifier
     {
