@@ -5,9 +5,14 @@
             <solid>true</solid>
             <partEfficiency>1.5</partEfficiency>
         </addedPartProps>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartMaintenanceProperties">
+                <maxCondition>3600000</maxCondition>
+            </li>
+        </comps>
     </HediffDef>
 
-    <HediffDef Name="ArchotechBodyPartOrganBase" ParentName="AddedBodyPartBase" Abstract="True">
+    <HediffDef Name="ArchotechBodyPartOrganBase" ParentName="ArchotechBodyPartBase" Abstract="True">
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>4</powerPerTick>
@@ -17,7 +22,7 @@
         </comps>
     </HediffDef>
 
-    <HediffDef Name="ArchotechBodyPartSmallBase" ParentName="AddedBodyPartBase" Abstract="True">
+    <HediffDef Name="ArchotechBodyPartSmallBase" ParentName="ArchotechBodyPartBase" Abstract="True">
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>3</powerPerTick>
@@ -25,7 +30,7 @@
         </comps>
     </HediffDef>
 
-    <HediffDef Name="ArchotechBodyPartMediumBase" ParentName="AddedBodyPartBase" Abstract="True">
+    <HediffDef Name="ArchotechBodyPartMediumBase" ParentName="ArchotechBodyPartBase" Abstract="True">
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>4</powerPerTick>
@@ -33,7 +38,7 @@
         </comps>
     </HediffDef>
 
-    <HediffDef Name="ArchotechBodyPartLargeBase" ParentName="AddedBodyPartBase" Abstract="True">
+    <HediffDef Name="ArchotechBodyPartLargeBase" ParentName="ArchotechBodyPartBase" Abstract="True">
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>5</powerPerTick>
