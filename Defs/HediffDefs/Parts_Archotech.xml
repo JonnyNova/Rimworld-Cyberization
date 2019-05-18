@@ -5,11 +5,6 @@
             <solid>true</solid>
             <partEfficiency>1.5</partEfficiency>
         </addedPartProps>
-        <comps>
-            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartMaintenanceProperties">
-                <maxCondition>3600000</maxCondition>
-            </li>
-        </comps>
     </HediffDef>
 
     <HediffDef Name="ArchotechBodyPartOrganBase" ParentName="ArchotechBodyPartBase" Abstract="True">
