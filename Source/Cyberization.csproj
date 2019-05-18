@@ -56,7 +56,6 @@
     <Compile Include="Cyberization\Mod.cs" />
     <Compile Include="Cyberization\Parts\AddedPartBreakdownable.cs" />
     <Compile Include="Cyberization\Parts\AddedPartEffectivenessModifier.cs" />
-    <Compile Include="Cyberization\Parts\AddedPartEnergyNeed.cs" />
     <Compile Include="Cyberization\Parts\AddedPartMaintenance.cs" />
     <Compile Include="Cyberization\Parts\AddedPartPowerConsumer.cs" />
     <Compile Include="Cyberization\Parts\AddedPartPowerProvider.cs" />
@@ -68,6 +67,7 @@
     <Compile Include="Cyberization\Power\CompPowerProvider.cs" />
     <Compile Include="Cyberization\Power\IPowerConsumer.cs" />
     <Compile Include="Cyberization\Power\IPowerProvider.cs" />
+    <Compile Include="Cyberization\Power\PartEnergyNeed.cs" />
     <Compile Include="Cyberization\Power\PartPowerConsumer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

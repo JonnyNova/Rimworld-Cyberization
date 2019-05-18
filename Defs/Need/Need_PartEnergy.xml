@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <NeedDef>
-        <defName>Need_PartEnergy</defName>
-        <needClass>FrontierDevelopments.Cyberization.Parts.AddedPartEnergyNeed</needClass>
+        <defName>PartEnergy</defName>
+        <needClass>FrontierDevelopments.Cyberization.Power.PartEnergyNeed</needClass>
         <label>partEnergy</label>
         <description>Energy for cybernetic parts</description>
         <listPriority>50</listPriority>

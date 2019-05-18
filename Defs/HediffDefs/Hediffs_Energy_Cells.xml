@@ -5,7 +5,7 @@
         <hediffClass>Hediff_Implant</hediffClass>
         <defaultLabelColor>(0.5, 0.5, 0.9)</defaultLabelColor>
         <isBad>false</isBad>
-        <causesNeed>Need_PartEnergy</causesNeed>
+        <causesNeed>PartEnergy</causesNeed>
         <addedPartProps>
             <solid>true</solid>
             <betterThanNatural>true</betterThanNatural>
