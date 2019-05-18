@@ -17,16 +17,14 @@ namespace FrontierDevelopments.Cyberization.Power
     {
         private PowerProvider _provider;
 
-        public CompPowerProviderProperties Props => (CompPowerProviderProperties) props;
-
         public long Energy => _provider.Energy;
         public long MaxEnergy => _provider.MaxEnergy;
-
         public long Discharge => _provider.Discharge;
 
-        public override void PostSpawnSetup(bool respawningAfterLoad)
+        public override void Initialize(CompProperties props)
         {
-            _provider = new PowerProvider(Props.maxEnergy, Props.maxRate, Props.maxEnergy);
+            var providerProps = (CompPowerProviderProperties) props;
+            _provider = new PowerProvider(providerProps.maxEnergy, providerProps.maxRate, providerProps.maxEnergy);
         }
 
         public override void CompTick()
