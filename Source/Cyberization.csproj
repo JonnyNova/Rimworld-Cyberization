@@ -71,6 +71,9 @@
     <Compile Include="Cyberization\Power\CompPowerProvider.cs" />
     <Compile Include="Cyberization\Power\IPowerConsumer.cs" />
     <Compile Include="Cyberization\Power\IPowerProvider.cs" />
+    <Compile Include="Cyberization\Power\Job\JobDriver_SeekPartPower.cs" />
+    <Compile Include="Cyberization\Power\Job\JobGiver_SeekPartPower.cs" />
+    <Compile Include="Cyberization\Power\Job\ThinkNode_PartPowerSatisfied.cs" />
     <Compile Include="Cyberization\Power\PartEnergyNeed.cs" />
     <Compile Include="Cyberization\Power\PartPowerConsumer.cs" />
     <Compile Include="Cyberization\Settings.cs" />
