@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef Name="ChargePadBase" Abstract="True">
+        <category>Building</category>
+        <thingClass>Building</thingClass>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsPower</li>
+        </thingCategories>
+        <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+        <selectable>true</selectable>
+        <altitudeLayer>Building</altitudeLayer>
+        <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+        <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+        <blockLight>true</blockLight>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <fillPercent>1</fillPercent>
+        <size>(1,1)</size>
+        <rotatable>false</rotatable>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <repairEffect>Repair</repairEffect>
+        <designationCategory>Power</designationCategory>
+        <holdsRoof>false</holdsRoof>
+        <passability>Standable</passability>
+        <tickerType>Normal</tickerType>
+        <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+    </ThingDef>
+
+    <ThingDef ParentName="ChargePadBase">
+        <defName>Building_ChargePad</defName>
+        <label>charge pad</label>
+        <description>charge pad</description>
+        <researchPrerequisites>
+            <li>Machining</li>
+            <li>RoboticBodyParts</li>
+        </researchPrerequisites>
+        <graphicData>
+            <texPath>Things/Building/Linked/Sandbags_Atlas</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
+            <shadowData>
+                <volume>(0.3, 0.4, 0.4)</volume>
+                <offset>(0,0,-0.3)</offset>
+            </shadowData>
+        </graphicData>
+        <uiIconPath>Things/Building/Linked/Sandbags_MenuIcon</uiIconPath>
+        <statBases>
+            <MaxHitPoints>50</MaxHitPoints>
+            <WorkToBuild>300</WorkToBuild>
+            <Mass>5</Mass>
+            <Flammability>1.0</Flammability>
+            <Beauty>-1</Beauty>
+        </statBases>
+        <costList>
+            <Steel>25</Steel>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+            </li>
+            <li Class="FrontierDevelopments.Cyberization.Power.ChargePadProperties">
+                <chargeRate>100</chargeRate>
+            </li>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Breakdownable"/>
+        </comps>
+    </ThingDef>
+</Defs>
