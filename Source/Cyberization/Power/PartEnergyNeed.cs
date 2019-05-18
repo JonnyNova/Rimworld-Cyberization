@@ -29,17 +29,6 @@ namespace FrontierDevelopments.Cyberization.Power
         }
     }
 
-    [DefOf]
-    public static class PartEnergyNeedDefOf
-    {
-        public static NeedDef PartEnergy;
-
-        static PartEnergyNeedDefOf()
-        {
-            DefOfHelper.EnsureInitializedInCtor(typeof (NeedDefOf));
-        }
-    }
-
     static class PartEnergyNeedFromApparel
     {
         private static bool ApparelHasSource(Apparel apparel)
@@ -81,7 +70,7 @@ namespace FrontierDevelopments.Cyberization.Power
             [HarmonyPostfix]
             static bool AddEnergySourceCheck(bool __result, Pawn_NeedsTracker __instance, NeedDef nd, Pawn ___pawn)
             {
-                if (nd != PartEnergyNeedDefOf.PartEnergy) return __result;
+                if (nd != CyberizationDefOf.PartEnergy) return __result;
                 return PowerProvider.Providers(___pawn).Any() || PowerConsumer.All(___pawn).Any();
             }
         }
