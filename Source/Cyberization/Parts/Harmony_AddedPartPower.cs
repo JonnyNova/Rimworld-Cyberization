@@ -3,6 +3,7 @@ using System.Linq;
 using FrontierDevelopments.Cyberization.Power;
 using Harmony;
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
 
 namespace FrontierDevelopments.Cyberization.Parts
@@ -80,8 +81,26 @@ namespace FrontierDevelopments.Cyberization.Parts
             [HarmonyPostfix]
             static void Postfix(Pawn __instance)
             {
-                TickPowerProviders(__instance);
-                TickPowerConsumers(__instance);
+                // Only tick power if the pawn can fill the need
+                if (__instance.Spawned || __instance.IsCaravanMember())
+                {
+                    TickPowerProviders(__instance);
+                    TickPowerConsumers(__instance);
+                }
+            }
+        }
+
+        [HarmonyPatch(typeof(PawnGenerator), nameof(PawnGenerator.GeneratePawn), new []{ typeof(PawnGenerationRequest) })]
+        static class Patch_GeneratePawn
+        {
+            [HarmonyPostfix]
+            static Pawn GeneratePartPowerProviderIfNeeded(Pawn __result)
+            {
+                if (PowerConsumer.All(__result).Any() && !PowerProvider.Providers(__result).Any())
+                {
+                    __result.health.AddHediff(CyberizationDefOf.EnergyCell, __result.RaceProps.body.corePart);
+                }
+                return __result;
             }
         }
     }

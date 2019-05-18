@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using FrontierDevelopments.Cyberization.Parts;
+using Harmony;
 using RimWorld;
 using Verse;
 
@@ -51,4 +52,6 @@ namespace FrontierDevelopments.Cyberization.Power
             Scribe_Values.Look(ref _powered, "powered");
         }
     }
+
+    
 }
