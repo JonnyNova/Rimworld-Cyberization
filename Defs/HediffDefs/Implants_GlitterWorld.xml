@@ -15,6 +15,7 @@
         <spawnThingOnRemoved>CombatImplant</spawnThingOnRemoved>
         <stages>
             <li>
+                <socialFightChanceFactor>2.0</socialFightChanceFactor>
                 <statOffsets>
                     <MeleeHitChance>1.15</MeleeHitChance>
                     <MeleeDPS>1.15</MeleeDPS>
