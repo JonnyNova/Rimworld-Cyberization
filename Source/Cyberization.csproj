@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cyberization\Implants\ImplantPowered.cs" />
+    <Compile Include="Cyberization\Implants\ThoughtWorker_JoyWire.cs" />
     <Compile Include="Cyberization\Mod.cs" />
     <Compile Include="Cyberization\Parts\AddedPartBreakdownable.cs" />
     <Compile Include="Cyberization\Parts\AddedPartEffectivenessModifier.cs" />

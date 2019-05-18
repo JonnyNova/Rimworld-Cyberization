@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+    
+    <Operation Class="PatchOperationSequence">
+        <success>Normal</success>
+        <operations>
+            <!-- Changes to the base for Joywire and Painstopper -->
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/HediffDef[@Name="ImplantHediffBase"]/hediffClass</xpath>
+                <value>
+                    <hediffClass>FrontierDevelopments.Cyberization.Implants.ImplantPowered</hediffClass>
+                </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/HediffDef[@Name="ImplantHediffBase"]</xpath>
+                <value>
+                    <stages>
+                        <li>
+                            <minSeverity>-1.0</minSeverity>
+                            <label>Offline</label>
+                        </li>
+                    </stages>
+                </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/HediffDef[@Name="ImplantHediffBase"]</xpath>
+                <value>
+                    <comps>
+                        <li Class="FrontierDevelopments.Cyberization.Power.PartPowerConsumerProperties">
+                            <powerPerTick>3</powerPerTick>
+                        </li>
+                    </comps>
+                </value>
+            </li>
+            
+            <!-- patch joywire thought worker -->
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThoughtDef[defName="Joywire"]/workerClass</xpath>
+                <value>
+                    <workerClass>FrontierDevelopments.Cyberization.Implants.ThoughtWorker_JoyWire</workerClass>
+                </value>
+            </li>
+            
+        </operations>
+    </Operation>
+</Patch>
