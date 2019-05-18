@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cyberization\Implants\ImplantPowered.cs" />
     <Compile Include="Cyberization\Mod.cs" />
     <Compile Include="Cyberization\Parts\AddedPartBreakdownable.cs" />
     <Compile Include="Cyberization\Parts\AddedPartEffectivenessModifier.cs" />
@@ -65,10 +66,9 @@
     <Compile Include="Cyberization\Parts\Harmony_SolarFlare.cs" />
     <Compile Include="Cyberization\Parts\IncidentWorker_AddedPartBreakdown.cs" />
     <Compile Include="Cyberization\Power\CompPowerProvider.cs" />
+    <Compile Include="Cyberization\Power\IPowerConsumer.cs" />
     <Compile Include="Cyberization\Power\IPowerProvider.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Cyberization\Implants" />
+    <Compile Include="Cyberization\Power\PartPowerConsumer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

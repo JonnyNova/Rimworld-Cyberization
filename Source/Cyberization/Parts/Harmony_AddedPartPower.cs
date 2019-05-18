@@ -47,18 +47,18 @@ namespace FrontierDevelopments.Cyberization.Parts
             BodyPartTagDefOf.TalkingPathway
         };
 
-        private static int GetSorting(AddedPartPowerConsumer consumer)
+        private static int GetSorting(IPowerConsumer consumer)
         {
-            var ordering = consumer.parent.Part.def.tags
+            var ordering = consumer.Tags
                 .Select(tag => PartOrdering.FirstIndexOf(a => a == tag))
                 .ToList();
-            return (!ordering.NullOrEmpty() ? ordering.First() : 100) * consumer.Props.priority;
+            return (!ordering.NullOrEmpty() ? ordering.First() : 100) * consumer.Priority;
         }
         
-        private static IEnumerable<AddedPartPowerConsumer> PriorityOrder(Pawn pawn)
+        private static IEnumerable<IPowerConsumer> PriorityOrder(Pawn pawn)
         {
-            var result = AddedPartPowerConsumer.All(pawn).ToList();
-            if (result.NullOrEmpty()) return new List<AddedPartPowerConsumer>();
+            var result = PowerConsumer.All(pawn).ToList();
+            if (result.NullOrEmpty()) return new List<IPowerConsumer>();
             result.Sort((left, right) => GetSorting(left).CompareTo(GetSorting(right)));
             return result;
         }
@@ -71,7 +71,7 @@ namespace FrontierDevelopments.Cyberization.Parts
         private static void TickPowerConsumers(Pawn pawn)
         {
             // TODO load balance power among same priority
-            PriorityOrder(pawn)?.Do(part => part.Tick());
+            PriorityOrder(pawn)?.Do(part => part.PowerTick());
         }
 
         [HarmonyPatch(typeof(Pawn), nameof(Pawn.Tick))]

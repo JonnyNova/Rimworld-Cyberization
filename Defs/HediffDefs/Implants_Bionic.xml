@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <HediffDef Name="BionicWorldImplantBase" Abstract="True">
-        <hediffClass>Hediff_Implant</hediffClass>
-        <defaultLabelColor>(244,210,131)</defaultLabelColor>
-        <isBad>false</isBad>
-        <addedPartProps>
-            <solid>true</solid>
-            <partEfficiency>1</partEfficiency>
-            <betterThanNatural>true</betterThanNatural>
-        </addedPartProps>
+    <HediffDef Name="BionicImplantBase" ParentName="ImplantBase" Abstract="True">
         <comps>
-            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
+            <li Class="FrontierDevelopments.Cyberization.Power.PartPowerConsumerProperties">
                 <powerPerTick>2</powerPerTick>
             </li>
         </comps>
     </HediffDef>
 
-    <HediffDef ParentName="BionicWorldImplantBase">
+    <HediffDef ParentName="BionicImplantBase">
         <defName>Painshunt</defName>
         <label>painshunt</label>
         <labelNoun>a painshunt</labelNoun>
@@ -29,7 +21,7 @@
         <spawnThingOnRemoved>Painshunt</spawnThingOnRemoved>
     </HediffDef>
 
-    <HediffDef ParentName="BionicWorldImplantBase">
+    <HediffDef ParentName="BionicImplantBase">
         <defName>Sleepshunt</defName>
         <label>sleepshunt</label>
         <labelNoun>a sleepshunt</labelNoun>
@@ -41,7 +33,7 @@
         <spawnThingOnRemoved>Sleepshunt</spawnThingOnRemoved>
     </HediffDef>
 
-    <HediffDef ParentName="BionicWorldImplantBase">
+    <HediffDef ParentName="BionicImplantBase">
         <defName>Megashunt</defName>
         <label>megashunt</label>
         <labelNoun>a megashunt</labelNoun>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <HediffDef Name="ImplantBase" Abstract="True">
+        <hediffClass>FrontierDevelopments.Cyberization.Implants.ImplantPowered</hediffClass>
+        <defaultLabelColor>(244,210,131)</defaultLabelColor>
+        <isBad>false</isBad>
+        <addedPartProps>
+            <solid>true</solid>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+        <!-- Initial stage for offline. Hardcoded in ImplantPowered -->
+        <stages>
+            <li>
+                <!-- unused by implants, set to below zero to stop log spam -->
+                <minSeverity>-1.0</minSeverity>
+                <label>Offline</label>
+            </li>
+        </stages>
+    </HediffDef>
+
+</Defs>

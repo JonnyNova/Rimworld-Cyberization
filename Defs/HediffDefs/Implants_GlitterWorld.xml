@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <HediffDef Name="GlitterWorldImplantBase" Abstract="True">
-        <hediffClass>Hediff_Implant</hediffClass>
-        <defaultLabelColor>(244,210,131)</defaultLabelColor>
-        <isBad>false</isBad>
-        <addedPartProps>
-            <solid>true</solid>
-            <partEfficiency>1</partEfficiency>
-            <betterThanNatural>true</betterThanNatural>
-        </addedPartProps>
+    <HediffDef Name="GlitterWorldImplantBase" ParentName="ImplantBase" Abstract="True">
         <comps>
-            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
+            <li Class="FrontierDevelopments.Cyberization.Power.PartPowerConsumerProperties">
                 <powerPerTick>3</powerPerTick>
             </li>
         </comps>
