@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <HediffDef ParentName="DiseaseBase">
+        <defName>ClonedOrgan</defName>
+        <label>organ regrowth</label>
+        <initialSeverity>1</initialSeverity>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-0.066666667</severityPerDay>
+            </li>
+        </comps>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1.0</partEfficiency>
+        </addedPartProps>
+        <stages>
+            <li>
+                <label>end stage</label>
+                <partEfficiencyOffset>-0.25</partEfficiencyOffset>
+                <painOffset>0.1</painOffset>
+            </li>
+            <li>
+                <label>intermediate functionality</label>
+                <minSeverity>0.25</minSeverity>
+                <partEfficiencyOffset>-0.5</partEfficiencyOffset>
+                <painOffset>0.1</painOffset>
+            </li>
+            <li>
+                <label>basic functionality</label>
+                <minSeverity>0.5</minSeverity>
+                <partEfficiencyOffset>-0.75</partEfficiencyOffset>
+                <painOffset>0.1</painOffset>
+            </li>
+            <li>
+                <label>beginning stage</label>
+                <minSeverity>0.75</minSeverity>
+                <partEfficiencyOffset>-0.9</partEfficiencyOffset>
+                <painOffset>0.15</painOffset>
+            </li>
+        </stages>
+    </HediffDef>
+</Defs>
