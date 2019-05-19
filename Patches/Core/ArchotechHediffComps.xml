@@ -14,16 +14,6 @@
             </li>
         </operations>
     </Operation>
-
-    <!-- Add maintenance -->
-    <Operation Class="PatchOperationAdd">
-        <xpath>Defs/HediffDef[defName="ArchotechEye" or defName="ArchotechLeg" or defName="ArchotechSpine" or defName="ArchotechHeart" or defName="ArchotechStomach" or defName="ArchotechEar"]/comps</xpath>
-        <value>
-            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartMaintenanceProperties">
-                <maxCondition>36000000</maxCondition>
-            </li>
-        </value>
-    </Operation>
     
     <!-- Add power consumption for small parts -->
     <Operation Class="PatchOperationAdd">
