@@ -26,7 +26,7 @@ namespace FrontierDevelopments.Cyberization.Power.Job
         {
             if (pawn.Downed) return null;
             var need = pawn.needs.TryGetNeed<PartEnergyNeed>();
-            if (need == null || need.CurLevelPercentage > Settings.SeekPowerPercent) return null;
+            if (need == null || !need.CanBeSatisfied|| need.CurLevelPercentage > Settings.SeekPowerPercent) return null;
             var result = GenClosest.ClosestThingReachable(
                 pawn.Position, 
                 pawn.Map, 

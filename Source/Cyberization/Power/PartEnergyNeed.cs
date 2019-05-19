@@ -24,6 +24,8 @@ namespace FrontierDevelopments.Cyberization.Power
         public override float CurLevel => 
             PowerProvider.Providers(pawn).Aggregate(0L, (sum, provider) => sum + provider.Energy);
 
+        public bool CanBeSatisfied => PowerProvider.Providers(pawn).Any();
+
         public override void NeedInterval()
         {
         }

@@ -11,7 +11,7 @@ namespace FrontierDevelopments.Cyberization.Power.Job
         private const TargetIndex PowerSourceIndex = TargetIndex.A;
         private Building PowerSource => (Building) TargetThingA;
 
-        private Need EnergyNeed => pawn.needs.TryGetNeed<PartEnergyNeed>();
+        private PartEnergyNeed EnergyNeed => pawn.needs.TryGetNeed<PartEnergyNeed>();
         
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
@@ -26,18 +26,23 @@ namespace FrontierDevelopments.Cyberization.Power.Job
             
             this.FailOnDestroyedOrNull(PowerSourceIndex);
             this.FailOn(() => !charger.Available);
-            
+
             yield return Toils_Goto
                 .GotoThing(PowerSourceIndex, pathMode)
                 .FailOnDestroyedNullOrForbidden(PowerSourceIndex)
-                .FailOn(() => charger == null || !charger.Available)
-                .FailOn(() => !pawn.CanReach(PowerSource, pathMode, Danger.Deadly));
+                .FailOn(() =>
+                    EnergyNeed == null
+                    || !EnergyNeed.CanBeSatisfied
+                    || charger == null
+                    || !charger.Available
+                    || !pawn.CanReach(PowerSource, pathMode, Danger.Deadly));
             
             var waitForCharge = new Toil()
                 .FailOn(() =>
                     charger == null
                     || !charger.Available
-                    || EnergyNeed == null)
+                    || EnergyNeed == null
+                    || !EnergyNeed.CanBeSatisfied)
                 .WithProgressBar(PowerSourceIndex, () => EnergyNeed.CurLevelPercentage);
             waitForCharge.initAction = () => waitForCharge.actor.pather.StopDead();
             waitForCharge.defaultCompleteMode = ToilCompleteMode.Never;

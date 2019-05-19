@@ -8,7 +8,7 @@ namespace FrontierDevelopments.Cyberization.Power.Job
         protected override bool Satisfied(Pawn pawn)
         {
             var need = pawn.needs.TryGetNeed<PartEnergyNeed>();
-            if (need == null) return true;
+            if (need == null || !need.CanBeSatisfied) return true;
             return need.CurLevelPercentage > Settings.SeekPowerPercent;
         }
     }
