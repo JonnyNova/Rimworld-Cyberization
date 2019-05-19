@@ -44,4 +44,14 @@
             </li>
         </value>
     </Operation>
+
+    <!-- Add damageable -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="ArchotechEye" or defName="ArchotechEar" or defName="ArchotechArm" or defName="ArchotechLeg" or defName="ArchotechSpine"]/comps</xpath>
+        <value>
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartDamageableProperties">
+                <healRate>12</healRate>
+            </li>
+        </value>
+    </Operation>
 </Patch>

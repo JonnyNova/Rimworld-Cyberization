@@ -5,6 +5,11 @@
             <solid>true</solid>
             <partEfficiency>1.5</partEfficiency>
         </addedPartProps>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartDamageableProperties">
+                <healRate>12</healRate>
+            </li>
+        </comps>
     </HediffDef>
 
     <HediffDef Name="ArchotechBodyPartOrganBase" ParentName="ArchotechBodyPartBase" Abstract="True">

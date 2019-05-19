@@ -11,6 +11,8 @@
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartMaintenanceProperties">
                 <maxCondition>900000</maxCondition>
             </li>
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartDamageableProperties">
+            </li>
         </comps>
         <addedPartProps>
             <solid>true</solid>

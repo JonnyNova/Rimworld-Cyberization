@@ -58,6 +58,7 @@
     <Compile Include="Cyberization\CyberizationDefOf.cs" />
     <Compile Include="Cyberization\Mod.cs" />
     <Compile Include="Cyberization\Parts\AddedPartBreakdownable.cs" />
+    <Compile Include="Cyberization\Parts\AddedPartDamageable.cs" />
     <Compile Include="Cyberization\Parts\AddedPartEffectivenessModifier.cs" />
     <Compile Include="Cyberization\Parts\AddedPartMaintenance.cs" />
     <Compile Include="Cyberization\Parts\AddedPartPowerConsumer.cs" />
