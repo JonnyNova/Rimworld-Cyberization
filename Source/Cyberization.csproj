@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cyberization\Implants\SkillDecayReduction.cs" />
     <Compile Include="Cyberization\Implants\ImplantPowered.cs" />
     <Compile Include="Cyberization\Implants\ThoughtWorker_JoyWire.cs" />
     <Compile Include="Cyberization\CyberizationDefOf.cs" />

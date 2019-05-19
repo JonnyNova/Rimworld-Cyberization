@@ -13,6 +13,15 @@
         <label>combat implant</label>
         <labelNoun>a combat implant</labelNoun>
         <spawnThingOnRemoved>CombatImplant</spawnThingOnRemoved>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.Implants.SkillDecayReductionProperties">
+                <skillDecayFactor>0.5</skillDecayFactor>
+                <skillDecayReduced>
+                    <li>Shooting</li>
+                    <li>Melee</li>
+                </skillDecayReduced>
+            </li>
+        </comps>
         <stages>
             <li>
                 <socialFightChanceFactor>2.0</socialFightChanceFactor>
@@ -31,6 +40,16 @@
         <defName>DomesticImplant</defName>
         <label>domestic implant</label>
         <labelNoun>a domestic implant</labelNoun>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.Implants.SkillDecayReductionProperties">
+                <skillDecayFactor>0.5</skillDecayFactor>
+                <skillDecayReduced>
+                    <li>Plants</li>
+                    <li>Cooking</li>
+                    <li>Animals</li>
+                </skillDecayReduced>
+            </li>
+        </comps>
         <stages>
             <li>
                 <statOffsets>
@@ -52,6 +71,16 @@
         <defName>CreativeImplant</defName>
         <label>creative implant</label>
         <labelNoun>a creative implant</labelNoun>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.Implants.SkillDecayReductionProperties">
+                <skillDecayFactor>0.5</skillDecayFactor>
+                <skillDecayReduced>
+                    <li>Intellectual</li>
+                    <li>Artistic</li>
+                    <li>Social</li>
+                </skillDecayReduced>
+            </li>
+        </comps>
         <stages>
             <li>
                 <statOffsets>
@@ -70,6 +99,16 @@
         <defName>LaborImplant</defName>
         <label>labor implant</label>
         <labelNoun>a labor implant</labelNoun>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.Implants.SkillDecayReductionProperties">
+                <skillDecayFactor>0.5</skillDecayFactor>
+                <skillDecayReduced>
+                    <li>Mining</li>
+                    <li>Construction</li>
+                    <li>Crafting</li>
+                </skillDecayReduced>
+            </li>
+        </comps>
         <stages>
             <li>
                 <statOffsets>
@@ -92,6 +131,14 @@
         <defName>MedicalImplant</defName>
         <label>medical implant</label>
         <labelNoun>a medical implant</labelNoun>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.Implants.SkillDecayReductionProperties">
+                <skillDecayFactor>0.5</skillDecayFactor>
+                <skillDecayReduced>
+                    <li>Medicine</li>
+                </skillDecayReduced>
+            </li>
+        </comps>
         <stages>
             <li>
                 <statOffsets>
