@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>CloneOrgan</defName>
+        <label>clone organ</label>
+        <description>Clone an organ.</description>
+        <workerClass>Recipe_RemoveHediff</workerClass>
+        <jobString>Cloning organ.</jobString>
+        <workAmount>4500</workAmount>
+        <removesHediff>MissingBodyPart</removesHediff>
+        <successfullyRemovedHediffMessage>{0} has successfully cloned {1}'s organ.</successfullyRemovedHediffMessage>
+        <deathOnFailedSurgeryChance>0.1</deathOnFailedSurgeryChance>
+        <skillRequirements>
+            <Medicine>10</Medicine>
+        </skillRequirements>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MedicineUltratech</li>
+                    </thingDefs>
+                </filter>
+                <count>3</count>
+            </li>
+            <li>
+                <filter>                    
+                    <thingDefs>
+                        <li>Neutroamine</li>
+                    </thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>MedicineUltratech</li>
+                <li>Neutroamine</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+    </RecipeDef>    
+    
+</Defs>
