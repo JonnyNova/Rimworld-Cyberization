@@ -14,12 +14,13 @@
         <labelNoun>a combat implant</labelNoun>
         <spawnThingOnRemoved>CombatImplant</spawnThingOnRemoved>
         <comps>
-            <li Class="FrontierDevelopments.Cyberization.Implants.SkillDecayReductionProperties">
+            <li Class="FrontierDevelopments.Cyberization.Implants.ImplantSkillModifierProperties">
+                <skillLearnIncrease>0.5</skillLearnIncrease>
                 <skillDecayFactor>0.5</skillDecayFactor>
-                <skillDecayReduced>
+                <skillsAffected>
                     <li>Shooting</li>
                     <li>Melee</li>
-                </skillDecayReduced>
+                </skillsAffected>
             </li>
         </comps>
         <stages>
@@ -41,13 +42,14 @@
         <label>domestic implant</label>
         <labelNoun>a domestic implant</labelNoun>
         <comps>
-            <li Class="FrontierDevelopments.Cyberization.Implants.SkillDecayReductionProperties">
+            <li Class="FrontierDevelopments.Cyberization.Implants.ImplantSkillModifierProperties">
+                <skillLearnIncrease>0.5</skillLearnIncrease>
                 <skillDecayFactor>0.5</skillDecayFactor>
-                <skillDecayReduced>
+                <skillsAffected>
                     <li>Plants</li>
                     <li>Cooking</li>
                     <li>Animals</li>
-                </skillDecayReduced>
+                </skillsAffected>
             </li>
         </comps>
         <stages>
@@ -72,13 +74,14 @@
         <label>creative implant</label>
         <labelNoun>a creative implant</labelNoun>
         <comps>
-            <li Class="FrontierDevelopments.Cyberization.Implants.SkillDecayReductionProperties">
+            <li Class="FrontierDevelopments.Cyberization.Implants.ImplantSkillModifierProperties">
+                <skillLearnIncrease>0.5</skillLearnIncrease>
                 <skillDecayFactor>0.5</skillDecayFactor>
-                <skillDecayReduced>
+                <skillsAffected>
                     <li>Intellectual</li>
                     <li>Artistic</li>
                     <li>Social</li>
-                </skillDecayReduced>
+                </skillsAffected>
             </li>
         </comps>
         <stages>
@@ -100,13 +103,13 @@
         <label>labor implant</label>
         <labelNoun>a labor implant</labelNoun>
         <comps>
-            <li Class="FrontierDevelopments.Cyberization.Implants.SkillDecayReductionProperties">
+            <li Class="FrontierDevelopments.Cyberization.Implants.ImplantSkillModifierProperties">
                 <skillDecayFactor>0.5</skillDecayFactor>
-                <skillDecayReduced>
+                <skillsAffected>
                     <li>Mining</li>
                     <li>Construction</li>
                     <li>Crafting</li>
-                </skillDecayReduced>
+                </skillsAffected>
             </li>
         </comps>
         <stages>
@@ -132,11 +135,12 @@
         <label>medical implant</label>
         <labelNoun>a medical implant</labelNoun>
         <comps>
-            <li Class="FrontierDevelopments.Cyberization.Implants.SkillDecayReductionProperties">
+            <li Class="FrontierDevelopments.Cyberization.Implants.ImplantSkillModifierProperties">
+                <skillLearnIncrease>0.5</skillLearnIncrease>
                 <skillDecayFactor>0.5</skillDecayFactor>
-                <skillDecayReduced>
+                <skillsAffected>
                     <li>Medicine</li>
-                </skillDecayReduced>
+                </skillsAffected>
             </li>
         </comps>
         <stages>
