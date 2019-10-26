@@ -73,6 +73,8 @@
     <Compile Include="Cyberization\Parts\Harmony_PartEffectiveness.cs" />
     <Compile Include="Cyberization\Parts\Harmony_SolarFlare.cs" />
     <Compile Include="Cyberization\Parts\IncidentWorker_AddedPartBreakdown.cs" />
+    <Compile Include="Cyberization\Parts\PartUtility.cs" />
+    <Compile Include="Cyberization\Power\Alert_PawnCantSeekPower.cs" />
     <Compile Include="Cyberization\Power\IChargeSource.cs" />
     <Compile Include="Cyberization\Power\CompChargePad.cs" />
     <Compile Include="Cyberization\Power\CompPowerProvider.cs" />

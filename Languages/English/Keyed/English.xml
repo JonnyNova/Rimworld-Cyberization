@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
     <Cyberization.AddPartBreakdown.Label>Cybernetic part breakdown</Cyberization.AddPartBreakdown.Label>
-    <Cyberization.AddPartBreakdown.Text>{0}'s {1} has broken down. It will need to be repaired to restore full functionality.</Cyberization.AddPartBreakdown.Text>  
+    <Cyberization.AddPartBreakdown.Text>{0}'s {1} has broken down. It will need to be repaired to restore full functionality.</Cyberization.AddPartBreakdown.Text>
+
+    <Cyberization.AlertPartPower.Label>{0} need part power</Cyberization.AlertPartPower.Label>
+    <Cyberization.AlertPartPower.Text>Some colonists require power for their bionic parts to work and have no means to charge them. Colonists will suffer these effects when their energy runs out:</Cyberization.AlertPartPower.Text>
+    <Cyberization.AlertPartPower.Fatal>{0} will die of organ failure</Cyberization.AlertPartPower.Fatal>
+    <Cyberization.AlertPartPower.Rescue>{0} will be unable to move</Cyberization.AlertPartPower.Rescue>
+    <Cyberization.AlertPartPower.Remaining>{0} will have reduced body part efficiency</Cyberization.AlertPartPower.Remaining>
+
 </LanguageData>
