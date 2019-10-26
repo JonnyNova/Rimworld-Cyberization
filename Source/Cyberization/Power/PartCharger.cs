@@ -27,8 +27,6 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public bool Available => _energySource.IsActive() && Rate > 0;
 
-        public Faction Faction => parent.Faction;
-
         public int Rate => (int) Math.Min(_energySource.EnergyAvailable - _energySource.BaseConsumption, Props.chargeRate);
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -88,6 +86,18 @@ namespace FrontierDevelopments.Cyberization.Power
             }
 
             _connected.Clear();
+        }
+
+        public bool CanUse(Pawn pawn)
+        {
+            if (parent.Faction != pawn.Faction 
+                && parent.Faction.RelationWith(pawn.Faction).kind != FactionRelationKind.Ally) return false;
+            
+            switch (pawn.RaceProps.intelligence)
+            {
+                case Intelligence.Animal: return Props.wirelessCharging;
+                default: return true;
+            }
         }
     }
 }

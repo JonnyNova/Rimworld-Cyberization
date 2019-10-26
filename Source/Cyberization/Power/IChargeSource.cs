@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
 using Verse;
 using Verse.AI;
 
@@ -12,7 +11,7 @@ namespace FrontierDevelopments.Cyberization.Power
         bool Available { get; }
         int Rate { get; }
         void Charge(Pawn pawn);
-        Faction Faction { get; }
+        bool CanUse(Pawn pawn);
     }
 
     public static class ChargeSourceUtility
@@ -49,7 +48,7 @@ namespace FrontierDevelopments.Cyberization.Power
                             .OfType<IChargeSource>()
                             .Any(charger =>
                                 charger.Available
-                                && charger.Faction == pawn.Faction);
+                                && charger.CanUse(pawn));
                     default:
                         return false;
                 }

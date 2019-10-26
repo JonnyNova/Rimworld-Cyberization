@@ -16,6 +16,27 @@
         </thinkRoot>
     </ThinkTreeDef>
 
+    <ThinkTreeDef>
+        <defName>SeekPartPowerAnimal</defName>
+        <insertTag>Animal_PreMain</insertTag>
+        <insertPriority>100</insertPriority>
+        <thinkRoot Class="FrontierDevelopments.Cyberization.Power.Job.ThinkNode_PartPowerSatisfied">
+            <invert>true</invert>
+            <subNodes>
+                <li Class="ThinkNode_ConditionalTrainableCompleted">
+                    <trainable>Obedience</trainable>
+                    <subNodes>
+                        <li Class="ThinkNode_Priority">
+                            <subNodes>
+                                <li Class="FrontierDevelopments.Cyberization.Power.Job.JobGiver_SeekPartPower" />
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+
     <JobDef>
         <defName>SeekPartPower</defName>
         <driverClass>FrontierDevelopments.Cyberization.Power.Job.JobDriver_SeekPartPower</driverClass>

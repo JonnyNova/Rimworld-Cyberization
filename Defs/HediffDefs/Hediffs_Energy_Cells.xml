@@ -17,7 +17,7 @@
         <label>Energy Cell</label>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerProviderProperties">
-                <maxEnergy>500000</maxEnergy>
+                <maxEnergy>5000</maxEnergy>
                 <maxRate>8</maxRate>
             </li>
         </comps>
