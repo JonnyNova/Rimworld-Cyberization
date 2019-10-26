@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FrontierDevelopments.General;
 using RimWorld;
 using Verse;
 
@@ -18,27 +19,20 @@ namespace FrontierDevelopments.Cyberization.Power
 
     public class CompChargePad : ThingComp, IChargeSource
     {
-        private CompPowerTrader _power;
+        private IEnergySource _energySource;
 
         private ChargePadProperties Props => (ChargePadProperties) props;
 
-        public bool Available => _power.PowerOn && Rate > 0;
+        public bool Available => _energySource.IsActive() && Rate > 0;
 
         public Faction Faction => parent.Faction;
 
-        public int Rate
-        {
-            get
-            {
-                if (_power.PowerNet.CurrentStoredEnergy() > 0) return Props.chargeRate;
-                return (int) Math.Min((_power.PowerNet.CurrentEnergyGainRate() / CompPower.WattsToWattDaysPerTick) - _power.PowerOutput, Props.chargeRate);
-            }
-        }
+        public int Rate => (int) Math.Min(_energySource.EnergyAvailable - _energySource.BaseConsumption, Props.chargeRate);
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
-            _power = parent.TryGetComp<CompPowerTrader>();
+            _energySource = EnergySourceUtility.Find(parent);
         }
 
         private IEnumerable<Thing> ThingsOnPad()
@@ -64,18 +58,18 @@ namespace FrontierDevelopments.Cyberization.Power
         // TODO improve performance somehow?
         public override void CompTick()
         {
-            if (_power.PowerOn)
+            if (_energySource.IsActive())
             {
                 var chargables = ChargablesOnPad().ToList();
                 if (!chargables.NullOrEmpty())
                 {
                     var ratePer = Rate / chargables.Count;
                     var consumed = chargables.Aggregate(0L, (sum, chargable) => sum + chargable.Charge(ratePer));
-                    _power.PowerOutput = -consumed / Settings.ElectricRatio;
+                    _energySource.BaseConsumption = -consumed / Settings.ElectricRatio;
                 }
                 else
                 {
-                    _power.PowerOutput = 0;
+                    _energySource.BaseConsumption = 0;
                 }
             }
         }
