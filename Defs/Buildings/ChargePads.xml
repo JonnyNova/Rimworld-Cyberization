@@ -60,8 +60,9 @@
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
             </li>
-            <li Class="FrontierDevelopments.Cyberization.Power.ChargePadProperties">
+            <li Class="FrontierDevelopments.Cyberization.Power.PartChargerProperties">
                 <chargeRate>100</chargeRate>
+                <wirelessCharging>true</wirelessCharging>
             </li>
             <li Class="CompProperties_Flickable"/>
             <li Class="CompProperties_Breakdownable"/>

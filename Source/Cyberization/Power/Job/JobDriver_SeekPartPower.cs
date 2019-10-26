@@ -1,6 +1,6 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
 using Verse;
 using Verse.AI;
 
@@ -22,11 +22,20 @@ namespace FrontierDevelopments.Cyberization.Power.Job
         {
             var charger = PowerSource.AllComps.OfType<IChargeSource>().First();
 
-            var pathMode = PowerSource.def.hasInteractionCell ? PathEndMode.InteractionCell : PathEndMode.OnCell;
-            
+            switch (PowerSource.def.passability)
+            {
+                case Traversability.Standable:
+                    return ChargeToils(charger, PathEndMode.OnCell, () => pawn.pather.StopDead(), null);
+                default:
+                    return ChargeToils(charger, PathEndMode.Touch, null, () => charger.Charge(pawn));
+            }
+        }
+
+        private IEnumerable<Toil> ChargeToils(IChargeSource charger, PathEndMode pathMode, Action initAction, Action tickAction)
+        {
             this.FailOnDestroyedOrNull(PowerSourceIndex);
             this.FailOn(() => !charger.Available);
-
+            
             yield return Toils_Goto
                 .GotoThing(PowerSourceIndex, pathMode)
                 .FailOnDestroyedNullOrForbidden(PowerSourceIndex)
@@ -36,22 +45,22 @@ namespace FrontierDevelopments.Cyberization.Power.Job
                     || charger == null
                     || !charger.Available
                     || !pawn.CanReach(PowerSource, pathMode, Danger.Deadly));
-            
-            var waitForCharge = new Toil()
+
+            var charge = new Toil()
                 .FailOn(() =>
                     charger == null
                     || !charger.Available
                     || EnergyNeed == null
                     || !EnergyNeed.CanBeSatisfied)
                 .WithProgressBar(PowerSourceIndex, () => EnergyNeed.CurLevelPercentage);
-            waitForCharge.initAction = () => waitForCharge.actor.pather.StopDead();
-            waitForCharge.defaultCompleteMode = ToilCompleteMode.Never;
-            waitForCharge.AddEndCondition(() =>
+            charge.defaultCompleteMode = ToilCompleteMode.Never;
+            charge.AddEndCondition(() =>
                 EnergyNeed.CurLevelPercentage > Settings.SeekPowerChargeTo
                     ? JobCondition.Succeeded
                     : JobCondition.Ongoing);
-            
-            yield return waitForCharge;
+            if(initAction != null) charge.initAction = initAction;
+            if(tickAction != null) charge.tickAction = tickAction;
+            yield return charge;
         }
     }
 }

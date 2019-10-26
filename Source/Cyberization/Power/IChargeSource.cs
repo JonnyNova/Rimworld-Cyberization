@@ -11,6 +11,7 @@ namespace FrontierDevelopments.Cyberization.Power
     {
         bool Available { get; }
         int Rate { get; }
+        void Charge(Pawn pawn);
         Faction Faction { get; }
     }
 
@@ -61,7 +62,7 @@ namespace FrontierDevelopments.Cyberization.Power
                 pawn.Position,
                 pawn.Map,
                 ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial),
-                PathEndMode.InteractionCell,
+                PathEndMode.Touch,
                 TraverseParms.For(pawn),
                 100f,
                 Validator(pawn));

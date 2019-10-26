@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Battery"]/comps</xpath>
+        <value>
+            <li Class="FrontierDevelopments.General.EnergySources.BatteryEnergySourceProperties"/>
+            <li Class="FrontierDevelopments.Cyberization.Power.PartChargerProperties">
+                <chargeRate>100</chargeRate>
+                <wirelessCharging>false</wirelessCharging>
+            </li>
+        </value>
+    </Operation>
+</Patch>

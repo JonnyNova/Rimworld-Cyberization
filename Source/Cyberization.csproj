@@ -76,7 +76,7 @@
     <Compile Include="Cyberization\Parts\PartUtility.cs" />
     <Compile Include="Cyberization\Power\Alert_PawnCantSeekPower.cs" />
     <Compile Include="Cyberization\Power\IChargeSource.cs" />
-    <Compile Include="Cyberization\Power\CompChargePad.cs" />
+    <Compile Include="Cyberization\Power\PartCharger.cs" />
     <Compile Include="Cyberization\Power\CompPowerProvider.cs" />
     <Compile Include="Cyberization\Power\IPowerConsumer.cs" />
     <Compile Include="Cyberization\Power\IPowerProvider.cs" />

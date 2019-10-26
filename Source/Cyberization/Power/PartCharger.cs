@@ -7,21 +7,23 @@ using Verse;
 
 namespace FrontierDevelopments.Cyberization.Power
 {
-    public class ChargePadProperties : CompProperties
+    public class PartChargerProperties : CompProperties
     {
         public int chargeRate;
+        public bool wirelessCharging;
 
-        public ChargePadProperties()
+        public PartChargerProperties()
         {
-            compClass = typeof(CompChargePad);
+            compClass = typeof(PartCharger);
         }
     }
 
-    public class CompChargePad : ThingComp, IChargeSource
+    public class PartCharger : ThingComp, IChargeSource
     {
         private IEnergySource _energySource;
+        private readonly List<Pawn> _connected = new List<Pawn>();
 
-        private ChargePadProperties Props => (ChargePadProperties) props;
+        private PartChargerProperties Props => (PartChargerProperties) props;
 
         public bool Available => _energySource.IsActive() && Rate > 0;
 
@@ -35,6 +37,11 @@ namespace FrontierDevelopments.Cyberization.Power
             _energySource = EnergySourceUtility.Find(parent);
         }
 
+        public void Charge(Pawn pawn)
+        {
+            _connected.Add(pawn);
+        }
+
         private IEnumerable<Thing> ThingsOnPad()
         {
             return parent.Map.thingGrid.ThingsAt(parent.def.hasInteractionCell ? parent.InteractionCell : parent.Position);
@@ -46,7 +53,7 @@ namespace FrontierDevelopments.Cyberization.Power
             result.AddRange(
                 ThingsOnPad()
                     .OfType<Pawn>()
-                    .SelectMany(pawn => PowerProvider.Providers(pawn)));
+                    .SelectMany(PowerProvider.Providers));
             result.AddRange(
                 ThingsOnPad()
                     .OfType<ThingWithComps>()
@@ -55,13 +62,20 @@ namespace FrontierDevelopments.Cyberization.Power
             return result;
         }
 
+        private IEnumerable<IPowerProvider> ChargablesConnected()
+        {
+            return _connected.SelectMany(PowerProvider.Providers);
+        }
+
         // TODO improve performance somehow?
         public override void CompTick()
         {
             if (_energySource.IsActive())
             {
-                var chargables = ChargablesOnPad().ToList();
-                if (!chargables.NullOrEmpty())
+                var chargables = new HashSet<IPowerProvider>(ChargablesConnected());
+                if(Props.wirelessCharging) chargables.AddRange(ChargablesOnPad().ToList());
+                
+                if (chargables.Count > 0)
                 {
                     var ratePer = Rate / chargables.Count;
                     var consumed = chargables.Aggregate(0L, (sum, chargable) => sum + chargable.Charge(ratePer));
@@ -72,6 +86,8 @@ namespace FrontierDevelopments.Cyberization.Power
                     _energySource.BaseConsumption = 0;
                 }
             }
+
+            _connected.Clear();
         }
     }
 }
