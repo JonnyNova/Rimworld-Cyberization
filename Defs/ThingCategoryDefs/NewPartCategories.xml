@@ -16,8 +16,8 @@
   </ThingCategoryDef>
 
   <ThingCategoryDef>
-    <defName>GlittertechParts</defName>
-    <label>Glittertech parts</label>
+    <defName>GlittertierParts</defName>
+    <label>Glittertier parts</label>
     <parent>BodyPartsArtificial</parent>
   </ThingCategoryDef>
 

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BionicHand</defName>
+        <label>bionic hand</label>
+        <description>An advanced artificial hand. Silenced mini-servos give great strength, while the biogel nerve-link gives exquisite control. A lattice-dust healing system allows it to recover from damage. It is better than a biological hand in almost every way.</description>
+        <techLevel>Spacer</techLevel>
+        <costList>
+            <Plasteel>4</Plasteel>
+            <ComponentSpacer>2</ComponentSpacer>
+            <Neutroamine>4</Neutroamine>
+            <MedicineUltratech>2</MedicineUltratech>
+        </costList>
+        <statBases>
+            <WorkToMake>13000</WorkToMake>
+            <Mass>0.5</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BionicLung</defName>
+        <label>bionic lung</label>
+        <description>An advanced artificial lung. It has synthetic membranes for highly efficient gas exchange. It doesn't bleed and feels no pain. It is better than a biological lung in almost every way.</description>
+        <techLevel>Spacer</techLevel>
+        <costList>
+            <Plasteel>10</Plasteel>
+            <ComponentSpacer>3</ComponentSpacer>
+            <Neutroamine>10</Neutroamine>
+            <MedicineUltratech>3</MedicineUltratech>
+        </costList>
+        <statBases>
+            <WorkToMake>26000</WorkToMake>
+            <Mass>1</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BionicKidney</defName>
+        <label>bionic kidney</label>
+        <description>An advanced artificial kidney. It has synthetic membranes for highly efficient filtration. It doesn't bleed and feels no pain. It is better than a biological kidney in almost every way.</description>
+        <techLevel>Spacer</techLevel>
+        <costList>
+            <Plasteel>10</Plasteel>
+            <ComponentSpacer>3</ComponentSpacer>
+            <Neutroamine>10</Neutroamine>
+            <MedicineUltratech>3</MedicineUltratech>
+        </costList>
+        <statBases>
+            <WorkToMake>18000</WorkToMake>
+            <Mass>0.5</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BionicLiver</defName>
+        <label>bionic liver</label>
+        <description>An advanced artificial liver. It has synthetic membranes for highly efficient filtration. It doesn't bleed and feels no pain. It is better than a biological liver in almost every way.</description>
+        <techLevel>Spacer</techLevel>
+        <costList>
+            <Plasteel>15</Plasteel>
+            <ComponentSpacer>4</ComponentSpacer>
+            <Neutroamine>15</Neutroamine>
+            <MedicineUltratech>4</MedicineUltratech>
+        </costList>
+        <statBases>
+            <WorkToMake>38000</WorkToMake>
+            <Mass>1</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+    
+    <!-- Implants -->
+
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>Painshunt</defName>
+        <label>painshunt</label>
+        <description>An advanced brain implant. It has greatly reduces the pain felt by the user. It is popular among underworld gladiators and fighting rings in urbworlds.</description>
+        <techLevel>Spacer</techLevel>
+        <costList>
+            <Plasteel>15</Plasteel>
+            <ComponentSpacer>4</ComponentSpacer>
+            <Neutroamine>15</Neutroamine>
+            <MedicineUltratech>4</MedicineUltratech>
+        </costList>
+        <statBases>
+            <WorkToMake>26000</WorkToMake>
+            <Mass>0.1</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>Sleepshunt</defName>
+        <label>sleepshunt</label>
+        <description>An advanced brain implant. It has greatly reduces the tiredness experienced by the user, allowing them to be more productive each day. It is popular among university students in urbworlds and glitterworlds.</description>
+        <techLevel>Spacer</techLevel>
+        <costList>
+            <Plasteel>15</Plasteel>
+            <ComponentSpacer>4</ComponentSpacer>
+            <Neutroamine>15</Neutroamine>
+            <MedicineUltratech>4</MedicineUltratech>
+        </costList>
+        <statBases>
+            <WorkToMake>26000</WorkToMake>
+            <Mass>0.1</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>Megashunt</defName>
+        <label>megashunt</label>
+        <description>An advanced brain implant. This combines the effects of the painshunt and sleepshunt. The user will experience less pain and require less sleep per day.</description>
+        <techLevel>Spacer</techLevel>
+        <costList>
+            <Sleepshunt>1</Sleepshunt>
+            <Painshunt>1</Painshunt>
+            <Plasteel>1</Plasteel>
+            <Neutroamine>1</Neutroamine>
+        </costList>
+        <statBases>
+            <WorkToMake>26000</WorkToMake>
+            <Mass>0.1</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+    
+</Defs>

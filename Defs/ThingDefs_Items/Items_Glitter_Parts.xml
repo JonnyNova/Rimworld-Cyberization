@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef Name="Glittertier" ParentName="BodyPartBase" Abstract="True">
+        <graphicData>
+            <texPath>Things/Item/Health/HealthItemBionic</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.80</drawSize>
+        </graphicData>
+        <tradeTags>
+            <li>GlittertierParts</li>
+            <li>BodyPart</li>
+        </tradeTags>
+        <thingCategories>
+            <li>GlittertierParts</li>
+        </thingCategories>
+    </ThingDef>
+
+    <ThingDef ParentName="Glittertier">
+        <defName>CombatImplant</defName>
+        <label>combat implant</label>
+        <description>A special brain implant of Glitterworld origin. This series has multiple offerings and this one will enhance a person's abilities in combat. It promises users will perform faster, learn quicker, and forget slower. It is the perfect implant for those chasing mastery.</description>
+        <statBases>
+            <MarketValue>3500</MarketValue>
+            <Mass>0.1</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="Glittertier">
+        <defName>DomesticImplant</defName>
+        <label>domestic implant</label>
+        <description>A special brain implant of Glitterworld origin. This series has multiple offerings and this one will enhance a person's abilities in cooking, animals, and growing. It promises users will perform faster, learn quicker, and forget slower. It is the perfect implant for those chasing mastery.</description>
+        <statBases>
+            <MarketValue>3500</MarketValue>
+            <Mass>0.1</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="Glittertier">
+        <defName>CreativeImplant</defName>
+        <label>creative implant</label>
+        <description>A special brain implant of Glitterworld origin. This series has multiple offerings and this one will enhance a person's abilities in social, art, and intellectual tasks.  It promises users will perform faster, learn quicker, and forget slower. It is the perfect implant for those chasing mastery.</description>
+        <statBases>
+            <MarketValue>3500</MarketValue>
+            <Mass>0.1</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="Glittertier">
+        <defName>LaborImplant</defName>
+        <label>labor implant</label>
+        <description>A special brain implant of Glitterworld origin. This series has multiple offerings and this one will enhance a person's abilities in mining, construction, and crafting.  It promises users will perform faster, learn quicker, and forget slower. It is the perfect implant for those chasing mastery.</description>
+        <statBases>
+            <MarketValue>3500</MarketValue>
+            <Mass>0.1</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="Glittertier">
+        <defName>MedicalImplant</defName>
+        <label>medical implant</label>
+        <description>A special brain implant of Glitterworld origin. This series has multiple offerings and this one will enhance a person's abilities in medicine.  It promises users will perform faster, learn quicker, and forget slower. It is the perfect implant for those chasing mastery.</description>
+        <statBases>
+            <MarketValue>3500</MarketValue>
+            <Mass>0.1</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="Glittertier">
+        <defName>Sleepstopper</defName>
+        <label>sleepstopper</label>
+        <description>A special brain implant of Glitterworld origin. This will stop the user from naturally needing sleep. However, users who take substances might find themselves falling asleep anyway. It is popular among glitterworlds among students and doctors alike for the productivity boost experienced.</description>
+        <statBases>
+            <MarketValue>2500</MarketValue>
+            <Mass>0.1</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="Glittertier">
+        <defName>Megastopper</defName>
+        <label>megastopper</label>
+        <description>A special brain implant of Glitterworld origin. This combines the painstopper and sleepstopper, rendering the user superhuman. The user will not experience pain and will not naturally need sleep. Same caveat from the sleepstopper, substance users might occassionally find themselves falling asleep or needing sleep.</description>
+        <statBases>
+            <MarketValue>5000</MarketValue>
+            <Mass>0.1</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+</Defs>

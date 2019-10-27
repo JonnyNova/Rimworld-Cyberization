@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="BodyPartArchotechBase">
+        <defName>ArchotechVibroblade</defName>
+        <label>archotech vibroblade</label>
+        <description>An artifical hand implant built by an archotech. It is a retractable blade that never dulls and cuts plasteel like butter. Even if it is harmed, it repairs itself over time. Its internal workings are a mystery to all human minds.</description>
+        <techLevel>Archotech</techLevel>
+        <thingSetMakerTags>
+            <li>RewardSpecial</li>
+        </thingSetMakerTags>
+        <statBases>
+            <MarketValue>3800</MarketValue>
+            <Mass>0.3</Mass>
+        </statBases>
+    </ThingDef>
+</Defs>

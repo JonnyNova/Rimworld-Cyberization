@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef Name="BodyPartRoboticBase" ParentName="BodyPartArtificialBase" Abstract="True">
+        <thingCategories Inhert = "False">
+            <li>RoboticBodyParts</li>
+        </thingCategories>
+        <statBases Inhert = "False">
+            <DeteriorationRate>1.0</DeteriorationRate>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Item/Health/HealthItemProsthetic</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.80</drawSize>
+        </graphicData>
+        <recipeMaker>
+            <workSpeedStat>SmithingSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <recipeUsers>
+                <li>TableMachining</li>
+            </recipeUsers>
+            <skillRequirements>
+                <Crafting>6</Crafting>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+            <researchPrerequisite>RoboticBodyParts</researchPrerequisite>
+        </recipeMaker>
+    </ThingDef>
+    
+    <ThingDef ParentName="BodyPartRoboticBase">
+    <defName>RoboticEye</defName>
+    <label>robotic visual orb</label>
+    <description>A robotic eye replacement. It is high resolution but still doesn't quite make up what an eye does.  It doesn't bleed and feels no pain. It is the best possible workaround for a missing eye given the tech level.</description>
+    <techLevel>Spacer</techLevel>
+    <costList>
+        <Steel>10</Steel>
+        <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <statBases>
+        <WorkToMake>19000</WorkToMake>
+        <Mass>0.6</Mass>
+    </statBases>
+    <techHediffsTags>
+        <li>Simple</li>
+    </techHediffsTags>
+    </ThingDef>
+    
+    <ThingDef ParentName="BodyPartRoboticBase">
+    <defName>RoboticArm</defName>
+    <label>robotic arm</label>
+    <description>A robotic arm replacement. It matches the biological performance but doesn't quite look as pretty. It packs a tougher punch than a biological arm. It doesn't bleed and feels no pain. It is suitable replacement for a natural arm.</description>
+    <techLevel>Spacer</techLevel>
+    <costList>
+        <Steel>10</Steel>
+        <ComponentIndustrial>3</ComponentIndustrial>
+        <Chemfuel>10</Chemfuel>
+    </costList>
+    <statBases>
+        <WorkToMake>13000</WorkToMake>
+        <Mass>10</Mass>
+    </statBases>
+    <techHediffsTags>
+        <li>Simple</li>
+    </techHediffsTags>
+    </ThingDef>
+    
+    <ThingDef ParentName="BodyPartRoboticBase">
+    <defName>RoboticHand</defName>
+    <label>robotic hand</label>
+    <description>A robotic hand replacement. It matches the biological performance but doesn't quite look as pretty. It doesn't bleed and feels no pain. It is suitable replacement for a natural hand.</description>
+    <techLevel>Spacer</techLevel>
+    <costList>
+        <Steel>4</Steel>
+        <ComponentIndustrial>2</ComponentIndustrial>
+        <Chemfuel>4</Chemfuel>
+    </costList>
+    <statBases>
+        <WorkToMake>6500</WorkToMake>
+        <Mass>1</Mass>
+    </statBases>
+    <techHediffsTags>
+        <li>Simple</li>
+    </techHediffsTags>
+    </ThingDef>
+    
+    <ThingDef ParentName="BodyPartRoboticBase">
+    <defName>RoboticLeg</defName>
+    <label>robotic leg</label>
+    <description>A robotic leg replacement. It matches the biological performance but doesn't quite look as pretty. It doesn't bleed and feels no pain. It is suitable replacement for a natural leg.</description>
+    <techLevel>Spacer</techLevel>
+    <costList>
+        <Steel>10</Steel>
+        <ComponentIndustrial>3</ComponentIndustrial>
+        <Chemfuel>10</Chemfuel>
+    </costList>
+    <statBases>
+        <WorkToMake>13000</WorkToMake>
+        <Mass>10</Mass>
+    </statBases>
+    <techHediffsTags>
+        <li>Simple</li>
+    </techHediffsTags>
+    </ThingDef>
+    
+    <ThingDef ParentName="BodyPartRoboticBase">
+    <defName>RoboticJaw</defName>
+    <label>robotic jaw</label>
+    <description>A robotic jaw replacement. It matches the biological performance but doesn't quite look as pretty. It doesn't bleed and feels no pain. It is suitable replacement for a natural jaw.</description>
+    <techLevel>Spacer</techLevel>
+    <costList>
+        <Steel>10</Steel>
+        <ComponentIndustrial>3</ComponentIndustrial>
+        <Chemfuel>5</Chemfuel>
+    </costList>
+    <statBases>
+        <WorkToMake>13000</WorkToMake>
+        <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+        <li>Simple</li>
+    </techHediffsTags>
+    </ThingDef>
+</Defs>
