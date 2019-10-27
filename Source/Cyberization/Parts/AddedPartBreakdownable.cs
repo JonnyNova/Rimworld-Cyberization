@@ -32,8 +32,8 @@ namespace FrontierDevelopments.Cyberization.Parts
         public bool BreakDown()
         {
             if (_brokenDown) return false;
-            Pawn.health.Notify_HediffChanged(parent);
             _brokenDown = true;
+            Pawn.health.Notify_HediffChanged(parent);
             if (Pawn.Faction == Faction.OfPlayer) 
                 Find.LetterStack.ReceiveLetter(
                     "Cyberization.AddPartBreakdown.Label".Translate(),
@@ -48,8 +48,8 @@ namespace FrontierDevelopments.Cyberization.Parts
         public bool Repair()
         {
             if (!_brokenDown) return false;
-            Pawn.health.Notify_HediffChanged(parent);
             _brokenDown = false;
+            Pawn.health.Notify_HediffChanged(parent);
             return true;
         }
 
