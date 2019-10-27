@@ -35,6 +35,7 @@ namespace FrontierDevelopments.Cyberization.Parts
         {
             if (part.TryGetComp<AddedPartMaintenance>()?.NeedsMaintenance ?? false) return true;
             if (part.TryGetComp<AddedPartBreakdownable>()?.IsBrokenDown ?? false) return true;
+            if (part.TryGetComp<AddedPartDamageable>()?.Damaged ?? false) return true;
             return false;
         }
 
@@ -116,6 +117,12 @@ namespace FrontierDevelopments.Cyberization.Parts
         public static bool RequiresPartToMove<T>(Hediff_AddedPart part) where T : HediffComp, AddedPartEffectivenessModifier
         {
             return ToggleAndCheckPart<T>(part, () => !part.pawn.health.capacities.CapableOf(PawnCapacityDefOf.Moving));
+        }
+
+        public static IEnumerable<Hediff> GetHediffsForPart(Hediff part)
+        {
+            // TODO check if hediff is on a child part?
+            return part.pawn.health.hediffSet.hediffs.Where(hediff => hediff.Part == part.Part);
         }
     }
 }

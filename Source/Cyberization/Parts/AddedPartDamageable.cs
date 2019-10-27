@@ -25,6 +25,10 @@ namespace FrontierDevelopments.Cyberization.Parts
         public bool CanHeal => Props.healRate > 0;
 
         public float HealRate => Props.healRate;
+
+        public bool Damaged =>  PartUtility.GetHediffsForPart(parent)
+            .OfType<Hediff_Injury>()
+            .Any(hediff => hediff.Severity > 0);
     }
 
     static class DisableNaturalHealing
