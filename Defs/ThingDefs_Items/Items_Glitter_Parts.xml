@@ -16,6 +16,32 @@
     </ThingDef>
 
     <ThingDef ParentName="Glittertier">
+        <defName>AdvancedAMCore</defName>
+        <label>advanced anti-matter core</label>
+        <description>A special energy storage unit of Glitterworld origin. This AM core houses all the components needed to maintain reaction mass to power components in a small footprint. It is the perfect device for the enthusiast advanced-tier user with high output and high capacity and meets any need.</description>
+        <statBases>
+            <MarketValue>4500</MarketValue>
+            <Mass>0.5</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="Glittertier">
+        <defName>AdvancedFusionHub</defName>
+        <label>advanced fusion-hub</label>
+        <description>A special energy storage unit of Glitterworld origin. This fusion-hub houses all the components needed to maintain reaction mass to power components in a small footprint  The design is similar to the anti-matter core although a weaker version for a more attractive pricepoint. It is sufficient for the advanced-tier user.  It has low output and high capacity for its class (although its output is higher than lower tier tech).</description>
+        <statBases>
+            <MarketValue>2500</MarketValue>
+            <Mass>0.5</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="Glittertier">
         <defName>CombatImplant</defName>
         <label>combat implant</label>
         <description>A special brain implant of Glitterworld origin. This series has multiple offerings and this one will enhance a person's abilities in combat. It promises users will perform faster, learn quicker, and forget slower. It is the perfect implant for those chasing mastery.</description>

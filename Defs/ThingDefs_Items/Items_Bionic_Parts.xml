@@ -141,5 +141,45 @@
             <li>Advanced</li>
         </techHediffsTags>
     </ThingDef>
+
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BionicEnergyCell</defName>
+        <label>bionic energy cell</label>
+        <description>An implantable bionic energy cell.  High-density compressed carbon filaments and organic superlubricants make this possible.  It is rated as a medium output, medium capacity device in this class.  It is well-rounded and will meet the needs of most bionic users.</description>
+        <techLevel>Spacer</techLevel>
+        <costList>
+            <Plasteel>15</Plasteel>
+            <ComponentSpacer>4</ComponentSpacer>
+            <Neutroamine>15</Neutroamine>
+            <MedicineUltratech>4</MedicineUltratech>
+        </costList>
+        <statBases>
+            <WorkToMake>26000</WorkToMake>
+            <Mass>0.5</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
+
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BionicSupercapacitor</defName>
+        <label>bionic supercapacitor</label>
+        <description>An implantable bionic supercapacitor.  High-density compressed carbon filaments and thin orgocomposite films make this possible.  It is rated as a high output, low capacity device in this class.  Use case is for those who require lots of power but don't venture far from a charging point.</description>
+        <techLevel>Spacer</techLevel>
+        <costList>
+            <Plasteel>15</Plasteel>
+            <ComponentSpacer>4</ComponentSpacer>
+            <Neutroamine>15</Neutroamine>
+            <MedicineUltratech>4</MedicineUltratech>
+        </costList>
+        <statBases>
+            <WorkToMake>26000</WorkToMake>
+            <Mass>0.25</Mass>
+        </statBases>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </ThingDef>
     
 </Defs>
