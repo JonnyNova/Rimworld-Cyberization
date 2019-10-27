@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 using Verse.AI;
 
@@ -10,6 +11,7 @@ namespace FrontierDevelopments.Cyberization.Power
     {
         bool Available { get; }
         int Rate { get; }
+        int RateAvailable(IEnumerable<IPowerProvider> providers);
         void Charge(Pawn pawn);
         bool CanUse(Pawn pawn);
     }
@@ -21,6 +23,57 @@ namespace FrontierDevelopments.Cyberization.Power
             return map.listerBuildings
                 .allBuildingsColonist
                 .Where(IsChargeSource);
+        }
+
+        public static IEnumerable<IChargeSource> FindSources(ThingWithComps thing)
+        {
+            foreach (var comp in thing.AllComps)
+            {
+                switch (comp)
+                {
+                    case IChargeSource source:
+                        yield return source;
+                        break;
+                }
+            }
+        }
+
+        public static IEnumerable<IChargeSource> FindSources(Thing thing)
+        {
+            switch (thing)
+            {
+                case ThingWithComps thingWithComps:
+                    foreach (var source in FindSources(thingWithComps))
+                    {
+                        yield return source;
+                    }
+                    break;
+            }
+        }
+
+        public static IEnumerable<IChargeSource> FindSources(IEnumerable<Thing> things, bool searchMinified = false)
+        {
+            foreach (var thing in things)
+            {
+                switch (thing)
+                {
+                    case MinifiedThing minifiedThing:
+                        if (searchMinified)
+                        {
+                            foreach (var source in FindSources(minifiedThing.InnerThing))
+                            {
+                                yield return source;
+                            }
+                        }
+                        break;
+                    case ThingWithComps thingWithComps:
+                        foreach (var source in FindSources(thingWithComps))
+                        {
+                            yield return source;
+                        }
+                        break;
+                }
+            }
         }
 
         public static bool IsChargeSource(ThingWithComps thing)
@@ -59,8 +112,6 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public static Thing ClosestChargeSource(Pawn pawn)
         {
-            
-            
             return GenClosest.ClosestThingReachable(
                 pawn.Position,
                 pawn.Map,

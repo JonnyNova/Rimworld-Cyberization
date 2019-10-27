@@ -23,11 +23,29 @@ namespace FrontierDevelopments.Cyberization.Power
         private IEnergySource _energySource;
         private readonly List<Pawn> _connected = new List<Pawn>();
 
+        private IEnergySource EnergySource
+        {
+            get
+            {
+                if (_energySource == null)
+                {
+                    _energySource = EnergySourceUtility.Find(parent);
+                }
+
+                return _energySource;
+            }
+        }
+
         private PartChargerProperties Props => (PartChargerProperties) props;
 
-        public bool Available => _energySource.IsActive() && Rate > 0;
+        public bool Available => EnergySource.IsActive() && Rate > 0;
 
-        public int Rate => (int) Math.Min(_energySource.EnergyAvailable - _energySource.BaseConsumption, Props.chargeRate);
+        public int Rate => (int) Math.Min(EnergySource.EnergyAvailable - EnergySource.BaseConsumption, Props.chargeRate);
+
+        public int RateAvailable(IEnumerable<IPowerProvider> providers)
+        {
+            return (ValidChargeTargets().Count() + providers.Count()) / Rate;
+        }
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -40,8 +58,16 @@ namespace FrontierDevelopments.Cyberization.Power
             _connected.Add(pawn);
         }
 
+        private IEnumerable<IPowerProvider> ValidChargeTargets()
+        {
+            var chargables = new HashSet<IPowerProvider>(ChargablesConnected());
+            if(Props.wirelessCharging) chargables.AddRange(ChargablesOnPad().ToList());
+            return chargables;
+        }
+
         private IEnumerable<Thing> ThingsOnPad()
         {
+            if(!parent.Spawned) return new List<Thing>();
             return parent.Map.thingGrid.ThingsAt(parent.def.hasInteractionCell ? parent.InteractionCell : parent.Position);
         }
 
@@ -68,20 +94,18 @@ namespace FrontierDevelopments.Cyberization.Power
         // TODO improve performance somehow?
         public override void CompTick()
         {
-            if (_energySource.IsActive())
+            if (EnergySource.IsActive())
             {
-                var chargables = new HashSet<IPowerProvider>(ChargablesConnected());
-                if(Props.wirelessCharging) chargables.AddRange(ChargablesOnPad().ToList());
-                
+                var chargables = ValidChargeTargets().ToList();
                 if (chargables.Count > 0)
                 {
                     var ratePer = Rate / chargables.Count;
                     var consumed = chargables.Aggregate(0L, (sum, chargable) => sum + chargable.Charge(ratePer));
-                    _energySource.BaseConsumption = -consumed / Settings.ElectricRatio;
+                    EnergySource.BaseConsumption = -consumed / Settings.ElectricRatio;
                 }
                 else
                 {
-                    _energySource.BaseConsumption = 0;
+                    EnergySource.BaseConsumption = 0;
                 }
             }
 

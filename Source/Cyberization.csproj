@@ -77,6 +77,7 @@
     <Compile Include="Cyberization\Power\Alert_PartPowerBase.cs" />
     <Compile Include="Cyberization\Power\Alert_PartPowerLow.cs" />
     <Compile Include="Cyberization\Power\Alert_PawnCantSeekPower.cs" />
+    <Compile Include="Cyberization\Power\Harmony_Caravan_NeedsTracker.cs" />
     <Compile Include="Cyberization\Power\IChargeSource.cs" />
     <Compile Include="Cyberization\Power\PartCharger.cs" />
     <Compile Include="Cyberization\Power\CompPowerProvider.cs" />
