@@ -46,19 +46,19 @@ namespace FrontierDevelopments.Cyberization.Power
             return result;
         }
 
-        public static float TotalEnergy(Pawn pawn)
+        public static long TotalEnergy(Pawn pawn)
         {
-            return Providers(pawn).Aggregate(1f, (sum, provider) => sum + provider.Energy);
+            return Providers(pawn).Aggregate(0L, (sum, provider) => sum + provider.Energy);
         }
 
-        public static float TotalMaxEnergy(Pawn pawn)
+        public static long TotalMaxEnergy(Pawn pawn)
         {
-            return Providers(pawn).Aggregate(1f, (sum, provider) => sum + provider.MaxEnergy);
+            return Providers(pawn).Aggregate(0L, (sum, provider) => sum + provider.MaxEnergy);
         }
 
         public static float TotalEnergyPercent(Pawn pawn)
         {
-            return TotalEnergy(pawn) / TotalMaxEnergy(pawn);
+            return 1.0f * TotalEnergy(pawn) / TotalMaxEnergy(pawn);
         }
 
         private long _energy;
