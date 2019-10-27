@@ -10,7 +10,7 @@ namespace FrontierDevelopments.Cyberization.Parts
 {
     public class AddedPartDamageableProperties : HediffCompProperties
     {
-        public float healRate = 0f;
+        public float healRate = 1f;
         
         public AddedPartDamageableProperties()
         {
