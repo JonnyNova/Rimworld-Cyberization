@@ -35,7 +35,7 @@ namespace FrontierDevelopments.Cyberization.Parts
         {
             if (part.TryGetComp<AddedPartMaintenance>()?.NeedsMaintenance ?? false) return true;
             if (part.TryGetComp<AddedPartBreakdownable>()?.IsBrokenDown ?? false) return true;
-            if (part.TryGetComp<AddedPartDamageable>()?.Damaged ?? false) return true;
+            if (part.TryGetComp<AddedPartDamageable>()?.NeedsRepair ?? false) return true;
             return false;
         }
 

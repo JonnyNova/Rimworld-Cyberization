@@ -11,6 +11,7 @@ namespace FrontierDevelopments.Cyberization.Parts
     public class AddedPartDamageableProperties : HediffCompProperties
     {
         public float healRate = 1f;
+        public bool repairable = true;
         
         public AddedPartDamageableProperties()
         {
@@ -26,9 +27,13 @@ namespace FrontierDevelopments.Cyberization.Parts
 
         public float HealRate => Props.healRate;
 
+        public bool Repairable => Props.repairable;
+
         public bool Damaged =>  PartUtility.GetHediffsForPart(parent)
             .OfType<Hediff_Injury>()
             .Any(hediff => hediff.Severity > 0);
+
+        public bool NeedsRepair => Damaged && Repairable;
     }
 
     static class DisableNaturalHealing
