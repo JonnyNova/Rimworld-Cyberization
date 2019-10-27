@@ -26,6 +26,10 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public bool CanBeSatisfied => PowerProvider.Providers(pawn).Any();
 
+        public bool SeekSatisfaction => CurLevelPercentage <= Settings.SeekPowerPercent;
+
+        public bool Satisfied => CurLevelPercentage >= Settings.SeekPowerChargeTo;
+
         public override void NeedInterval()
         {
         }

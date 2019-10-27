@@ -9,7 +9,7 @@ namespace FrontierDevelopments.Cyberization.Power.Job
         {
             var need = pawn.needs.TryGetNeed<PartEnergyNeed>();
             if (need == null || !need.CanBeSatisfied) return true;
-            return need.CurLevelPercentage > Settings.SeekPowerPercent;
+            return need.Satisfied;
         }
     }
 }
