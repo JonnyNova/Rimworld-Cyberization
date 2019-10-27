@@ -31,17 +31,21 @@ namespace FrontierDevelopments.Cyberization.Parts
             return PartsWithFeature(pawn, typeof(AddedPartMaintenance));
         }
 
+        private static bool PartNeedsMaintenance(Hediff_AddedPart part)
+        {
+            if (part.TryGetComp<AddedPartMaintenance>()?.NeedsMaintenance ?? false) return true;
+            if (part.TryGetComp<AddedPartBreakdownable>()?.IsBrokenDown ?? false) return true;
+            return false;
+        }
+
         public static IEnumerable<Hediff_AddedPart> PartsNeedingMaintenance(Pawn pawn)
         {
-            return AddedParts(pawn)
-                .Where(part => part.TryGetComp<AddedPartMaintenance>()?.NeedsMaintenance ?? false);
+            return AddedParts(pawn).Where(PartNeedsMaintenance);
         }
 
         public static IEnumerable<Hediff_AddedPart> PartsNeedingMaintenanceUrgent(Pawn pawn)
         {
-            return AddedParts(pawn)
-                .Where(part => part.TryGetComp<AddedPartMaintenance>()?.NeedsMaintenance ?? false)
-                .Where(RequiresPartToLive<AddedPartMaintenance>);
+            return PartsNeedingMaintenance(pawn).Where(RequiresPartToLive<AddedPartMaintenance>);
         }
 
         public static bool NeedMaintenance(Pawn pawn)
