@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
 using Verse.AI;
 
@@ -23,6 +25,11 @@ namespace FrontierDevelopments.Cyberization.Power
             return map.listerBuildings
                 .allBuildingsColonist
                 .Where(IsChargeSource);
+        }
+
+        public static IEnumerable<IChargeSource> FindSources(Caravan caravan)
+        {
+            return FindSources(CaravanInventoryUtility.AllInventoryItems(caravan), true);
         }
 
         public static IEnumerable<IChargeSource> FindSources(ThingWithComps thing)

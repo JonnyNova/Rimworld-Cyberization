@@ -7,7 +7,7 @@ using Verse;
 
 namespace FrontierDevelopments.Cyberization.Power
 {
-    public class PartPowerUserCache : MapComponent
+    internal class PartPowerUserCache : MapComponent
     {
         private List<Pawn> _partPowerUsers;
 
@@ -34,7 +34,7 @@ namespace FrontierDevelopments.Cyberization.Power
         static class Patch_AlertsReadout_AlertsReadoutUpdate
         {
             [HarmonyPrefix]
-            static void UpdatePartUsersCache()
+            static void UpdateMapPartUsersCache()
             {
                 Find.Maps
                     .Select(map => map.GetComponent<PartPowerUserCache>())

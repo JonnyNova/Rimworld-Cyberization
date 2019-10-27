@@ -1,20 +1,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using FrontierDevelopments.Cyberization.Parts;
+using RimWorld;
 using Verse;
 
-namespace FrontierDevelopments.Cyberization.Power
+namespace FrontierDevelopments.Cyberization.Power.Alert
 {
-    public class Alert_PawnCantSeekPower : Alert_PartPowerBase
+    public class Alert_MapPawnCantSeekPower : Alert_MapPartPowerBase
     {
         private List<Pawn> _needPower;
         private List<Pawn> _needPowerLive;
         private List<Pawn> _needPowerMove;
 
+        protected override string MessageType => "Map";
         protected override string MessageKey => "CantSeekPartPower";
-        protected override List<Pawn> Users => _needPower;
-        protected override List<Pawn> UsersMove => _needPowerMove;
-        protected override List<Pawn> UsersLive => _needPowerLive;
+
+        protected override int UsersCount => _needPower.Count;
+        protected override int UsersMoveCount => _needPowerMove.Count;
+        protected override int UsersLiveCount => _needPowerLive.Count;
+        
+        public override AlertReport GetReport()
+        {
+            return AlertReport.CulpritsAre(_needPower);
+        }
 
         protected override void Update()
         {

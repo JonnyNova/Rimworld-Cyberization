@@ -74,9 +74,14 @@
     <Compile Include="Cyberization\Parts\Harmony_SolarFlare.cs" />
     <Compile Include="Cyberization\Parts\IncidentWorker_AddedPartBreakdown.cs" />
     <Compile Include="Cyberization\Parts\PartUtility.cs" />
-    <Compile Include="Cyberization\Power\Alert_PartPowerBase.cs" />
-    <Compile Include="Cyberization\Power\Alert_PartPowerLow.cs" />
-    <Compile Include="Cyberization\Power\Alert_PawnCantSeekPower.cs" />
+    <Compile Include="Cyberization\Power\Alert\Alert_CaravanCantSeekPartPower.cs" />
+    <Compile Include="Cyberization\Power\Alert\Alert_CaravanPartPowerLow.cs" />
+    <Compile Include="Cyberization\Power\Alert\Alert_MapPartPowerBase.cs" />
+    <Compile Include="Cyberization\Power\Alert\Alert_PartPowerBase.cs" />
+    <Compile Include="Cyberization\Power\Alert\Alert_MapPartPowerLow.cs" />
+    <Compile Include="Cyberization\Power\Alert\Alert_MapPawnCantSeekPower.cs" />
+    <Compile Include="Cyberization\Power\Alert\CacheCaravanPartUser.cs" />
+    <Compile Include="Cyberization\Power\Alert\CacheMapPartUser.cs" />
     <Compile Include="Cyberization\Power\Harmony_Caravan_NeedsTracker.cs" />
     <Compile Include="Cyberization\Power\IChargeSource.cs" />
     <Compile Include="Cyberization\Power\PartCharger.cs" />
@@ -87,7 +92,6 @@
     <Compile Include="Cyberization\Power\Job\JobGiver_SeekPartPower.cs" />
     <Compile Include="Cyberization\Power\Job\ThinkNode_PartPowerSatisfied.cs" />
     <Compile Include="Cyberization\Power\PartEnergyNeed.cs" />
-    <Compile Include="Cyberization\Power\PartPowerUserCache.cs" />
     <Compile Include="Cyberization\Power\PartPowerConsumer.cs" />
     <Compile Include="Cyberization\Settings.cs" />
   </ItemGroup>

@@ -3,14 +3,29 @@
     <Cyberization.AddPartBreakdown.Label>Cybernetic part breakdown</Cyberization.AddPartBreakdown.Label>
     <Cyberization.AddPartBreakdown.Text>{0}'s {1} has broken down. It will need to be repaired to restore full functionality.</Cyberization.AddPartBreakdown.Text>
 
-    <Cyberization.Alert.CantSeekPartPower.Label>{0} can't charge part power</Cyberization.Alert.CantSeekPartPower.Label>
-    <Cyberization.Alert.CantSeekPartPower.Text>Some colonists require power for their bionic parts to work and have no means to charge them. Colonists will suffer the following effects when their energy runs out:</Cyberization.Alert.CantSeekPartPower.Text>
+    <!-- Alerts -->
+    <!-- Map -->
+    
+    <Cyberization.Alert.Map.CantSeekPartPower.Label>{0} can't charge part power</Cyberization.Alert.Map.CantSeekPartPower.Label>
+    <Cyberization.Alert.Map.CantSeekPartPower.Text>Some colonists require power for their bionic parts to work and have no means to charge them. Colonists will suffer the following effects when their energy runs out:</Cyberization.Alert.Map.CantSeekPartPower.Text>
 
-    <Cyberization.Alert.LowPartPower.Label>{0} have low part power</Cyberization.Alert.LowPartPower.Label>
-    <Cyberization.Alert.LowPartPower.Text>Some colonists require power for their bionic parts to work and are running low. Colonists will suffer the following effects when their energy runs out:</Cyberization.Alert.LowPartPower.Text>
+    <Cyberization.Alert.Map.LowPartPower.Label>{0} have low part power</Cyberization.Alert.Map.LowPartPower.Label>
+    <Cyberization.Alert.Map.LowPartPower.Text>Some colonists require power for their bionic parts to work and are running low. Colonists will suffer the following effects when their energy runs out:</Cyberization.Alert.Map.LowPartPower.Text>
 
-    <Cyberization.Alert.PartPower.Fatal>{0} will die of organ failure</Cyberization.Alert.PartPower.Fatal>
-    <Cyberization.Alert.PartPower.Rescue>{0} will be unable to move</Cyberization.Alert.PartPower.Rescue>
-    <Cyberization.Alert.PartPower.Remaining>{0} will have reduced body part efficiency</Cyberization.Alert.PartPower.Remaining>
+    <Cyberization.Alert.Map.PartPower.Fatal>{0} will die of organ failure</Cyberization.Alert.Map.PartPower.Fatal>
+    <Cyberization.Alert.Map.PartPower.Rescue>{0} will be unable to move</Cyberization.Alert.Map.PartPower.Rescue>
+    <Cyberization.Alert.Map.PartPower.Remaining>{0} will have impaired body function</Cyberization.Alert.Map.PartPower.Remaining>
+
+    <!-- Caravan -->
+    
+    <Cyberization.Alert.Caravan.CantSeekPartPower.Label>{0} caravans have colonists that can't charge part power</Cyberization.Alert.Caravan.CantSeekPartPower.Label>
+    <Cyberization.Alert.Caravan.CantSeekPartPower.Text>Some caravans have colonists that require power for their bionic parts to work and have no means to charge them. These caravans will suffer the following effects when their colonist part energy runs out:</Cyberization.Alert.Caravan.CantSeekPartPower.Text>
+
+    <Cyberization.Alert.Caravan.LowPartPower.Label>{0} caravans have colonists with low part power</Cyberization.Alert.Caravan.LowPartPower.Label>
+    <Cyberization.Alert.Caravan.LowPartPower.Text>Some caravans have colonists that require power for their bionic parts to work and are running low. These caravans will suffer the following effects when their colonist part energy runs out:</Cyberization.Alert.Caravan.LowPartPower.Text>
+
+    <Cyberization.Alert.Caravan.PartPower.Fatal>{0} will have colonists die of organ failure</Cyberization.Alert.Caravan.PartPower.Fatal>
+    <Cyberization.Alert.Caravan.PartPower.Rescue>{0} will be slowed from downed colonists</Cyberization.Alert.Caravan.PartPower.Rescue>
+    <Cyberization.Alert.Caravan.PartPower.Remaining>{0} may be slowed from colonists with impaired body function</Cyberization.Alert.Caravan.PartPower.Remaining>
 
 </LanguageData>
