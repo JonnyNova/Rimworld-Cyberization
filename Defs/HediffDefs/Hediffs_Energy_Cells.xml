@@ -14,11 +14,66 @@
 
     <HediffDef ParentName="EnergyCellBase">
         <defName>EnergyCell</defName>
-        <label>Energy Cell</label>
+        <label>Bionic Energy Cell</label>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerProviderProperties">
                 <maxEnergy>500000</maxEnergy>
                 <maxRate>8</maxRate>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="EnergyCellBase">
+        <defName>BionicSupercapacitor</defName>
+        <label>Bionic Supercapacitor</label>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerProviderProperties">
+                <maxEnergy>125000</maxEnergy>
+                <maxRate>24</maxRate>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="EnergyCellBase">
+        <defName>AdvancedAMCore</defName>
+        <label>Advanced Anti-Matter Core</label>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerProviderProperties">
+                <maxEnergy>1000000</maxEnergy>
+                <maxRate>32</maxRate>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="EnergyCellBase">
+        <defName>AdvancedFusionHub</defName>
+        <label>Advanced Fusion-Hub</label>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerProviderProperties">
+                <maxEnergy>750000</maxEnergy>
+                <maxRate>10</maxRate>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="EnergyCellBase">
+        <defName>VanometricMinicell</defName>
+        <label>Vanometric Mini-cell</label>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerProviderProperties">
+                <maxEnergy>1000000</maxEnergy>
+                <maxRate>5</maxRate>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="EnergyCellBase">
+        <defName>ArchotechQuantumCell</defName>
+        <label>Archotech Quantum Cell</label>
+        <comps>
+            <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerProviderProperties">
+                <maxRate>50</maxRate>
+                <maxEnergy>5000000</maxEnergy>
             </li>
         </comps>
     </HediffDef>
