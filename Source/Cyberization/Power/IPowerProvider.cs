@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Harmony;
 using Verse;
 
 namespace FrontierDevelopments.Cyberization.Power
@@ -45,6 +44,21 @@ namespace FrontierDevelopments.Cyberization.Power
                 .OfType<IPowerProvider>();
             if(hediffProviders != null) result.AddRange(hediffProviders);
             return result;
+        }
+
+        public static float TotalEnergy(Pawn pawn)
+        {
+            return Providers(pawn).Aggregate(1f, (sum, provider) => sum + provider.Energy);
+        }
+
+        public static float TotalMaxEnergy(Pawn pawn)
+        {
+            return Providers(pawn).Aggregate(1f, (sum, provider) => sum + provider.MaxEnergy);
+        }
+
+        public static float TotalEnergyPercent(Pawn pawn)
+        {
+            return TotalEnergy(pawn) / TotalMaxEnergy(pawn);
         }
 
         private long _energy;

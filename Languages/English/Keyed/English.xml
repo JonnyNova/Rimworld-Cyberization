@@ -3,10 +3,14 @@
     <Cyberization.AddPartBreakdown.Label>Cybernetic part breakdown</Cyberization.AddPartBreakdown.Label>
     <Cyberization.AddPartBreakdown.Text>{0}'s {1} has broken down. It will need to be repaired to restore full functionality.</Cyberization.AddPartBreakdown.Text>
 
-    <Cyberization.AlertPartPower.Label>{0} need part power</Cyberization.AlertPartPower.Label>
-    <Cyberization.AlertPartPower.Text>Some colonists require power for their bionic parts to work and have no means to charge them. Colonists will suffer these effects when their energy runs out:</Cyberization.AlertPartPower.Text>
-    <Cyberization.AlertPartPower.Fatal>{0} will die of organ failure</Cyberization.AlertPartPower.Fatal>
-    <Cyberization.AlertPartPower.Rescue>{0} will be unable to move</Cyberization.AlertPartPower.Rescue>
-    <Cyberization.AlertPartPower.Remaining>{0} will have reduced body part efficiency</Cyberization.AlertPartPower.Remaining>
+    <Cyberization.Alert.CantSeekPartPower.Label>{0} can't charge part power</Cyberization.Alert.CantSeekPartPower.Label>
+    <Cyberization.Alert.CantSeekPartPower.Text>Some colonists require power for their bionic parts to work and have no means to charge them. Colonists will suffer the following effects when their energy runs out:</Cyberization.Alert.CantSeekPartPower.Text>
+
+    <Cyberization.Alert.LowPartPower.Label>{0} have low part power</Cyberization.Alert.LowPartPower.Label>
+    <Cyberization.Alert.LowPartPower.Text>Some colonists require power for their bionic parts to work and are running low. Colonists will suffer the following effects when their energy runs out:</Cyberization.Alert.LowPartPower.Text>
+
+    <Cyberization.Alert.PartPower.Fatal>{0} will die of organ failure</Cyberization.Alert.PartPower.Fatal>
+    <Cyberization.Alert.PartPower.Rescue>{0} will be unable to move</Cyberization.Alert.PartPower.Rescue>
+    <Cyberization.Alert.PartPower.Remaining>{0} will have reduced body part efficiency</Cyberization.Alert.PartPower.Remaining>
 
 </LanguageData>
