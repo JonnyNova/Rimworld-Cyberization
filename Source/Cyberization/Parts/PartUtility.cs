@@ -64,14 +64,17 @@ namespace FrontierDevelopments.Cyberization.Parts
             return PoweredPartsFor(pawn).Any();
         }
 
-        private static bool ToggleAndCheckPart<T>(Hediff_AddedPart part, Func<bool> callback)  where T : HediffComp, AddedPartEffectivenessModifier
+        private static bool ToggleAndCheckPart<T>(Hediff_AddedPart part, Func<bool> callback, bool fallback = false)  where T : HediffComp, AddedPartEffectivenessModifier
         {
-            part.TryGetComp<T>().SetDisabled(true);
+            var comp = part.TryGetComp<T>();
+            if (comp == null) return fallback;
+            
+            comp.SetDisabled(true);
             part.pawn.health.capacities.Notify_CapacityLevelsDirty();
 
             var result = callback();
 
-            part.TryGetComp<T>().SetDisabled(false);
+            comp.SetDisabled(false);
             part.pawn.health.capacities.Notify_CapacityLevelsDirty();
 
             return result;
@@ -84,7 +87,8 @@ namespace FrontierDevelopments.Cyberization.Parts
             // turn off all parts
             // checks if things such as both kidneys would be impacted
             parts
-                .Select(part => part.TryGetComp<T>())
+                .SelectMany(part => part.comps)
+                .OfType<T>()
                 .Do(comp => comp.SetDisabled(true));
             pawn.health.capacities.Notify_CapacityLevelsDirty();
 
@@ -92,7 +96,8 @@ namespace FrontierDevelopments.Cyberization.Parts
             
             // turn on all parts
             parts
-                .Select(part => part.TryGetComp<T>())
+                .SelectMany(part => part.comps)
+                .OfType<T>()
                 .Do(comp => comp.SetDisabled(false));
             pawn.health.capacities.Notify_CapacityLevelsDirty();
 
