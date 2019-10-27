@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using System.Linq;
 using Harmony;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace FrontierDevelopments.Cyberization.Power
@@ -32,6 +34,17 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public override void NeedInterval()
         {
+        }
+
+        public override void DrawOnGUI(
+            Rect rect,
+            int maxThresholdMarkers = 2147483647,
+            float customMargin = -1,
+            bool drawArrows = true,
+            bool doTooltip = true)
+        {
+            threshPercents = new List<float>(new []{Settings.SeekPowerPercent, Settings.SeekPowerChargeTo});
+            base.DrawOnGUI(rect, maxThresholdMarkers, customMargin, drawArrows, doTooltip);
         }
     }
 
