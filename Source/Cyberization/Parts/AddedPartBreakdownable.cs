@@ -16,6 +16,7 @@ namespace FrontierDevelopments.Cyberization.Parts
     public class AddedPartBreakdownable : HediffComp, AddedPartEffectivenessModifier
     {
         private bool _brokenDown;
+        private bool _disabled = false;
 
         public bool IsBrokenDown => _brokenDown;
         public bool CanBreakdown => !IsBrokenDown;
@@ -51,6 +52,11 @@ namespace FrontierDevelopments.Cyberization.Parts
             _brokenDown = false;
             Pawn.health.Notify_HediffChanged(parent);
             return true;
+        }
+
+        public void SetDisabled(bool disabled)
+        {
+            _disabled = disabled;
         }
 
         public override void CompExposeData()

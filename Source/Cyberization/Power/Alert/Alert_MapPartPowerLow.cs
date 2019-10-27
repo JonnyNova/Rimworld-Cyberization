@@ -29,8 +29,8 @@ namespace FrontierDevelopments.Cyberization.Power.Alert
             _lowPower = PartPowerUsers
                 .Where(pawn => pawn.needs.TryGetNeed<PartEnergyNeed>().SeekSatisfaction)
                 .ToList();
-            _lowPowerLive = _lowPower.Where(PartUtility.RequiresPowerToLive).ToList();
-            _lowPowerMove = _lowPower.Where(PartUtility.RequiresPowerForMovement).ToList();
+            _lowPowerLive = _lowPower.Where(PartUtility.RequiresPartsToLive<AddedPartPowerConsumer>).ToList();
+            _lowPowerMove = _lowPower.Where(PartUtility.RequiresPartsForMovement<AddedPartPowerConsumer>).ToList();
         }
     }
 }

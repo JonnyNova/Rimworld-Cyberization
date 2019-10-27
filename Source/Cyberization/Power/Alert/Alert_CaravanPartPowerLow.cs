@@ -28,8 +28,8 @@ namespace FrontierDevelopments.Cyberization.Power.Alert
         protected override void Update()
         {
             _needPower = CacheCaravanPartUser.PartPowerCaravans.Where(caravan => caravan.pawns.Any<Pawn>(pawn => pawn.needs.TryGetNeed<PartEnergyNeed>().SeekSatisfaction)).ToList();
-            _needPowerMove = _needPower.Where(caravan => caravan.pawns.Any<Pawn>(PartUtility.RequiresPowerForMovement)).ToList();
-            _needPowerLive = _needPower.Where(caravan => caravan.pawns.Any<Pawn>(PartUtility.RequiresPowerToLive)).ToList();
+            _needPowerMove = _needPower.Where(caravan => caravan.pawns.Any<Pawn>(PartUtility.RequiresPartsForMovement<AddedPartPowerConsumer>)).ToList();
+            _needPowerLive = _needPower.Where(caravan => caravan.pawns.Any<Pawn>(PartUtility.RequiresPartsToLive<AddedPartPowerConsumer>)).ToList();
         }
     }
 }

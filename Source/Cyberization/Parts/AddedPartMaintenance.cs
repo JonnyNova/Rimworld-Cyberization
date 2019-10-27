@@ -26,6 +26,7 @@ namespace FrontierDevelopments.Cyberization.Parts
         private const float ConditionBadCeiling = 0.33f;
         
         private long _condition;
+        private bool _disabled = false;
 
         private AddedPartMaintenanceProperties Props => (AddedPartMaintenanceProperties) props;
         
@@ -40,6 +41,8 @@ namespace FrontierDevelopments.Cyberization.Parts
         {
             get
             {
+                if (_disabled) return 0f;
+
                 switch(Condition)
                 {
                     case AddedPartCondition.Good: return 1f;
@@ -63,6 +66,13 @@ namespace FrontierDevelopments.Cyberization.Parts
         }
 
         public bool CanBeMaintained => _condition < Props.maxCondition;
+
+        public bool NeedsMaintenance => Percent <= Settings.SeekMaintenancePercent;
+
+        public void SetDisabled(bool disabled)
+        {
+            _disabled = disabled;
+        }
 
         public void DoMaintenance(int amount)
         {

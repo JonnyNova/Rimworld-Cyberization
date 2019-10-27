@@ -27,8 +27,8 @@ namespace FrontierDevelopments.Cyberization.Power.Alert
         protected override void Update()
         {
             _needPower = PartPowerUsers.Where(pawn => ChargeSourceUtility.ClosestChargeSource(pawn) == null).ToList();
-            _needPowerLive = _needPower.Where(PartUtility.RequiresPowerToLive).ToList();
-            _needPowerMove = _needPower.Where(PartUtility.RequiresPowerForMovement).ToList();
+            _needPowerLive = _needPower.Where(PartUtility.RequiresPartsToLive<AddedPartPowerConsumer>).ToList();
+            _needPowerMove = _needPower.Where(PartUtility.RequiresPartsForMovement<AddedPartPowerConsumer>).ToList();
         }
     }
 }

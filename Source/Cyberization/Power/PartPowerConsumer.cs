@@ -20,13 +20,12 @@ namespace FrontierDevelopments.Cyberization.Power
     public class PartPowerConsumer : HediffComp, IPowerConsumer
     {
         private bool _powered = true;
-        private bool _override = false;
 
         PartPowerConsumerProperties Props => (PartPowerConsumerProperties) props;
 
         public bool ShouldConsume => Props.essential || !(Pawn.Downed || Pawn.InBed());
 
-        public bool Powered => _powered && !_override;
+        public bool Powered => _powered;
 
         public int Priority => Props.priority;
 
@@ -34,12 +33,6 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public override string CompTipStringExtra => Powered ? null : "NoPower".Translate();
 
-        // Used when checking capabilities
-        public void OverridePowered(bool set)
-        {
-            // intentionally opposite here
-            _override = !set;
-        }
         public void PowerTick()
         {
             if (ShouldConsume)
