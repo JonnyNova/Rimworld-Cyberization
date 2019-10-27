@@ -10,9 +10,9 @@ namespace FrontierDevelopments.Cyberization.Parts
     {
         private static IEnumerable<AddedPartSolarFlareVulnerability> PartsToUpdate(ICollection<Map> maps)
         {
-            return maps
-                .SelectMany(map => map.listerThings.ThingsMatching(ThingRequest.ForGroup(ThingRequestGroup.Pawn)))
-                .OfType<Pawn>()
+            return Find.WorldObjects.Caravans
+                .SelectMany(caravan => caravan.PawnsListForReading)
+                .Concat(maps.SelectMany(map => map.mapPawns.AllPawns))
                 .SelectMany(pawn => pawn.health.hediffSet.hediffs)
                 .OfType<HediffWithComps>()
                 .SelectMany(hediff => hediff.comps)
