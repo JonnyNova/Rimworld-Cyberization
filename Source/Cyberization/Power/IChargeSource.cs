@@ -48,7 +48,9 @@ namespace FrontierDevelopments.Cyberization.Power
                             .OfType<IChargeSource>()
                             .Any(charger =>
                                 charger.Available
-                                && charger.CanUse(pawn));
+                                && charger.CanUse(pawn)
+                                && pawn.Map.reservationManager
+                                    .CanReserve(pawn, new LocalTargetInfo(thing)));
                     default:
                         return false;
                 }
@@ -57,6 +59,8 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public static Thing ClosestChargeSource(Pawn pawn)
         {
+            
+            
             return GenClosest.ClosestThingReachable(
                 pawn.Position,
                 pawn.Map,
