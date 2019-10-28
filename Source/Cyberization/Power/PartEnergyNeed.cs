@@ -28,9 +28,9 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public bool CanBeSatisfied => PowerProvider.Providers(pawn).Any();
 
-        public bool SeekSatisfaction => CurLevelPercentage <= Settings.SeekPowerPercent;
+        public bool SeekSatisfaction => CurLevelPercentage <= Mod.Settings.SeekPowerPercent;
 
-        public bool Satisfied => CurLevelPercentage >= Settings.SeekPowerChargeTo;
+        public bool Satisfied => CurLevelPercentage >= Mod.Settings.SeekPowerChargeTo;
 
         public override void NeedInterval()
         {
@@ -43,7 +43,7 @@ namespace FrontierDevelopments.Cyberization.Power
             bool drawArrows = true,
             bool doTooltip = true)
         {
-            threshPercents = new List<float>(new []{Settings.SeekPowerPercent, Settings.SeekPowerChargeTo});
+            threshPercents = new List<float>(new []{ Mod.Settings.SeekPowerPercent, Mod.Settings.SeekPowerChargeTo });
             base.DrawOnGUI(rect, maxThresholdMarkers, customMargin, drawArrows, doTooltip);
         }
     }

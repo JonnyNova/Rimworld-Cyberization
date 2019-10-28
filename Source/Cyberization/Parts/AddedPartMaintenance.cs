@@ -71,8 +71,8 @@ namespace FrontierDevelopments.Cyberization.Parts
         // check if this is being repaired
         // used to keep the patient in the bed until finished
         public bool NeedsMaintenance => Percent <= (_maintainedLastTick
-                                            ? Settings.SatisifiedMaintenancePercent
-                                            : Settings.SeekMaintenancePercent);
+                                            ? Mod.Settings.SatisfiedMaintenancePercent
+                                            : Mod.Settings.SeekMaintenancePercent);
 
         public void SetDisabled(bool disabled)
         {

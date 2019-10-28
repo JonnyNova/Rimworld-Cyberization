@@ -101,7 +101,7 @@ namespace FrontierDevelopments.Cyberization.Power
                 {
                     var ratePer = Rate / chargables.Count;
                     var consumed = chargables.Aggregate(0L, (sum, chargable) => sum + chargable.Charge(ratePer));
-                    EnergySource.BaseConsumption = -consumed / Settings.ElectricRatio;
+                    EnergySource.BaseConsumption = -consumed / Mod.Settings.ElectricRatio;
                 }
                 else
                 {

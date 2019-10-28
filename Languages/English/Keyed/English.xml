@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+    <Cyberization.ModName>Frontier Developments Cyberization</Cyberization.ModName>
+
     <Cyberization.AddPartBreakdown.Label>Cybernetic part breakdown</Cyberization.AddPartBreakdown.Label>
     <Cyberization.AddPartBreakdown.Text>{0}'s {1} has broken down. It will need to be repaired to restore full functionality.</Cyberization.AddPartBreakdown.Text>
 
@@ -28,4 +30,10 @@
     <Cyberization.Alert.Caravan.PartPower.Rescue>{0} will be slowed from downed colonists</Cyberization.Alert.Caravan.PartPower.Rescue>
     <Cyberization.Alert.Caravan.PartPower.Remaining>{0} may be slowed from colonists with impaired body function</Cyberization.Alert.Caravan.PartPower.Remaining>
 
+    <!-- Settings -->
+    <Cyberization.Settings.Power.ElectricRatio>Electric Watt-days to Part Power Ratio</Cyberization.Settings.Power.ElectricRatio>
+    <Cyberization.Settings.Power.SeekPowerPercent>Seek part power percent</Cyberization.Settings.Power.SeekPowerPercent>
+    <Cyberization.Settings.Power.SeekPowerChargeTo>Charge part power until</Cyberization.Settings.Power.SeekPowerChargeTo>
+    <Cyberization.Settings.Maintenance.SeekMaintenancePercent>Seek part maintaince percent</Cyberization.Settings.Maintenance.SeekMaintenancePercent>
+    <Cyberization.Settings.Maintenance.SatisfiedMaintenancePercent>Part maintaince satisfied percent</Cyberization.Settings.Maintenance.SatisfiedMaintenancePercent>
 </LanguageData>
