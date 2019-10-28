@@ -32,6 +32,8 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public bool Satisfied => CurLevelPercentage >= Mod.Settings.SeekPowerChargeTo;
 
+        public override bool ShowOnNeedList => Mod.Settings.UsePartPower;
+
         public override void NeedInterval()
         {
         }

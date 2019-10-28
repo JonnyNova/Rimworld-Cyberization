@@ -23,7 +23,7 @@ namespace FrontierDevelopments.Cyberization.Power
 
         PartPowerConsumerProperties Props => (PartPowerConsumerProperties) props;
 
-        public bool ShouldConsume => Props.essential || !(Pawn.Downed || Pawn.InBed());
+        public bool ShouldConsume => Mod.Settings.UsePartPower || Props.essential || !(Pawn.Downed || Pawn.InBed());
 
         public bool Powered => _powered;
 

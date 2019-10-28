@@ -14,8 +14,15 @@ namespace FrontierDevelopments.Cyberization.Parts
     public class AddedPartPowerConsumer : PartPowerConsumer, AddedPartEffectivenessModifier
     {
         private bool _disabled;
-        
-        public float PartEffectiveness => Powered && !_disabled ? 1f : 0f;
+
+        public float PartEffectiveness
+        {
+            get
+            {
+                if (!Mod.Settings.UsePartPower) return 1f;
+                return Powered && !_disabled ? 1f : 0f;
+            }
+        }
 
         public void SetDisabled(bool disabled)
         {

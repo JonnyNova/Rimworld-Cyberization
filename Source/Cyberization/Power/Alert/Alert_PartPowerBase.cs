@@ -37,7 +37,7 @@ namespace FrontierDevelopments.Cyberization.Power.Alert
             get
             {
                 Update();
-                return UsersCount > 0;
+                return Mod.Settings.UsePartPower && UsersCount > 0;
             }
         }
 

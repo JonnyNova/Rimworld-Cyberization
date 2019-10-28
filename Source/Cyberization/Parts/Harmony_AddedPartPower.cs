@@ -82,7 +82,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             static void Postfix(Pawn __instance)
             {
                 // Only tick power if the pawn can fill the need
-                if (__instance.Spawned || __instance.IsCaravanMember())
+                if (Mod.Settings.UsePartPower && (__instance.Spawned || __instance.IsCaravanMember()))
                 {
                     TickPowerProviders(__instance);
                     TickPowerConsumers(__instance);

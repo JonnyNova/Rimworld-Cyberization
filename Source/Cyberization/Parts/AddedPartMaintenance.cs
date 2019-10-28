@@ -36,7 +36,9 @@ namespace FrontierDevelopments.Cyberization.Parts
             _condition = Props.maxCondition;
         }
 
-        public float Percent => _condition * 1.0f / Props.maxCondition;
+        private long Condition => Mod.Settings.UsePartMaintenance ? _condition : Props.maxCondition;
+
+        public float Percent => Condition * 1.0f / Props.maxCondition;
 
         public float PartEffectiveness
         {
@@ -44,7 +46,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             {
                 if (_disabled) return 0f;
 
-                switch(Condition)
+                switch(Status)
                 {
                     case AddedPartCondition.Good: return 1f;
                     case AddedPartCondition.Okay: return 0.66f;
@@ -55,7 +57,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             }
         }
 
-        public AddedPartCondition Condition
+        public AddedPartCondition Status
         {
             get
             {
@@ -66,7 +68,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             }
         }
 
-        public bool CanBeMaintained => _condition < Props.maxCondition;
+        public bool CanBeMaintained => Condition < Props.maxCondition;
 
         // check if this is being repaired
         // used to keep the patient in the bed until finished
@@ -81,7 +83,7 @@ namespace FrontierDevelopments.Cyberization.Parts
 
         public void DoMaintenance(int amount)
         {
-            var lastCondition = Condition;
+            var lastCondition = Status;
             if (_condition + amount > Props.maxCondition) _condition = Props.maxCondition;
             else _condition += amount;
             CheckForCapacityChange(lastCondition);
@@ -90,8 +92,8 @@ namespace FrontierDevelopments.Cyberization.Parts
 
         public override void CompPostTick(ref float severityAdjustment)
         {
-            if(_condition <= 0) return;
-            var lastPartCondition = Condition;
+            if(!Mod.Settings.UsePartMaintenance || _condition <= 0) return;
+            var lastPartCondition = Status;
             _condition -= 1;
             CheckForCapacityChange(lastPartCondition);
             _maintainedLastTick = false;
@@ -99,7 +101,7 @@ namespace FrontierDevelopments.Cyberization.Parts
 
         private void CheckForCapacityChange(AddedPartCondition lastCondition)
         {
-            if(lastCondition != Condition)
+            if(lastCondition != Status)
             {
                 Pawn.health.Notify_HediffChanged(parent);
             }
@@ -107,7 +109,7 @@ namespace FrontierDevelopments.Cyberization.Parts
 
         public override string CompTipStringExtra => 
             "Condition: " + (int) (Percent * 100) + "%" + 
-            (Condition != AddedPartCondition.Good 
+            (Status != AddedPartCondition.Good 
                 ? ", -" + 100 * (1 - PartEffectiveness) + "% " + "PartEfficiency".Translate() 
                 : "");
 

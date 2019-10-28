@@ -20,7 +20,7 @@ namespace FrontierDevelopments.Cyberization.Parts
 
         protected override bool CanFireNowSub(IncidentParms parms)
         {
-            return FindTargets().Any();
+            return Mod.Settings.UsePartBreakdowns && FindTargets().Any();
         }
 
         protected override bool TryExecuteWorker(IncidentParms parms)
