@@ -76,6 +76,7 @@
     <Compile Include="Cyberization\Parts\AddedPartPowerProvider.cs" />
     <Compile Include="Cyberization\Parts\AddedPartSolarFlareVulnerability.cs" />
     <Compile Include="Cyberization\Parts\Harmony_AddedPartPower.cs" />
+    <Compile Include="Cyberization\Parts\Harmony_FloatMenuMakerMap.cs" />
     <Compile Include="Cyberization\Parts\Harmony_PartEffectiveness.cs" />
     <Compile Include="Cyberization\Parts\Harmony_SolarFlare.cs" />
     <Compile Include="Cyberization\Parts\IncidentWorker_AddedPartBreakdown.cs" />
