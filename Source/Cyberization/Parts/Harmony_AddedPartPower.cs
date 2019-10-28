@@ -98,7 +98,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             {
                 if (PowerConsumer.All(__result).Any() && !PowerProvider.Providers(__result).Any())
                 {
-                    __result.health.AddHediff(CyberizationDefOf.EnergyCell, __result.RaceProps.body.corePart);
+                    __result.health.AddHediff(CyberizationDefOf.BionicEnergyCell, __result.RaceProps.body.corePart);
                 }
                 return __result;
             }

@@ -8,7 +8,7 @@ namespace FrontierDevelopments.Cyberization
     {
         public static JobDef SeekPartPower;
         public static NeedDef PartEnergy;
-        public static HediffDef EnergyCell;
+        public static HediffDef BionicEnergyCell;
 
         public static JobDef Cyberization_FixBreakdown;
         public static JobDef Cyberization_RepairPartDamage;

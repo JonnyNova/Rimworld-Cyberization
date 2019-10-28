@@ -13,7 +13,7 @@
     </HediffDef>
 
     <HediffDef ParentName="EnergyCellBase">
-        <defName>EnergyCell</defName>
+        <defName>BionicEnergyCell</defName>
         <label>Bionic Energy Cell</label>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerProviderProperties">

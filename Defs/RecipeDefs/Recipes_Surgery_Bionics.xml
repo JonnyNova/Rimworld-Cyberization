@@ -297,4 +297,90 @@
         </appliedOnFixedBodyParts>
         <addsHediff>Megashunt</addsHediff>
     </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallBionicEnergyCell</defName>
+        <label>install bionic energy cell</label>
+        <description>Install a bionic energy cell.</description>
+        <workerClass>Recipe_InstallImplant</workerClass>
+        <jobString>Installing bionic energy cell.</jobString>
+        <workAmount>3700</workAmount>
+        <deathOnFailedSurgeryChance>0.01</deathOnFailedSurgeryChance>
+        <skillRequirements>
+        <Medicine>8</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>3</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>BionicEnergyCell</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>BionicEnergyCell</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Torso</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BionicEnergyCell</addsHediff>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallBionicSupercapacitor</defName>
+        <label>install bionic supercapacitor</label>
+        <description>Install a bionic supercapacitor.</description>
+        <workerClass>Recipe_InstallImplant</workerClass>
+        <jobString>Installing bionic supercapacitor.</jobString>
+        <workAmount>3700</workAmount>
+        <deathOnFailedSurgeryChance>0.01</deathOnFailedSurgeryChance>
+        <skillRequirements>
+        <Medicine>8</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>3</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>BionicSupercapacitor</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>BionicSupercapacitor</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Torso</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BionicSupercapacitor</addsHediff>
+    </RecipeDef>
 </Defs>

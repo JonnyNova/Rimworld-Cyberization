@@ -41,4 +41,90 @@
     </appliedOnFixedBodyParts>
     <addsHediff>ArchotechVibroblade</addsHediff>
   </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallArchotechQuantumCell</defName>
+        <label>install archotech quantum cell</label>
+        <description>Install an archotech quantum cell.</description>
+        <workerClass>Recipe_InstallImplant</workerClass>
+        <jobString>Installing archotech quantum cell.</jobString>
+        <workAmount>4000</workAmount>
+        <deathOnFailedSurgeryChance>0.01</deathOnFailedSurgeryChance>
+        <skillRequirements>
+        <Medicine>8</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>3</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>ArchotechQuantumCell</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>ArchotechQuantumCell</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Torso</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>ArchotechQuantumCell</addsHediff>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallVanometricMinicell</defName>
+        <label>install vanometric mini-cell</label>
+        <description>Install a vanometric mini-cell.</description>
+        <workerClass>Recipe_InstallImplant</workerClass>
+        <jobString>Installing vanometric mini-cell.</jobString>
+        <workAmount>4000</workAmount>
+        <deathOnFailedSurgeryChance>0.01</deathOnFailedSurgeryChance>
+        <skillRequirements>
+        <Medicine>8</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>3</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>VanometricMinicell</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>VanometricMinicell</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Torso</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>VanometricMinicell</addsHediff>
+    </RecipeDef>
 </Defs>
