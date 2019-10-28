@@ -61,13 +61,12 @@
     <Compile Include="Cyberization\Implants\ImplantPowered.cs" />
     <Compile Include="Cyberization\Implants\ThoughtWorker_JoyWire.cs" />
     <Compile Include="Cyberization\CyberizationDefOf.cs" />
-    <Compile Include="Cyberization\Maintenance\Harmony_HealthAIUtility.cs" />
-    <Compile Include="Cyberization\Maintenance\Job\JobDriver_BaseMaintenance.cs" />
-    <Compile Include="Cyberization\Maintenance\Job\JobDriver_FixBreakdown.cs" />
-    <Compile Include="Cyberization\Maintenance\Job\JobDriver_RepairPartDamage.cs" />
-    <Compile Include="Cyberization\Maintenance\Job\JobDriver_RountinePartMaintenance.cs" />
-    <Compile Include="Cyberization\Maintenance\Job\WorkGiver_MaintainPart.cs" />
     <Compile Include="Cyberization\Mod.cs" />
+    <Compile Include="Cyberization\Parts\Job\JobDriver_BaseMaintenance.cs" />
+    <Compile Include="Cyberization\Parts\Job\JobDriver_FixBreakdown.cs" />
+    <Compile Include="Cyberization\Parts\Job\JobDriver_RepairPartDamage.cs" />
+    <Compile Include="Cyberization\Parts\Job\JobDriver_RountinePartMaintenance.cs" />
+    <Compile Include="Cyberization\Parts\Job\WorkGiver_MaintainPart.cs" />
     <Compile Include="Cyberization\Parts\AddedPartBreakdownable.cs" />
     <Compile Include="Cyberization\Parts\AddedPartDamageable.cs" />
     <Compile Include="Cyberization\Parts\AddedPartEffectivenessModifier.cs" />
@@ -77,6 +76,7 @@
     <Compile Include="Cyberization\Parts\AddedPartSolarFlareVulnerability.cs" />
     <Compile Include="Cyberization\Parts\Harmony_AddedPartPower.cs" />
     <Compile Include="Cyberization\Parts\Harmony_FloatMenuMakerMap.cs" />
+    <Compile Include="Cyberization\Parts\Harmony_HealthAIUtility.cs" />
     <Compile Include="Cyberization\Parts\Harmony_PartEffectiveness.cs" />
     <Compile Include="Cyberization\Parts\Harmony_SolarFlare.cs" />
     <Compile Include="Cyberization\Parts\IncidentWorker_AddedPartBreakdown.cs" />

@@ -1,10 +1,9 @@
 using System.Linq;
-using FrontierDevelopments.Cyberization.Parts;
 using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace FrontierDevelopments.Cyberization.Maintenance.Job
+namespace FrontierDevelopments.Cyberization.Parts.Job
 {
     public class WorkGiver_MaintainPart : WorkGiver_Scanner
     {

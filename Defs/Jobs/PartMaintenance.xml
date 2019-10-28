@@ -3,7 +3,7 @@
     <WorkGiverDef>
         <defName>Cyberization_MaintainPart</defName>
         <label>maintain cybernetics</label>
-        <giverClass>FrontierDevelopments.Cyberization.Maintenance.Job.WorkGiver_MaintainPart</giverClass>
+        <giverClass>FrontierDevelopments.Cyberization.Parts.Job.WorkGiver_MaintainPart</giverClass>
         <priorityInType>100</priorityInType>
         <workType>Crafting</workType>
         <emergency>false</emergency>
@@ -16,7 +16,7 @@
 
     <JobDef>
         <defName>Cyberization_FixBreakdown</defName>
-        <driverClass>FrontierDevelopments.Cyberization.Maintenance.Job.JobDriver_FixBreakdown</driverClass>
+        <driverClass>FrontierDevelopments.Cyberization.Parts.Job.JobDriver_FixBreakdown</driverClass>
         <reportString>Maintaing maintaining cybernetics for TargetA.</reportString>
         <playerInterruptible>true</playerInterruptible>
         <casualInterruptible>false</casualInterruptible>
@@ -26,7 +26,7 @@
 
     <JobDef>
         <defName>Cyberization_RepairPartDamage</defName>
-        <driverClass>FrontierDevelopments.Cyberization.Maintenance.Job.JobDriver_RepairPartDamage</driverClass>
+        <driverClass>FrontierDevelopments.Cyberization.Parts.Job.JobDriver_RepairPartDamage</driverClass>
         <reportString>Maintaing maintaining cybernetics for TargetA.</reportString>
         <playerInterruptible>true</playerInterruptible>
         <casualInterruptible>false</casualInterruptible>
@@ -36,7 +36,7 @@
 
     <JobDef>
         <defName>Cyberization_RoutinePartMaintenance</defName>
-        <driverClass>FrontierDevelopments.Cyberization.Maintenance.Job.JobDriver_RountinePartMaintenance</driverClass>
+        <driverClass>FrontierDevelopments.Cyberization.Parts.Job.JobDriver_RountinePartMaintenance</driverClass>
         <reportString>Maintaing maintaining cybernetics for TargetA.</reportString>
         <playerInterruptible>true</playerInterruptible>
         <casualInterruptible>false</casualInterruptible>

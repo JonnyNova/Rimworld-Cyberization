@@ -3,7 +3,7 @@ using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace FrontierDevelopments.Cyberization.Maintenance.Job
+namespace FrontierDevelopments.Cyberization.Parts.Job
 {
     public abstract class JobDriver_BaseMaintenance : JobDriver
     {

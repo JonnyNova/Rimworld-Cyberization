@@ -1,9 +1,8 @@
-using FrontierDevelopments.Cyberization.Parts;
 using Harmony;
 using RimWorld;
 using Verse;
 
-namespace FrontierDevelopments.Cyberization.Maintenance
+namespace FrontierDevelopments.Cyberization.Parts
 {
     public class Harmony_HealthAIUtility
     {
