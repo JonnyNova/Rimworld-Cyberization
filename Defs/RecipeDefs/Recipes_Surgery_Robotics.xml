@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallRoboticEye</defName>
+        <label>install robotic visual orb</label>
+        <description>Install a robotic visual orb.</description>
+        <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
+        <jobString>Installing robotic visual orb.</jobString>
+        <workAmount>2000</workAmount>
+        <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+        <skillRequirements>
+        <Medicine>4</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>2</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>RoboticEye</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>RoboticEye</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+        <li>Eye</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>RoboticEye</addsHediff>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallRoboticArm</defName>
+        <label>install robotic arm</label>
+        <description>Install a robotic arm.</description>
+        <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
+        <jobString>Installing robotic arm.</jobString>
+        <workAmount>2000</workAmount>
+        <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+        <skillRequirements>
+        <Medicine>4</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>1</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>RoboticArm</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>RoboticArm</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+        <li>Shoulder</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>RoboticArm</addsHediff>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallRoboticHand</defName>
+        <label>install robotic hand</label>
+        <description>Install a robotic hand.</description>
+        <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
+        <jobString>Installing robotic hand.</jobString>
+        <workAmount>2000</workAmount>
+        <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+        <skillRequirements>
+        <Medicine>4</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>2</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>RoboticHand</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>RoboticHand</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+        <li>Hand</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>RoboticHand</addsHediff>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallRoboticLeg</defName>
+        <label>install robotic leg</label>
+        <description>Install a robotic leg.</description>
+        <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
+        <jobString>Installing robotic leg.</jobString>
+        <workAmount>2000</workAmount>
+        <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+        <skillRequirements>
+        <Medicine>4</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>1</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>RoboticLeg</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>RoboticLeg</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+        <li>Leg</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>RoboticLeg</addsHediff>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallRoboticJaw</defName>
+        <label>install robotic jaw</label>
+        <description>Install a robotic jaw.</description>
+        <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
+        <jobString>Installing robotic jaw.</jobString>
+        <workAmount>2000</workAmount>
+        <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+        <skillRequirements>
+        <Medicine>4</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>1</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>RoboticJaw</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>RoboticJaw</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+        <li>Jaw</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>RoboticJaw</addsHediff>
+    </RecipeDef>
+</Defs>

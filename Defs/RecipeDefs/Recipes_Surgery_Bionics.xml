@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallBionicHand</defName>
+        <label>install bionic hand</label>
+        <description>Install a bionic hand.</description>
+        <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
+        <jobString>Installing bionic hand.</jobString>
+        <workAmount>2500</workAmount>
+        <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+        <skillRequirements>
+        <Medicine>5</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>2</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>BionicHand</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>BionicHand</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+        <li>Hand</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BionicHand</addsHediff>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallBionicLung</defName>
+        <label>install bionic lung</label>
+        <description>Install a bionic lung.</description>
+        <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
+        <jobString>Installing bionic lung.</jobString>
+        <workAmount>2500</workAmount>
+        <skillRequirements>
+        <Medicine>5</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>2</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>BionicLung</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>BionicLung</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+        <li>Lung</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BionicLung</addsHediff>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallBionicKidney</defName>
+        <label>install bionic kidney</label>
+        <description>Install a bionic kidney.</description>
+        <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
+        <jobString>Installing bionic kidney.</jobString>
+        <workAmount>2500</workAmount>
+        <skillRequirements>
+        <Medicine>5</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>2</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>BionicKidney</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>BionicKidney</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+        <li>Kidney</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BionicKidney</addsHediff>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallBionicLiver</defName>
+        <label>install bionic liver</label>
+        <description>Install a bionic liver.</description>
+        <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
+        <jobString>Installing bionic liver.</jobString>
+        <workAmount>2500</workAmount>
+        <skillRequirements>
+        <Medicine>5</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>2</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>BionicLiver</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>BionicLiver</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+        <li>Liver</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BionicLiver</addsHediff>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallPainshunt</defName>
+        <label>install painshunt</label>
+        <description>Install a painshunt.</description>
+        <workerClass>Recipe_InstallImplant</workerClass>
+        <jobString>Installing painshunt.</jobString>
+        <workAmount>3700</workAmount>
+        <deathOnFailedSurgeryChance>0.10</deathOnFailedSurgeryChance>
+        <skillRequirements>
+        <Medicine>8</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>3</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>Painshunt</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>Painshunt</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+        <li>Brain</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>Painshunt</addsHediff>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallSleepshunt</defName>
+        <label>install sleepshunt</label>
+        <description>Install a sleepshunt.</description>
+        <workerClass>Recipe_InstallImplant</workerClass>
+        <jobString>Installing sleepshunt.</jobString>
+        <workAmount>3700</workAmount>
+        <deathOnFailedSurgeryChance>0.10</deathOnFailedSurgeryChance>
+        <skillRequirements>
+        <Medicine>8</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>3</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>Sleepshunt</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>Sleepshunt</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+        <li>Brain</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>Sleepshunt</addsHediff>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InstallMegashunt</defName>
+        <label>install megashunt</label>
+        <description>Install a megashunt.</description>
+        <workerClass>Recipe_InstallImplant</workerClass>
+        <jobString>Installing megashunt.</jobString>
+        <workAmount>3700</workAmount>
+        <deathOnFailedSurgeryChance>0.10</deathOnFailedSurgeryChance>
+        <skillRequirements>
+        <Medicine>8</Medicine>
+        </skillRequirements>
+        <ingredients>
+        <li>
+            <filter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            </filter>
+            <count>3</count>
+        </li>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>Megashunt</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <fixedIngredientFilter>
+        <categories>
+            <li>Medicine</li>
+        </categories>
+        <thingDefs>
+            <li>Megashunt</li>
+        </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+        <li>Brain</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>Megashunt</addsHediff>
+    </RecipeDef>
+</Defs>
