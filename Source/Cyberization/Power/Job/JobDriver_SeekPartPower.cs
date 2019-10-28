@@ -47,11 +47,6 @@ namespace FrontierDevelopments.Cyberization.Power.Job
                     || !pawn.CanReach(PowerSource, pathMode, Danger.Deadly));
 
             var charge = new Toil()
-                .FailOn(() =>
-                    charger == null
-                    || !charger.Available
-                    || EnergyNeed == null
-                    || !EnergyNeed.CanBeSatisfied)
                 .WithProgressBar(PowerSourceIndex, () => EnergyNeed.CurLevelPercentage);
             charge.defaultCompleteMode = ToilCompleteMode.Never;
             charge.AddEndCondition(() =>
