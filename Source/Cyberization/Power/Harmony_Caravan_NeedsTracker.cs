@@ -16,7 +16,7 @@ namespace FrontierDevelopments.Cyberization.Power
                 var charger = ChargeSourceUtility
                     .FindSources(CaravanInventoryUtility.AllInventoryItems(caravan), true)
                     .Where(source => source.Available)
-                    .OrderByDescending(source => source.RateAvailable(providers))
+                    .OrderByDescending(source => source.RateAvailable)
                     .First();
                 charger.Charge(pawn);
             }

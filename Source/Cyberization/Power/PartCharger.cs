@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using FrontierDevelopments.General;
+using FrontierDevelopments.General.Energy;
 using RimWorld;
 using Verse;
 
@@ -20,16 +20,16 @@ namespace FrontierDevelopments.Cyberization.Power
 
     public class PartCharger : ThingComp, IChargeSource
     {
-        private IEnergySource _energySource;
+        private IEnergyNode _energySource;
         private readonly List<Pawn> _connected = new List<Pawn>();
 
-        private IEnergySource EnergySource
+        private IEnergyNode EnergySource
         {
             get
             {
                 if (_energySource == null)
                 {
-                    _energySource = EnergySourceUtility.Find(parent);
+                    _energySource = parent.AllComps.OfType<IEnergyNode>().First();
                 }
 
                 return _energySource;
@@ -38,19 +38,27 @@ namespace FrontierDevelopments.Cyberization.Power
 
         private PartChargerProperties Props => (PartChargerProperties) props;
 
-        public bool Available => EnergySource.IsActive() && Rate > 0;
+        public bool Available => RateAvailable > 0;
 
-        public int Rate => (int) Math.Min(EnergySource.EnergyAvailable - EnergySource.BaseConsumption, Props.chargeRate);
-
-        public int RateAvailable(IEnumerable<IPowerProvider> providers)
+        public float Provide(float amount)
         {
-            return (ValidChargeTargets().Count() + providers.Count()) / Rate;
+            return _energySource.Provide(amount);
         }
+
+        public float Consume(float amount)
+        {
+            return _energySource.Consume(amount);
+        }
+
+        public float AmountAvailable => _energySource.AmountAvailable;
+        public float TotalAvailable => _energySource.TotalAvailable;
+        public float RateAvailable => _energySource.RateAvailable;
+        public float MaxRate => Props.chargeRate;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
-            _energySource = EnergySourceUtility.Find(parent);
+            _energySource = parent.AllComps.OfType<IEnergyNode>().First();
         }
 
         public void Charge(Pawn pawn)
@@ -94,18 +102,14 @@ namespace FrontierDevelopments.Cyberization.Power
         // TODO improve performance somehow?
         public override void CompTick()
         {
-            if (EnergySource.IsActive())
+            if (Available)
             {
                 var chargables = ValidChargeTargets().ToList();
                 if (chargables.Count > 0)
                 {
-                    var ratePer = Rate / chargables.Count;
-                    var consumed = chargables.Aggregate(0L, (sum, chargable) => sum + chargable.Charge(ratePer));
-                    EnergySource.BaseConsumption = -consumed / Mod.Settings.ElectricRatio;
-                }
-                else
-                {
-                    EnergySource.BaseConsumption = 0;
+                    var ratePer = RateAvailable / chargables.Count;
+                    var consumed = chargables.Aggregate(0L, (sum, chargable) => sum + chargable.Charge((long)ratePer));
+                    EnergySource.Consume(consumed / Mod.Settings.ElectricRatio / GenDate.TicksPerDay);
                 }
             }
 
@@ -114,9 +118,9 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public bool CanUse(Pawn pawn)
         {
-            if (parent.Faction != pawn.Faction 
+            if (parent.Faction != pawn.Faction
                 && parent.Faction.RelationWith(pawn.Faction).kind != FactionRelationKind.Ally) return false;
-            
+
             switch (pawn.RaceProps.intelligence)
             {
                 case Intelligence.Animal: return Props.wirelessCharging;
