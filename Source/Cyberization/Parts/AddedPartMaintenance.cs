@@ -26,6 +26,7 @@ namespace FrontierDevelopments.Cyberization.Parts
         private const float ConditionBadCeiling = 0.33f;
         
         private long _condition;
+        private bool _maintainedLastTick;
         private bool _disabled = false;
 
         private AddedPartMaintenanceProperties Props => (AddedPartMaintenanceProperties) props;
@@ -35,7 +36,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             _condition = Props.maxCondition;
         }
 
-        private float Percent => _condition * 1.0f / Props.maxCondition;
+        public float Percent => _condition * 1.0f / Props.maxCondition;
 
         public float PartEffectiveness
         {
@@ -67,7 +68,11 @@ namespace FrontierDevelopments.Cyberization.Parts
 
         public bool CanBeMaintained => _condition < Props.maxCondition;
 
-        public bool NeedsMaintenance => Percent <= Settings.SeekMaintenancePercent;
+        // check if this is being repaired
+        // used to keep the patient in the bed until finished
+        public bool NeedsMaintenance => Percent <= (_maintainedLastTick
+                                            ? Settings.SatisifiedMaintenancePercent
+                                            : Settings.SeekMaintenancePercent);
 
         public void SetDisabled(bool disabled)
         {
@@ -80,14 +85,16 @@ namespace FrontierDevelopments.Cyberization.Parts
             if (_condition + amount > Props.maxCondition) _condition = Props.maxCondition;
             else _condition += amount;
             CheckForCapacityChange(lastCondition);
+            _maintainedLastTick = true;
         }
 
         public override void CompPostTick(ref float severityAdjustment)
         {
             if(_condition <= 0) return;
-            var lastCondition = Condition;
+            var lastPartCondition = Condition;
             _condition -= 1;
-            CheckForCapacityChange(lastCondition);
+            CheckForCapacityChange(lastPartCondition);
+            _maintainedLastTick = false;
         }
 
         private void CheckForCapacityChange(AddedPartCondition lastCondition)
@@ -107,6 +114,7 @@ namespace FrontierDevelopments.Cyberization.Parts
         public override void CompExposeData()
         {
             Scribe_Values.Look(ref _condition, "condition");
+            Scribe_Values.Look(ref _maintainedLastTick, "maintainedLastTick");
         }
     }
 }

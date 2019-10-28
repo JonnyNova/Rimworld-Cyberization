@@ -7,5 +7,6 @@ namespace FrontierDevelopments.Cyberization
         public static float SeekPowerChargeTo = 0.90f;
 
         public static float SeekMaintenancePercent = 0.5f;
+        public static float SatisifiedMaintenancePercent = 0.99f;
     }
 }

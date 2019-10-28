@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <WorkGiverDef>
+        <defName>Cyberization_MaintainPart</defName>
+        <label>maintain cybernetics</label>
+        <giverClass>FrontierDevelopments.Cyberization.Maintenance.Job.WorkGiver_MaintainPart</giverClass>
+        <priorityInType>100</priorityInType>
+        <workType>Crafting</workType>
+        <emergency>false</emergency>
+        <verb>maintain</verb>
+        <gerund>maintaining</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </WorkGiverDef>
+
+    <JobDef>
+        <defName>Cyberization_FixBreakdown</defName>
+        <driverClass>FrontierDevelopments.Cyberization.Maintenance.Job.JobDriver_FixBreakdown</driverClass>
+        <reportString>Maintaing maintaining cybernetics for TargetA.</reportString>
+        <playerInterruptible>true</playerInterruptible>
+        <casualInterruptible>false</casualInterruptible>
+        <alwaysShowWeapon>false</alwaysShowWeapon>
+        <suspendable>true</suspendable>
+    </JobDef>
+
+    <JobDef>
+        <defName>Cyberization_RepairPartDamage</defName>
+        <driverClass>FrontierDevelopments.Cyberization.Maintenance.Job.JobDriver_RepairPartDamage</driverClass>
+        <reportString>Maintaing maintaining cybernetics for TargetA.</reportString>
+        <playerInterruptible>true</playerInterruptible>
+        <casualInterruptible>false</casualInterruptible>
+        <alwaysShowWeapon>false</alwaysShowWeapon>
+        <suspendable>true</suspendable>
+    </JobDef>
+
+    <JobDef>
+        <defName>Cyberization_RoutinePartMaintenance</defName>
+        <driverClass>FrontierDevelopments.Cyberization.Maintenance.Job.JobDriver_RountinePartMaintenance</driverClass>
+        <reportString>Maintaing maintaining cybernetics for TargetA.</reportString>
+        <playerInterruptible>true</playerInterruptible>
+        <casualInterruptible>false</casualInterruptible>
+        <alwaysShowWeapon>false</alwaysShowWeapon>
+        <suspendable>true</suspendable>
+    </JobDef>
+</Defs>

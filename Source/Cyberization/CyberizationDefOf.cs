@@ -9,6 +9,10 @@ namespace FrontierDevelopments.Cyberization
         public static JobDef SeekPartPower;
         public static NeedDef PartEnergy;
         public static HediffDef EnergyCell;
+
+        public static JobDef Cyberization_FixBreakdown;
+        public static JobDef Cyberization_RepairPartDamage;
+        public static JobDef Cyberization_RoutinePartMaintenance;
         
         static CyberizationDefOf()
         {

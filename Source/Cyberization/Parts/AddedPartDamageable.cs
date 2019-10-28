@@ -29,11 +29,15 @@ namespace FrontierDevelopments.Cyberization.Parts
 
         public bool Repairable => Props.repairable;
 
-        public bool Damaged =>  PartUtility.GetHediffsForPart(parent)
-            .OfType<Hediff_Injury>()
-            .Any(hediff => hediff.Severity > 0);
+        public bool Damaged =>  Injuries.Any(hediff => hediff.Severity > 0);
 
         public bool NeedsRepair => Damaged && Repairable;
+
+        private float PartHealth => parent.pawn.health.hediffSet.GetPartHealth(parent.Part);
+        
+        public float HealthPercent => Injuries.Aggregate(0f, (sum, injury) => sum + injury.Severity) / PartHealth;
+
+        private IEnumerable<Hediff_Injury> Injuries => PartUtility.GetHediffsForPart(parent).OfType<Hediff_Injury>();
     }
 
     static class DisableNaturalHealing

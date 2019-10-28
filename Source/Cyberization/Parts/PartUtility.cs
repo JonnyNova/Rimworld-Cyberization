@@ -39,24 +39,49 @@ namespace FrontierDevelopments.Cyberization.Parts
             return false;
         }
 
-        public static IEnumerable<Hediff_AddedPart> PartsNeedingMaintenance(Pawn pawn)
+        public static IEnumerable<AddedPartBreakdownable> PartsNeedingBreakdownRepair(Pawn pawn)
+        {
+            return pawn.health.hediffSet.hediffs
+                .OfType<HediffWithComps>()
+                .SelectMany(hediff => hediff.comps)
+                .OfType<AddedPartBreakdownable>()
+                .Where(part => part.IsBrokenDown);
+        }
+
+        public static IEnumerable<AddedPartDamageable> PartsNeedingDamageRepair(Pawn pawn)
+        {
+            return AddedParts(pawn)
+                .SelectMany(hediff => hediff.comps)
+                .OfType<AddedPartDamageable>()
+                .Where(part => part.NeedsRepair);
+        }
+
+        public static IEnumerable<AddedPartMaintenance> PartsNeedingRoutineMaintenance(Pawn pawn)
+        {
+            return AddedParts(pawn)
+                .SelectMany(hediff => hediff.comps)
+                .OfType<AddedPartMaintenance>()
+                .Where(part => part.NeedsMaintenance);
+        }
+
+        public static IEnumerable<Hediff_AddedPart> PartsNeedingAnyMaintenance(Pawn pawn)
         {
             return AddedParts(pawn).Where(PartNeedsMaintenance);
         }
 
-        public static IEnumerable<Hediff_AddedPart> PartsNeedingMaintenanceUrgent(Pawn pawn)
+        public static IEnumerable<Hediff_AddedPart> PartsNeedingAnyMaintenanceUrgent(Pawn pawn)
         {
-            return PartsNeedingMaintenance(pawn).Where(RequiresPartToLive<AddedPartMaintenance>);
+            return PartsNeedingAnyMaintenance(pawn).Where(RequiresPartToLive<AddedPartMaintenance>);
         }
 
         public static bool NeedMaintenance(Pawn pawn)
         {
-            return PartsNeedingMaintenance(pawn).Any();
+            return PartsNeedingAnyMaintenance(pawn).Any();
         }
 
         public static bool NeedMaintenanceUrgent(Pawn pawn)
         {
-            return PartsNeedingMaintenanceUrgent(pawn).Any();
+            return PartsNeedingAnyMaintenanceUrgent(pawn).Any();
         }
 
         public static bool HasPoweredParts(Pawn pawn)

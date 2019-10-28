@@ -62,6 +62,11 @@
     <Compile Include="Cyberization\Implants\ThoughtWorker_JoyWire.cs" />
     <Compile Include="Cyberization\CyberizationDefOf.cs" />
     <Compile Include="Cyberization\Maintenance\Harmony_HealthAIUtility.cs" />
+    <Compile Include="Cyberization\Maintenance\Job\JobDriver_BaseMaintenance.cs" />
+    <Compile Include="Cyberization\Maintenance\Job\JobDriver_FixBreakdown.cs" />
+    <Compile Include="Cyberization\Maintenance\Job\JobDriver_RepairPartDamage.cs" />
+    <Compile Include="Cyberization\Maintenance\Job\JobDriver_RountinePartMaintenance.cs" />
+    <Compile Include="Cyberization\Maintenance\Job\WorkGiver_MaintainPart.cs" />
     <Compile Include="Cyberization\Mod.cs" />
     <Compile Include="Cyberization\Parts\AddedPartBreakdownable.cs" />
     <Compile Include="Cyberization\Parts\AddedPartDamageable.cs" />
