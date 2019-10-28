@@ -47,7 +47,7 @@ namespace FrontierDevelopments.Cyberization.Power.Job
                     || !pawn.CanReach(PowerSource, pathMode, Danger.Deadly));
 
             var charge = new Toil()
-                .WithProgressBar(PowerSourceIndex, () => EnergyNeed.CurLevelPercentage);
+                .WithProgressBar(PowerSourceIndex, () => EnergyNeed.CurLevelPercentage, true);
             charge.defaultCompleteMode = ToilCompleteMode.Never;
             charge.AddEndCondition(() =>
                 EnergyNeed.CurLevelPercentage >= Mod.Settings.SeekPowerChargeTo
