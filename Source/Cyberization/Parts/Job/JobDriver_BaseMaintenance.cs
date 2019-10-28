@@ -22,10 +22,9 @@ namespace FrontierDevelopments.Cyberization.Parts.Job
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            var workSpeed = pawn.GetStatValue(StatDefOf.WorkSpeedGlobal);
-            
             this.FailOnDespawnedOrNull(TargetIndex.A);
             this.FailOn(() => !Patient.InBed());
+            this.FailOn(() => !pawn.CanReach(pawn, PathEndMode.ClosestTouch, Danger.Deadly));
             this.FailOn(() => Part == null || ShouldFail);
 
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch);
