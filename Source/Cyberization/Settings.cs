@@ -12,10 +12,10 @@ namespace FrontierDevelopments.Cyberization
         public float ElectricRatio = 1;
 
         public float SeekPowerPercent = 0.3f;
-        public float SeekPowerChargeTo = 0.9f;
+        public float SeekPowerChargeTo = 1f;
 
         public float SeekMaintenancePercent = 0.5f;
-        public float SatisfiedMaintenancePercent = 0.99f;
+        public float SatisfiedMaintenancePercent = 1f;
 
         public void DoWindowContents(Rect inRect)
         {
@@ -71,10 +71,10 @@ namespace FrontierDevelopments.Cyberization
             Scribe_Values.Look(ref ElectricRatio, "electricRatio", 1f);
 
             Scribe_Values.Look(ref SeekPowerPercent, "SeekPowerPercent", 0.3f);
-            Scribe_Values.Look(ref SeekPowerChargeTo, "SeekPowerChargeTo", 0.9f);
+            Scribe_Values.Look(ref SeekPowerChargeTo, "SeekPowerChargeTo", 1f);
 
             Scribe_Values.Look(ref SeekMaintenancePercent, "SeekMaintenancePercent", 0.5f);
-            Scribe_Values.Look(ref SatisfiedMaintenancePercent, "SatisfiedMaintenancePercent", 0.99f);
+            Scribe_Values.Look(ref SatisfiedMaintenancePercent, "SatisfiedMaintenancePercent", 1f);
         }
     }
 }

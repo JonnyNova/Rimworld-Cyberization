@@ -68,7 +68,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             }
         }
 
-        public bool CanBeMaintained => Condition < Props.maxCondition;
+        public bool CanBeMaintained => Condition < Props.maxCondition - 1;
 
         // check if this is being repaired
         // used to keep the patient in the bed until finished
