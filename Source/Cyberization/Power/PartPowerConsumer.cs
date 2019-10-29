@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using RimWorld;
 using Verse;
 
@@ -38,7 +37,7 @@ namespace FrontierDevelopments.Cyberization.Power
             if (ShouldConsume)
             {
                 var last = _powered;
-                _powered = PowerProvider.Providers(Pawn).Any(provider => provider.Consume(Props.powerPerTick) >= Props.powerPerTick);
+                _powered = PawnPartPowerNet.Get(Pawn).Consume(Props.powerPerTick) >= Props.powerPerTick;
                 if(last != _powered) Pawn.health.Notify_HediffChanged(parent);
             }
         }

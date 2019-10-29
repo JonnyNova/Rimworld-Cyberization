@@ -100,6 +100,7 @@
     <Compile Include="Cyberization\Power\Job\ThinkNode_PartPowerSatisfied.cs" />
     <Compile Include="Cyberization\Power\PartEnergyNeed.cs" />
     <Compile Include="Cyberization\Power\PartPowerConsumer.cs" />
+    <Compile Include="Cyberization\Power\PawnPartPowerNet.cs" />
     <Compile Include="Cyberization\Settings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

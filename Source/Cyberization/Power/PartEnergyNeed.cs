@@ -22,16 +22,15 @@ namespace FrontierDevelopments.Cyberization.Power
         {
             get
             {
-                var total = PowerProvider.Providers(pawn).Aggregate(0f, (sum, provider) => sum + provider.TotalAvailable);
+                var total = PawnPartPowerNet.Get(pawn).TotalAvailable;
                 if (total <= 0) return 1f;
                 return total;
             }
         }
-        
-        public override float CurLevel => 
-            PowerProvider.Providers(pawn).Aggregate(0f, (sum, provider) => sum + provider.AmountAvailable);
 
-        public bool CanBeSatisfied => PowerProvider.Providers(pawn).Any();
+        public override float CurLevel => PawnPartPowerNet.Get(pawn).AmountAvailable;
+
+        public bool CanBeSatisfied => PawnPartPowerNet.Get(pawn).MaxRate > 0;
 
         public bool SeekSatisfaction => CurLevelPercentage <= Mod.Settings.SeekPowerPercent;
 
@@ -96,8 +95,12 @@ namespace FrontierDevelopments.Cyberization.Power
             [HarmonyPostfix]
             static bool AddEnergySourceCheck(bool __result, Pawn_NeedsTracker __instance, NeedDef nd, Pawn ___pawn)
             {
+                var net = PawnPartPowerNet.Get(___pawn);
+
                 if (nd != CyberizationDefOf.PartEnergy) return __result;
-                return PowerProvider.Providers(___pawn).Any() || PowerConsumer.All(___pawn).Any();
+                return net.AmountAvailable > 0
+                       || net.Nodes.OfType<IPowerProvider>().Any()
+                       || PowerConsumer.All(___pawn).Any();
             }
         }
     }

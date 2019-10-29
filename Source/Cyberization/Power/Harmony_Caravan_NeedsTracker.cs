@@ -12,7 +12,6 @@ namespace FrontierDevelopments.Cyberization.Power
         {
             try
             {
-                var providers = PowerProvider.Providers(pawn).ToList();
                 var charger = ChargeSourceUtility
                     .FindSources(CaravanInventoryUtility.AllInventoryItems(caravan), true)
                     .Where(source => source.Available)

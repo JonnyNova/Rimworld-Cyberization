@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using FrontierDevelopments.General.Energy;
+using Harmony;
 using RimWorld;
 using Verse;
 
@@ -65,9 +65,9 @@ namespace FrontierDevelopments.Cyberization.Power
             _connected.Add(pawn);
         }
 
-        private IEnumerable<IPowerProvider> ValidChargeTargets()
+        private IEnumerable<IEnergyNode> ValidChargeTargets()
         {
-            var chargables = new HashSet<IPowerProvider>(ChargablesConnected());
+            var chargables = new HashSet<IEnergyNode>(ChargablesConnected());
             if(Props.wirelessCharging) chargables.AddRange(ChargablesOnPad().ToList());
             return chargables;
         }
@@ -78,24 +78,35 @@ namespace FrontierDevelopments.Cyberization.Power
             return parent.Map.thingGrid.ThingsAt(parent.def.hasInteractionCell ? parent.InteractionCell : parent.Position);
         }
 
-        private IEnumerable<IPowerProvider> ChargablesOnPad()
+        private IEnumerable<IEnergyNode> ChargablesOnPad()
         {
-            var result = new List<IPowerProvider>();
+            var result = new List<IEnergyNode>();
+            var things = ThingsOnPad().ToList();
+
+            // Pawn nets
             result.AddRange(
-                ThingsOnPad()
+                things
                     .OfType<Pawn>()
-                    .SelectMany(PowerProvider.Providers));
+                    .Select(PawnPartPowerNet.Get)
+                    .Cast<IEnergyNode>());
+
+            // Non pawn, not charger anything else
             result.AddRange(
-                ThingsOnPad()
+                things
                     .OfType<ThingWithComps>()
+                    .Where(thing => thing.GetType() != typeof(Pawn))
+                    .Where(thing => thing != parent)
                     .SelectMany(thing => thing.AllComps)
-                    .OfType<IPowerProvider>());
+                    .OfType<IEnergyNode>());
+
             return result;
         }
 
-        private IEnumerable<IPowerProvider> ChargablesConnected()
+        private IEnumerable<IEnergyNode> ChargablesConnected()
         {
-            return _connected.SelectMany(PowerProvider.Providers);
+            return _connected
+                .Select(PawnPartPowerNet.Get)
+                .Select(net => net as IEnergyNode);
         }
 
         // TODO improve performance somehow?
@@ -104,8 +115,11 @@ namespace FrontierDevelopments.Cyberization.Power
             if (Available)
             {
                 var chargables = ValidChargeTargets().ToList();
+                Log.Message("chargables count " + chargables.Count);
                 if (chargables.Count > 0)
                 {
+                    chargables.Do(l => Log.Message(l.ToString()));
+                    
                     var ratePer = RateAvailable / chargables.Count;
                     var consumed = chargables.Aggregate(0f, (sum, chargable) => sum + chargable.Provide(ratePer));
                     EnergySource.Consume(consumed / Mod.Settings.ElectricRatio / GenDate.TicksPerDay);

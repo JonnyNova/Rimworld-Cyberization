@@ -66,7 +66,8 @@ namespace FrontierDevelopments.Cyberization.Parts
 
         private static void TickPowerProviders(Pawn pawn)
         {
-            PowerProvider.Providers(pawn)?.Do(provider => provider.Tick());
+            // TODO rules for what is selected in what order
+            PawnPartPowerNet.Get(pawn)?.Nodes.OfType<IPowerProvider>().Do(provider => provider.Tick());
         }
 
         private static void TickPowerConsumers(Pawn pawn)
@@ -96,7 +97,8 @@ namespace FrontierDevelopments.Cyberization.Parts
             [HarmonyPostfix]
             static Pawn GeneratePartPowerProviderIfNeeded(Pawn __result)
             {
-                if (PowerConsumer.All(__result).Any() && !PowerProvider.Providers(__result).Any())
+                var net = PawnPartPowerNet.Get(__result);
+                if (PowerConsumer.All(__result).Any() && !net.Nodes.OfType<IPowerProvider>().Any())
                 {
                     __result.health.AddHediff(CyberizationDefOf.BionicEnergyCell, __result.RaceProps.body.corePart);
                 }

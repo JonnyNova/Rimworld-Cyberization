@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using FrontierDevelopments.General.Energy;
 using Verse;
 
@@ -12,49 +10,6 @@ namespace FrontierDevelopments.Cyberization.Power
 
     public class PowerProvider : IPowerProvider, IExposable
     {
-        // TODO rules for what is selected in what order
-        // TODO cache for each pawn
-        public static IEnumerable<IPowerProvider> Providers(Pawn pawn)
-        {
-            var result = new List<IPowerProvider>();
-            
-            // TODO this list is probably not stable
-            var items = pawn.inventory?.innerContainer
-                .OfType<ThingWithComps>()
-                .SelectMany(thing => thing.AllComps)
-                .OfType<IPowerProvider>();
-            if(items != null) result.AddRange(items);
-
-                // TODO this list is probably not stable
-            var apparelProviders = pawn.apparel?.WornApparel
-                .SelectMany(apparel => apparel.AllComps)
-                .OfType<IPowerProvider>();
-            if(apparelProviders != null) result.AddRange(apparelProviders);
-
-            // TODO this list is probably not stable
-            var hediffProviders = pawn.health?.hediffSet?.hediffs?
-                .OfType<HediffWithComps>()
-                .SelectMany(hediff => hediff.comps)
-                .OfType<IPowerProvider>();
-            if(hediffProviders != null) result.AddRange(hediffProviders);
-            return result;
-        }
-
-        public static float TotalEnergy(Pawn pawn)
-        {
-            return Providers(pawn).Aggregate(0f, (sum, provider) => sum + provider.RateAvailable);
-        }
-
-        public static float TotalMaxEnergy(Pawn pawn)
-        {
-            return Providers(pawn).Aggregate(0f, (sum, provider) => sum + provider.TotalAvailable);
-        }
-
-        public static float TotalEnergyPercent(Pawn pawn)
-        {
-            return 1.0f * TotalEnergy(pawn) / TotalMaxEnergy(pawn);
-        }
-
         private float _energy;
         private float _maxEnergy;
         private float _maxRate;
