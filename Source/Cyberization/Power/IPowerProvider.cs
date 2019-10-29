@@ -61,13 +61,13 @@ namespace FrontierDevelopments.Cyberization.Power
 
         private float _drawThisTick;
 
-        public float RateAvailable => _energy;
+        public float RateAvailable => _maxRate - _drawThisTick;
 
         public float TotalAvailable => _maxEnergy;
 
         public float Discharge => _drawThisTick;
 
-        public float AmountAvailable => _maxEnergy;
+        public float AmountAvailable => _energy;
         
         public float MaxRate => _maxRate;
 

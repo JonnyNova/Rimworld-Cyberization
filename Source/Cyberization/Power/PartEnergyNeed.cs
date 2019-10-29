@@ -29,7 +29,7 @@ namespace FrontierDevelopments.Cyberization.Power
         }
         
         public override float CurLevel => 
-            PowerProvider.Providers(pawn).Aggregate(0f, (sum, provider) => sum + provider.RateAvailable);
+            PowerProvider.Providers(pawn).Aggregate(0f, (sum, provider) => sum + provider.AmountAvailable);
 
         public bool CanBeSatisfied => PowerProvider.Providers(pawn).Any();
 
