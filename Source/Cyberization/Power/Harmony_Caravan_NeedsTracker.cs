@@ -8,7 +8,7 @@ namespace FrontierDevelopments.Cyberization.Power
 {
     public class CaravanPartEnergy
     {
-        private static void TrySatisfyPowerNeed(Pawn pawn, PartEnergyNeed need, Caravan caravan)
+        private static void TrySatisfyPowerNeed(Pawn pawn, Caravan caravan)
         {
             try
             {
@@ -32,10 +32,9 @@ namespace FrontierDevelopments.Cyberization.Power
             static void SatisfyPowerNeed(Pawn pawn, Caravan ___caravan)
             {
                 if (pawn.Dead) return;
-                var need = pawn.needs.TryGetNeed<PartEnergyNeed>();
-                if (need != null)
+                if (PartEnergyNeed.HasNeed(pawn))
                 {
-                    TrySatisfyPowerNeed(pawn, need, ___caravan);
+                    TrySatisfyPowerNeed(pawn, ___caravan);
                 }
             }
         }

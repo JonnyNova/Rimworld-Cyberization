@@ -44,7 +44,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             [HarmonyPostfix]
             static List<FloatMenuOption> AddPrioritizingPartPowerOption(List<FloatMenuOption> __result, Vector3 clickPos, Pawn pawn)
             {
-                if (pawn.Downed || pawn.needs.TryGetNeed<PartEnergyNeed>() == null) return __result;
+                if (pawn.Downed || !PartEnergyNeed.HasNeed(pawn)) return __result;
                 
                 foreach (var target in GenUI.TargetsAt(clickPos, ForChargers))
                 {

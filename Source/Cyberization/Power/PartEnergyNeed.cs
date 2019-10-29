@@ -9,6 +9,11 @@ namespace FrontierDevelopments.Cyberization.Power
 {
     public class PartEnergyNeed : Need
     {
+        public static bool HasNeed(Pawn pawn)
+        {
+            return pawn.needs.TryGetNeed<PartEnergyNeed>() != null;
+        }
+
         public PartEnergyNeed(Pawn pawn) : base(pawn)
         {
         }
