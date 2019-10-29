@@ -4,9 +4,10 @@
     <Operation Class="PatchOperationAdd">
         <xpath>Defs/ThingDef[defName="Battery"]/comps</xpath>
         <value>
-            <li Class="FrontierDevelopments.General.EnergySources.BatteryEnergySourceProperties"/>
+            <li Class="FrontierDevelopments.General.EnergySources.BatteryEnergySourceProperties">
+                <rate>100</rate>
+            </li>
             <li Class="FrontierDevelopments.Cyberization.Power.PartChargerProperties">
-                <chargeRate>100</chargeRate>
                 <wirelessCharging>false</wirelessCharging>
             </li>
         </value>

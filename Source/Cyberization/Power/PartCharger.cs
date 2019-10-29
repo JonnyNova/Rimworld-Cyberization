@@ -9,7 +9,6 @@ namespace FrontierDevelopments.Cyberization.Power
 {
     public class PartChargerProperties : CompProperties
     {
-        public int chargeRate;
         public bool wirelessCharging;
 
         public PartChargerProperties()
@@ -53,7 +52,7 @@ namespace FrontierDevelopments.Cyberization.Power
         public float AmountAvailable => _energySource.AmountAvailable;
         public float TotalAvailable => _energySource.TotalAvailable;
         public float RateAvailable => _energySource.RateAvailable;
-        public float MaxRate => Props.chargeRate;
+        public float MaxRate => _energySource.MaxRate;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {

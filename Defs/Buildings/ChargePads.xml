@@ -56,12 +56,13 @@
             <ComponentIndustrial>1</ComponentIndustrial>
         </costList>
         <comps>
-            <li Class="FrontierDevelopments.General.EnergySources.CompProperties_ElectricEnergySource"/>
+            <li Class="FrontierDevelopments.General.EnergySources.CompProperties_ElectricEnergySource">
+                <rate>100</rate>
+            </li>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
             </li>
             <li Class="FrontierDevelopments.Cyberization.Power.PartChargerProperties">
-                <chargeRate>100</chargeRate>
                 <wirelessCharging>true</wirelessCharging>
             </li>
             <li Class="CompProperties_Flickable"/>
