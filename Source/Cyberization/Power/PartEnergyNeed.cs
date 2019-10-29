@@ -22,14 +22,14 @@ namespace FrontierDevelopments.Cyberization.Power
         {
             get
             {
-                var total = PowerProvider.Providers(pawn).Aggregate(0L, (sum, provider) => sum + provider.MaxEnergy);
+                var total = PowerProvider.Providers(pawn).Aggregate(0f, (sum, provider) => sum + provider.TotalAvailable);
                 if (total <= 0) return 1f;
                 return total;
             }
         }
         
         public override float CurLevel => 
-            PowerProvider.Providers(pawn).Aggregate(0L, (sum, provider) => sum + provider.Energy);
+            PowerProvider.Providers(pawn).Aggregate(0f, (sum, provider) => sum + provider.RateAvailable);
 
         public bool CanBeSatisfied => PowerProvider.Providers(pawn).Any();
 

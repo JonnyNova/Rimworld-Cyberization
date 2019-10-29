@@ -23,9 +23,13 @@ namespace FrontierDevelopments.Cyberization.Parts
             _provider = new PowerProvider(Props.maxEnergy, Props.maxRate, Props.maxEnergy);
         }
 
-        public long Energy => _provider.Energy;
+        public float RateAvailable => _provider.RateAvailable;
 
-        public long MaxEnergy => _provider.MaxEnergy;
+        public float TotalAvailable => _provider.TotalAvailable;
+
+        public float AmountAvailable => _provider.AmountAvailable;
+        
+        public float MaxRate => _provider.MaxRate;
 
         public AddedPartPowerProviderProperties Props => (AddedPartPowerProviderProperties) props;
 
@@ -39,19 +43,19 @@ namespace FrontierDevelopments.Cyberization.Parts
             _provider.Tick();
         }
 
-        public long Discharge => _provider.Discharge;
+        public float Discharge => _provider.Discharge;
 
 
         public override string CompTipStringExtra => "Discharge: " + _provider.Discharge + "/" + Props.maxRate;
 
-        public bool ProvideEnergy(long amount)
+        public float Provide(float amount)
         {
-            return _provider.ProvideEnergy(amount);
+            return _provider.Provide(amount);
         }
 
-        public long Charge(long amount)
+        public float Consume(float amount)
         {
-            return _provider.Charge(amount);
+            return _provider.Consume(amount);
         }
 
         public override void CompExposeData()

@@ -1,19 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
+using FrontierDevelopments.General.Energy;
 using Verse;
 
 namespace FrontierDevelopments.Cyberization.Power
 {
-    public interface IPowerProvider
+    public interface IPowerProvider : IEnergyNode
     {
-        long Energy { get; }
-        long MaxEnergy { get; }
-        long Discharge { get; }
-
         void Tick();
-        
-        bool ProvideEnergy(long amount);
-        long Charge(long amount);
     }
 
     public class PowerProvider : IPowerProvider, IExposable
@@ -46,14 +40,14 @@ namespace FrontierDevelopments.Cyberization.Power
             return result;
         }
 
-        public static long TotalEnergy(Pawn pawn)
+        public static float TotalEnergy(Pawn pawn)
         {
-            return Providers(pawn).Aggregate(0L, (sum, provider) => sum + provider.Energy);
+            return Providers(pawn).Aggregate(0f, (sum, provider) => sum + provider.RateAvailable);
         }
 
-        public static long TotalMaxEnergy(Pawn pawn)
+        public static float TotalMaxEnergy(Pawn pawn)
         {
-            return Providers(pawn).Aggregate(0L, (sum, provider) => sum + provider.MaxEnergy);
+            return Providers(pawn).Aggregate(0f, (sum, provider) => sum + provider.TotalAvailable);
         }
 
         public static float TotalEnergyPercent(Pawn pawn)
@@ -61,17 +55,21 @@ namespace FrontierDevelopments.Cyberization.Power
             return 1.0f * TotalEnergy(pawn) / TotalMaxEnergy(pawn);
         }
 
-        private long _energy;
-        private long _maxEnergy;
-        private long _maxRate;
+        private float _energy;
+        private float _maxEnergy;
+        private float _maxRate;
 
-        private long _discharging;
+        private float _drawThisTick;
 
-        public long Energy => _energy;
+        public float RateAvailable => _energy;
 
-        public long MaxEnergy => _maxEnergy;
+        public float TotalAvailable => _maxEnergy;
 
-        public long Discharge => _discharging;
+        public float Discharge => _drawThisTick;
+
+        public float AmountAvailable => _maxEnergy;
+        
+        public float MaxRate => _maxRate;
 
         public PowerProvider()
         {
@@ -85,36 +83,29 @@ namespace FrontierDevelopments.Cyberization.Power
             _energy = energy;
         }
 
-        public bool ProvideEnergy(long amount)
+        public float Provide(float amount)
         {
-            if (_discharging + amount > _maxRate) return false;
-            if (_energy - amount < 0) return false;
-            _discharging += amount;
-            _energy -= amount;
-            return true;
-        }
-
-        public long Charge(long amount)
-        {
-            // discharging is reset to allow this to pass the discharge along to this source
-            
-            if (_energy + amount > _maxEnergy)
+            if (amount + _energy > _maxEnergy)
             {
                 _energy = _maxEnergy;
-                var difference = _maxEnergy - _energy;
-                _discharging -= difference;
-                return difference;
+                return  _maxEnergy - _energy;
             }
 
             _energy += amount;
-            _discharging -= amount;
+            return amount;
+        }
 
+        public float Consume(float amount)
+        {
+            if (amount > RateAvailable) amount = RateAvailable;
+            _drawThisTick += amount;
+            _energy -= amount;
             return amount;
         }
 
         public void Tick()
         {
-            _discharging = 0;
+            _drawThisTick = 0;
         }
 
         public void ExposeData()

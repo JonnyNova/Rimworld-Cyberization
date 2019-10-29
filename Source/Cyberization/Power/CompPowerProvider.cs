@@ -17,9 +17,11 @@ namespace FrontierDevelopments.Cyberization.Power
     {
         private PowerProvider _provider;
 
-        public long Energy => _provider.Energy;
-        public long MaxEnergy => _provider.MaxEnergy;
-        public long Discharge => _provider.Discharge;
+        public float RateAvailable => _provider.RateAvailable;
+        public float TotalAvailable => _provider.TotalAvailable;
+        public float AmountAvailable => _provider.AmountAvailable;
+        public float MaxRate => _provider.MaxRate;
+        public float Discharge => _provider.Discharge;
 
         public override void Initialize(CompProperties props)
         {
@@ -37,14 +39,14 @@ namespace FrontierDevelopments.Cyberization.Power
             _provider.Tick();
         }
 
-        public bool ProvideEnergy(long amount)
+        public float Provide(float amount)
         {
-            return _provider.ProvideEnergy(amount);
+            return _provider.Provide(amount);
         }
 
-        public long Charge(long amount)
+        public float Consume(float amount)
         {
-            return _provider.Charge(amount);
+            return _provider.Consume(amount);
         }
 
         public override void PostExposeData()

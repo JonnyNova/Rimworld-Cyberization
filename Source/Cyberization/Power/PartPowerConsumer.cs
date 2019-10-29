@@ -38,12 +38,10 @@ namespace FrontierDevelopments.Cyberization.Power
             if (ShouldConsume)
             {
                 var last = _powered;
-                _powered = PowerProvider.Providers(Pawn).Any(provider => provider.ProvideEnergy(Props.powerPerTick));
+                _powered = PowerProvider.Providers(Pawn).Any(provider => provider.Consume(Props.powerPerTick) >= Props.powerPerTick);
                 if(last != _powered) Pawn.health.Notify_HediffChanged(parent);
             }
         }
-
-        
 
         public override void CompExposeData()
         {
