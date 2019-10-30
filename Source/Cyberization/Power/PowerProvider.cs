@@ -1,11 +1,10 @@
 using System;
 using FrontierDevelopments.General;
-using FrontierDevelopments.General.Energy;
 using Verse;
 
 namespace FrontierDevelopments.Cyberization.Power
 {
-    public class PowerProvider : IEnergyProvider, IExposable
+    public class PowerProvider : HediffComp, IPowerProvider, IExposable
     {
         private float _energy;
         private float _maxEnergy;
@@ -14,6 +13,7 @@ namespace FrontierDevelopments.Cyberization.Power
         private float _drawThisTick;
 
         private IEnergyNet _parent;
+        private ILabeled _label;
 
         public float RateAvailable => Math.Min(_maxRate - _drawThisTick, AmountAvailable);
 
@@ -25,6 +25,13 @@ namespace FrontierDevelopments.Cyberization.Power
         
         public float MaxRate => _maxRate;
 
+        public string Label => _label.Label;
+
+        public ILabeled Labeled
+        {
+            set => _label = value;
+        }
+        
         public void ConnectTo(IEnergyNet net)
         {
             _parent?.Disconnect(this);
@@ -44,11 +51,12 @@ namespace FrontierDevelopments.Cyberization.Power
             _parent?.Disconnect(this);
         }
         
-        public PowerProvider(long maxEnergy, long maxRate, long energy)
+        public PowerProvider(long maxEnergy, long maxRate, long energy, ILabeled label)
         {
             _maxEnergy = maxEnergy;
             _maxRate = maxRate;
             _energy = energy;
+            _label = label;
         }
 
         public float Provide(float amount)

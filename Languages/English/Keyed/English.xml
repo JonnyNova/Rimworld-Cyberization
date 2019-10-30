@@ -42,5 +42,8 @@
     <Cyberization.Settings.Power.SeekPowerChargeTo>Charge part power until</Cyberization.Settings.Power.SeekPowerChargeTo>
     <Cyberization.Settings.Maintenance.SeekMaintenancePercent>Seek part maintaince percent</Cyberization.Settings.Maintenance.SeekMaintenancePercent>
     <Cyberization.Settings.Maintenance.SatisfiedMaintenancePercent>Part maintaince satisfied percent</Cyberization.Settings.Maintenance.SatisfiedMaintenancePercent>
+    
+    <!-- Power tab -->
+    <Cyberization.ITab.Power.Name>Power</Cyberization.ITab.Power.Name>
 
 </LanguageData>

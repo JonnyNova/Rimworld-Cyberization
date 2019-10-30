@@ -1,6 +1,5 @@
 using System.Linq;
 using FrontierDevelopments.Cyberization.Power;
-using FrontierDevelopments.General.Energy;
 using Verse;
 using IEnergyNet = FrontierDevelopments.General.IEnergyNet;
 
@@ -17,13 +16,13 @@ namespace FrontierDevelopments.Cyberization.Parts
         }
     }
 
-    public class AddedPartPowerProvider : HediffComp, IEnergyProvider
+    public class AddedPartPowerProvider : HediffComp, IPowerProvider
     {
         private PowerProvider _provider;
         
         public override void CompPostMake()
         {
-            _provider = new PowerProvider(Props.maxEnergy, Props.maxRate, Props.maxEnergy);
+            _provider = new PowerProvider(Props.maxEnergy, Props.maxRate, Props.maxEnergy, this);
             ConnectTo(parent.pawn.AllComps.OfType<IEnergyNet>().First());
         }
 
@@ -41,6 +40,8 @@ namespace FrontierDevelopments.Cyberization.Parts
         public float AmountAvailable => _provider.AmountAvailable;
         
         public float MaxRate => _provider.MaxRate;
+
+        public string Label => parent.Label;
 
         private AddedPartPowerProviderProperties Props => (AddedPartPowerProviderProperties) props;
 
@@ -69,6 +70,11 @@ namespace FrontierDevelopments.Cyberization.Parts
         public override void CompExposeData()
         {
             Scribe_Deep.Look(ref _provider, "provider");
+            
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                _provider.Labeled = this;
+            }
         }
 
         public override string ToString()

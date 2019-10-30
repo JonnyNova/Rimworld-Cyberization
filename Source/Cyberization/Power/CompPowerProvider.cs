@@ -1,5 +1,4 @@
 using FrontierDevelopments.General;
-using FrontierDevelopments.General.Energy;
 using Verse;
 
 namespace FrontierDevelopments.Cyberization.Power
@@ -15,7 +14,7 @@ namespace FrontierDevelopments.Cyberization.Power
         }
     }
 
-    public class CompPowerProvider : ThingComp, IEnergyProvider
+    public class CompPowerProvider : ThingComp, IPowerProvider
     {
         private PowerProvider _provider;
 
@@ -24,6 +23,7 @@ namespace FrontierDevelopments.Cyberization.Power
         public float AmountAvailable => _provider.AmountAvailable;
         public float MaxRate => _provider.MaxRate;
         public float Discharge => _provider.Discharge;
+        public string Label => parent.Label;
 
         public IEnergyNet Parent => _provider.Parent;
 
@@ -35,7 +35,7 @@ namespace FrontierDevelopments.Cyberization.Power
         public override void Initialize(CompProperties props)
         {
             var providerProps = (CompPowerProviderProperties) props;
-            _provider = new PowerProvider(providerProps.maxEnergy, providerProps.maxRate, providerProps.maxEnergy);
+            _provider = new PowerProvider(providerProps.maxEnergy, providerProps.maxRate, providerProps.maxEnergy, this);
         }
 
         public void Update()
@@ -56,6 +56,11 @@ namespace FrontierDevelopments.Cyberization.Power
         public override void PostExposeData()
         {
             Scribe_Deep.Look(ref _provider, "provider");
+            
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                _provider.Labeled = this;
+            }
         }
     }
 }

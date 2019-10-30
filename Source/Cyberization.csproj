@@ -91,6 +91,8 @@
     <Compile Include="Cyberization\Power\Alert\CacheMapPartUser.cs" />
     <Compile Include="Cyberization\Power\Harmony_Caravan_NeedsTracker.cs" />
     <Compile Include="Cyberization\Power\IChargeSource.cs" />
+    <Compile Include="Cyberization\Power\IPowerProvider.cs" />
+    <Compile Include="Cyberization\Power\ITab_Pawn_PartPower.cs" />
     <Compile Include="Cyberization\Power\PartCharger.cs" />
     <Compile Include="Cyberization\Power\CompPowerProvider.cs" />
     <Compile Include="Cyberization\Power\IPowerConsumer.cs" />

@@ -21,18 +21,35 @@ namespace FrontierDevelopments.Cyberization.Power
     public class PartPowerConsumer : HediffComp, IPowerConsumer
     {
         private IEnergyNet _parent;
-        private bool _powered = true;
-        private bool _netPowered;
+        private bool _enabled = true;
+        private bool _powered;
 
         private PartPowerConsumerProperties Props => (PartPowerConsumerProperties) props;
 
         private bool ShouldConsume => Mod.Settings.UsePartPower || Props.essential || !(Pawn.Downed || Pawn.InBed());
 
-        public bool Powered => _powered && _netPowered;
+        public bool Powered => _enabled && _powered;
 
         public int Priority => Props.priority;
 
-        public void ConnectTo(General.IEnergyNet net)
+        public bool Essential => Props.essential;
+
+        public bool Enabled
+        {
+            get => _enabled;
+            set
+            {
+                var last = _enabled;
+                _enabled = value;
+                if (last != _enabled)
+                {
+                    _parent?.Changed();
+                    Pawn.health.Notify_HediffChanged(parent);
+                }
+            }
+        }
+
+        public void ConnectTo(IEnergyNet net)
         {
             _parent?.Disconnect(this);
             _parent = net;
@@ -41,7 +58,7 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public override void CompPostMake()
         {
-            ConnectTo(parent.pawn.AllComps.OfType<General.IEnergyNet>().First());
+            ConnectTo(parent.pawn.AllComps.OfType<IEnergyNet>().First());
         }
 
         public override void CompPostPostRemoved()
@@ -56,19 +73,19 @@ namespace FrontierDevelopments.Cyberization.Power
         public void HasPower(bool isPowered)
         {
             var last = Powered;
-            _netPowered = isPowered;
+            _powered = isPowered;
             if(last != Powered) Pawn.health.Notify_HediffChanged(parent);
         }
 
-        public float Rate => ShouldConsume && _powered ? Props.powerPerTick : 0f;
+        public float Rate => ShouldConsume && _enabled ? Props.powerPerTick : 0f;
 
         public override string CompTipStringExtra => Powered ? null : "NoPower".Translate();
 
         public override void CompExposeData()
         {
             Scribe_References.Look(ref _parent, "partConsumerNetParent");
-            Scribe_Values.Look(ref _powered, "partConsumerPowered");
-            Scribe_Values.Look(ref _netPowered, "partConsumerNetPowered");
+            Scribe_Values.Look(ref _enabled, "partConsumerPowered");
+            Scribe_Values.Look(ref _powered, "partConsumerNetPowered");
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
@@ -80,7 +97,7 @@ namespace FrontierDevelopments.Cyberization.Power
         {
             return base.ToString() + " in " + parent;
         }
-    }
 
-    
+        public string Label => parent.Label;
+    }
 }

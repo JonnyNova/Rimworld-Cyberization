@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[@Name="BasePawn"]/inspectorTabs</xpath>
+        <value>
+            <li>FrontierDevelopments.Cyberization.Power.ITab_Pawn_PartPower</li>
+        </value>
+    </Operation>
+</Patch>
