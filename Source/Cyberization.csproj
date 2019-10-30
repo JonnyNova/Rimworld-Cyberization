@@ -63,6 +63,7 @@
     <Compile Include="Cyberization\CyberizationDefOf.cs" />
     <Compile Include="Cyberization\Mod.cs" />
     <Compile Include="Cyberization\Parts\Harmony_AddedPart.cs" />
+    <Compile Include="Cyberization\Parts\Harmony_PawnOverlay.cs" />
     <Compile Include="Cyberization\Parts\Job\JobDriver_BaseMaintenance.cs" />
     <Compile Include="Cyberization\Parts\Job\JobDriver_FixBreakdown.cs" />
     <Compile Include="Cyberization\Parts\Job\JobDriver_RepairPartDamage.cs" />
