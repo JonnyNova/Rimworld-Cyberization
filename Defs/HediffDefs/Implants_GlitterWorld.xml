@@ -9,6 +9,31 @@
     </HediffDef>
 
     <HediffDef ParentName="GlitterWorldImplantBase">
+        <defName>Sleepstopper</defName>
+        <label>sleepstopper</label>
+        <labelNoun>a sleepstopper</labelNoun>
+        <stages>
+            <li>
+                <restFallFactor>0.0</restFallFactor>
+            </li>
+        </stages>
+        <spawnThingOnRemoved>Sleepstopper</spawnThingOnRemoved>
+    </HediffDef>
+
+    <HediffDef ParentName="GlitterWorldImplantBase">
+        <defName>Megastopper</defName>
+        <label>megastopper</label>
+        <labelNoun>a megashunt</labelNoun>
+        <stages>
+            <li>
+                <restFallFactor>0.0</restFallFactor>
+                <painFactor>0.0</painFactor>
+            </li>
+        </stages>
+        <spawnThingOnRemoved>Megastopper</spawnThingOnRemoved>
+    </HediffDef>
+
+    <HediffDef ParentName="GlitterWorldImplantBase">
         <defName>CombatImplant</defName>
         <label>combat implant</label>
         <labelNoun>a combat implant</labelNoun>
