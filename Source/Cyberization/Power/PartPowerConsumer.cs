@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using FrontierDevelopments.General;
 using RimWorld;
 using Verse;
 
@@ -18,33 +20,65 @@ namespace FrontierDevelopments.Cyberization.Power
 
     public class PartPowerConsumer : HediffComp, IPowerConsumer
     {
+        private IEnergyNet _parent;
         private bool _powered = true;
+        private bool _netPowered;
 
-        PartPowerConsumerProperties Props => (PartPowerConsumerProperties) props;
+        private PartPowerConsumerProperties Props => (PartPowerConsumerProperties) props;
 
-        public bool ShouldConsume => Mod.Settings.UsePartPower || Props.essential || !(Pawn.Downed || Pawn.InBed());
+        private bool ShouldConsume => Mod.Settings.UsePartPower || Props.essential || !(Pawn.Downed || Pawn.InBed());
 
-        public bool Powered => _powered;
+        public bool Powered => _powered && _netPowered;
 
         public int Priority => Props.priority;
 
+        public void ConnectTo(General.IEnergyNet net)
+        {
+            _parent?.Disconnect(this);
+            _parent = net;
+            _parent.Connect(this);
+        }
+
+        public override void CompPostMake()
+        {
+            ConnectTo(parent.pawn.AllComps.OfType<General.IEnergyNet>().First());
+        }
+
+        public override void CompPostPostRemoved()
+        {
+            _parent?.Disconnect(this);
+        }
+
+        public IEnergyNet Parent => _parent;
+
         public IEnumerable<BodyPartTagDef> Tags => parent.Part.def.tags;
+
+        public void HasPower(bool isPowered)
+        {
+            var last = Powered;
+            _netPowered = isPowered;
+            if(last != Powered) Pawn.health.Notify_HediffChanged(parent);
+        }
+
+        public float Rate => ShouldConsume && _powered ? Props.powerPerTick : 0f;
 
         public override string CompTipStringExtra => Powered ? null : "NoPower".Translate();
 
-        public void PowerTick()
-        {
-            if (ShouldConsume)
-            {
-                var last = _powered;
-                _powered = PawnPartPowerNet.Get(Pawn).Consume(Props.powerPerTick) >= Props.powerPerTick;
-                if(last != _powered) Pawn.health.Notify_HediffChanged(parent);
-            }
-        }
-
         public override void CompExposeData()
         {
-            Scribe_Values.Look(ref _powered, "powered");
+            Scribe_References.Look(ref _parent, "partConsumerNetParent");
+            Scribe_Values.Look(ref _powered, "partConsumerPowered");
+            Scribe_Values.Look(ref _netPowered, "partConsumerNetPowered");
+
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                ConnectTo(_parent);
+            }
+        }
+        
+        public override string ToString()
+        {
+            return base.ToString() + " in " + parent;
         }
     }
 

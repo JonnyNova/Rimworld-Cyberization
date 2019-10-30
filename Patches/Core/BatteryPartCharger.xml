@@ -4,6 +4,7 @@
     <Operation Class="PatchOperationAdd">
         <xpath>Defs/ThingDef[defName="Battery"]/comps</xpath>
         <value>
+            <li Class="FrontierDevelopments.General.Energy.CompPropertiesEnergyNet"/>
             <li Class="FrontierDevelopments.General.EnergySources.BatteryEnergySourceProperties">
                 <rate>100</rate>
             </li>

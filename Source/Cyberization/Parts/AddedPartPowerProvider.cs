@@ -1,5 +1,8 @@
+using System.Linq;
 using FrontierDevelopments.Cyberization.Power;
+using FrontierDevelopments.General.Energy;
 using Verse;
+using IEnergyNet = FrontierDevelopments.General.IEnergyNet;
 
 namespace FrontierDevelopments.Cyberization.Parts
 {
@@ -14,14 +17,22 @@ namespace FrontierDevelopments.Cyberization.Parts
         }
     }
 
-    public class AddedPartPowerProvider : HediffComp, IPowerProvider
+    public class AddedPartPowerProvider : HediffComp, IEnergyProvider
     {
         private PowerProvider _provider;
         
         public override void CompPostMake()
         {
             _provider = new PowerProvider(Props.maxEnergy, Props.maxRate, Props.maxEnergy);
+            ConnectTo(parent.pawn.AllComps.OfType<IEnergyNet>().First());
         }
+
+        public override void CompPostPostRemoved()
+        {
+            _provider.Removed();
+        }
+
+        public IEnergyNet Parent => _provider.Parent;
 
         public float RateAvailable => _provider.RateAvailable;
 
@@ -31,20 +42,17 @@ namespace FrontierDevelopments.Cyberization.Parts
         
         public float MaxRate => _provider.MaxRate;
 
-        public AddedPartPowerProviderProperties Props => (AddedPartPowerProviderProperties) props;
+        private AddedPartPowerProviderProperties Props => (AddedPartPowerProviderProperties) props;
 
-        public void Tick()
+        public void ConnectTo(IEnergyNet net)
         {
-            _provider.Tick();
+            _provider.ConnectTo(net);
         }
 
-        public override void CompPostTick(ref float severityAdjustment)
+        public void Update()
         {
-            _provider.Tick();
+            _provider.Update();
         }
-
-        public float Discharge => _provider.Discharge;
-
 
         public override string CompTipStringExtra => "Discharge: " + _provider.Discharge + "/" + Props.maxRate;
 
@@ -61,6 +69,11 @@ namespace FrontierDevelopments.Cyberization.Parts
         public override void CompExposeData()
         {
             Scribe_Deep.Look(ref _provider, "provider");
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + " in " + parent;
         }
     }
 }

@@ -56,6 +56,7 @@
             <ComponentIndustrial>1</ComponentIndustrial>
         </costList>
         <comps>
+            <li Class="FrontierDevelopments.General.Energy.CompPropertiesEnergyNet"/>
             <li Class="FrontierDevelopments.General.EnergySources.CompProperties_ElectricEnergySource">
                 <rate>100</rate>
             </li>

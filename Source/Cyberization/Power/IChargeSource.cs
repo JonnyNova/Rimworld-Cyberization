@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using FrontierDevelopments.General.Energy;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -10,9 +8,10 @@ using Verse.AI;
 
 namespace FrontierDevelopments.Cyberization.Power
 {
-    public interface IChargeSource : IEnergyNode
+    public interface IChargeSource
     {
         bool Available { get; }
+        float RateAvailable { get; }
         void Charge(Pawn pawn);
         bool CanUse(Pawn pawn);
     }

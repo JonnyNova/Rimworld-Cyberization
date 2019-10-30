@@ -3,7 +3,6 @@ using System.Linq;
 using FrontierDevelopments.Cyberization.Power;
 using Harmony;
 using RimWorld;
-using RimWorld.Planet;
 using Verse;
 
 namespace FrontierDevelopments.Cyberization.Parts
@@ -58,37 +57,10 @@ namespace FrontierDevelopments.Cyberization.Parts
         
         private static IEnumerable<IPowerConsumer> PriorityOrder(Pawn pawn)
         {
-            var result = PowerConsumer.All(pawn).ToList();
+            var result = PawnPartPowerNet.Get(pawn)?.Nodes.OfType<IPowerConsumer>().ToList();
             if (result.NullOrEmpty()) return new List<IPowerConsumer>();
             result.Sort((left, right) => GetSorting(left).CompareTo(GetSorting(right)));
             return result;
-        }
-
-        private static void TickPowerProviders(Pawn pawn)
-        {
-            // TODO rules for what is selected in what order
-            PawnPartPowerNet.Get(pawn)?.Nodes.OfType<IPowerProvider>().Do(provider => provider.Tick());
-        }
-
-        private static void TickPowerConsumers(Pawn pawn)
-        {
-            // TODO load balance power among same priority
-            PriorityOrder(pawn)?.Do(part => part.PowerTick());
-        }
-
-        [HarmonyPatch(typeof(Pawn), nameof(Pawn.Tick))]
-        static class CalculateAddedPartPower
-        {
-            [HarmonyPostfix]
-            static void Postfix(Pawn __instance)
-            {
-                // Only tick power if the pawn can fill the need
-                if (Mod.Settings.UsePartPower && (__instance.Spawned || __instance.IsCaravanMember()))
-                {
-                    TickPowerProviders(__instance);
-                    TickPowerConsumers(__instance);
-                }
-            }
         }
 
         [HarmonyPatch(typeof(PawnGenerator), nameof(PawnGenerator.GeneratePawn), new []{ typeof(PawnGenerationRequest) })]
@@ -98,7 +70,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             static Pawn GeneratePartPowerProviderIfNeeded(Pawn __result)
             {
                 var net = PawnPartPowerNet.Get(__result);
-                if (PowerConsumer.All(__result).Any() && !net.Nodes.OfType<IPowerProvider>().Any())
+                if (net.Nodes.OfType<IPowerConsumer>().Any() && net.MaxRate <= 0)
                 {
                     __result.health.AddHediff(CyberizationDefOf.BionicEnergyCell, __result.RaceProps.body.corePart);
                 }

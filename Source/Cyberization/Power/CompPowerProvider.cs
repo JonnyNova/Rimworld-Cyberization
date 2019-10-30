@@ -1,3 +1,5 @@
+using FrontierDevelopments.General;
+using FrontierDevelopments.General.Energy;
 using Verse;
 
 namespace FrontierDevelopments.Cyberization.Power
@@ -13,7 +15,7 @@ namespace FrontierDevelopments.Cyberization.Power
         }
     }
 
-    public class CompPowerProvider : ThingComp, IPowerProvider
+    public class CompPowerProvider : ThingComp, IEnergyProvider
     {
         private PowerProvider _provider;
 
@@ -23,20 +25,22 @@ namespace FrontierDevelopments.Cyberization.Power
         public float MaxRate => _provider.MaxRate;
         public float Discharge => _provider.Discharge;
 
+        public IEnergyNet Parent => _provider.Parent;
+
+        public void ConnectTo(IEnergyNet net)
+        {
+            _provider.ConnectTo(net);
+        }
+
         public override void Initialize(CompProperties props)
         {
             var providerProps = (CompPowerProviderProperties) props;
             _provider = new PowerProvider(providerProps.maxEnergy, providerProps.maxRate, providerProps.maxEnergy);
         }
 
-        public override void CompTick()
+        public void Update()
         {
-            _provider.Tick();
-        }
-
-        public void Tick()
-        {
-            _provider.Tick();
+            _provider.Update();
         }
 
         public float Provide(float amount)

@@ -1,14 +1,11 @@
+using System;
+using FrontierDevelopments.General;
 using FrontierDevelopments.General.Energy;
 using Verse;
 
 namespace FrontierDevelopments.Cyberization.Power
 {
-    public interface IPowerProvider : IEnergyNode
-    {
-        void Tick();
-    }
-
-    public class PowerProvider : IPowerProvider, IExposable
+    public class PowerProvider : IEnergyProvider, IExposable
     {
         private float _energy;
         private float _maxEnergy;
@@ -16,7 +13,9 @@ namespace FrontierDevelopments.Cyberization.Power
 
         private float _drawThisTick;
 
-        public float RateAvailable => _maxRate - _drawThisTick;
+        private IEnergyNet _parent;
+
+        public float RateAvailable => Math.Min(_maxRate - _drawThisTick, AmountAvailable);
 
         public float TotalAvailable => _maxEnergy;
 
@@ -26,9 +25,23 @@ namespace FrontierDevelopments.Cyberization.Power
         
         public float MaxRate => _maxRate;
 
+        public void ConnectTo(IEnergyNet net)
+        {
+            _parent?.Disconnect(this);
+            _parent = net;
+            _parent?.Connect(this);
+        }
+
+        public General.IEnergyNet Parent => _parent;
+
         public PowerProvider()
         {
             
+        }
+
+        public void Removed()
+        {
+            _parent?.Disconnect(this);
         }
         
         public PowerProvider(long maxEnergy, long maxRate, long energy)
@@ -53,12 +66,13 @@ namespace FrontierDevelopments.Cyberization.Power
         public float Consume(float amount)
         {
             if (amount > RateAvailable) amount = RateAvailable;
+            if (amount > AmountAvailable) amount = AmountAvailable;
             _drawThisTick += amount;
             _energy -= amount;
             return amount;
         }
 
-        public void Tick()
+        public void Update()
         {
             _drawThisTick = 0;
         }
@@ -68,6 +82,14 @@ namespace FrontierDevelopments.Cyberization.Power
             Scribe_Values.Look(ref _maxEnergy, "maxEnergy");
             Scribe_Values.Look(ref _maxRate, "maxRate");
             Scribe_Values.Look(ref _energy, "energy");
+            Scribe_Values.Look(ref _drawThisTick, "drawThisTick");
+            
+            Scribe_References.Look(ref _parent, "powerProviderNetParent");
+            
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                ConnectTo(_parent);
+            }
         }
     }
 }

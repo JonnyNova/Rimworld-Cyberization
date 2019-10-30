@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using FrontierDevelopments.General.Energy;
 using Harmony;
 using RimWorld;
 using UnityEngine;
@@ -58,7 +59,7 @@ namespace FrontierDevelopments.Cyberization.Power
     {
         private static bool ApparelHasSource(Apparel apparel)
         {
-            return apparel.AllComps.OfType<IPowerProvider>().Any();
+            return apparel.AllComps.OfType<IEnergyProvider>().Any();
         }
 
         private static void HandleApparelChange(Apparel apparel, Pawn pawn)
@@ -98,9 +99,8 @@ namespace FrontierDevelopments.Cyberization.Power
                 var net = PawnPartPowerNet.Get(___pawn);
 
                 if (nd != CyberizationDefOf.PartEnergy) return __result;
-                return net.AmountAvailable > 0
-                       || net.Nodes.OfType<IPowerProvider>().Any()
-                       || PowerConsumer.All(___pawn).Any();
+
+                return net.Nodes.Any();
             }
         }
     }

@@ -50,7 +50,7 @@ namespace FrontierDevelopments.Cyberization.Power.Job
                 .WithProgressBar(PowerSourceIndex, () => EnergyNeed.CurLevelPercentage, true);
             charge.defaultCompleteMode = ToilCompleteMode.Never;
             charge.AddEndCondition(() =>
-                EnergyNeed.CurLevelPercentage >= Mod.Settings.SeekPowerChargeTo
+                EnergyNeed.Satisfied
                     ? JobCondition.Succeeded
                     : JobCondition.Ongoing);
             if(initAction != null) charge.initAction = initAction;
