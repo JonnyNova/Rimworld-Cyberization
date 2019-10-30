@@ -11,18 +11,19 @@ namespace FrontierDevelopments.Cyberization.Implants
         // not used. allows setting negative values to reduce XML
         public override float Severity { get; set; }
 
-        public IPowerConsumer Consumer
-        {
-            get
-            {
-                // this exists due to the comp not being ready when loading a save
-                if (_consumer == null)
-                {
-                    _consumer = comps.OfType<IPowerConsumer>().First();
-                }
+        public IPowerConsumer Consumer => _consumer;
 
-                return _consumer;
-            }
+        public override void PostMake()
+        {
+            base.PostMake();
+            _consumer = comps.OfType<IPowerConsumer>().First();
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+                _consumer = comps.OfType<IPowerConsumer>().First();
         }
 
         public override int CurStageIndex => Consumer?.Powered ?? false ? 1 : 0;
