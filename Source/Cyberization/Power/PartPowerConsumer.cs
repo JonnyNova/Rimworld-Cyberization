@@ -56,6 +56,12 @@ namespace FrontierDevelopments.Cyberization.Power
             _parent.Connect(this);
         }
 
+        public void Disconnect()
+        {
+            _parent?.Disconnect(this);
+            _parent = null;
+        }
+
         public override void CompPostMake()
         {
             ConnectTo(parent.pawn.AllComps.OfType<IEnergyNet>().First());

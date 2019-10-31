@@ -28,7 +28,7 @@ namespace FrontierDevelopments.Cyberization.Parts
 
         public override void CompPostPostRemoved()
         {
-            _provider.Removed();
+            _provider.Disconnect();
         }
 
         public IEnergyNet Parent => _provider.Parent;
@@ -48,6 +48,11 @@ namespace FrontierDevelopments.Cyberization.Parts
         public void ConnectTo(IEnergyNet net)
         {
             _provider.ConnectTo(net);
+        }
+
+        public void Disconnect()
+        {
+            _provider.Disconnect();
         }
 
         public void Update()

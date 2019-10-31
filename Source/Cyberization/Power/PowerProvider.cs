@@ -39,6 +39,12 @@ namespace FrontierDevelopments.Cyberization.Power
             _parent?.Connect(this);
         }
 
+        public void Disconnect()
+        {
+            _parent?.Disconnect(this);
+            _parent = null;
+        }
+
         public General.IEnergyNet Parent => _parent;
 
         public PowerProvider()
@@ -46,11 +52,6 @@ namespace FrontierDevelopments.Cyberization.Power
             
         }
 
-        public void Removed()
-        {
-            _parent?.Disconnect(this);
-        }
-        
         public PowerProvider(long maxEnergy, long maxRate, long energy, ILabeled label)
         {
             _maxEnergy = maxEnergy;

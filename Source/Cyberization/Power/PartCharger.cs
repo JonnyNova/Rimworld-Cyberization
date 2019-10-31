@@ -35,6 +35,12 @@ namespace FrontierDevelopments.Cyberization.Power
             _parent?.Connect(this);
         }
 
+        public void Disconnect()
+        {
+            _parent?.Disconnect();
+            _parent = null;
+        }
+
         public IEnergyNet Parent => _parent;
 
         public void HasPower(bool isPowered)

@@ -37,7 +37,7 @@ namespace FrontierDevelopments.Cyberization.Power
             var net = PawnPartPowerNet.Get(__instance.pawn);
             apparel.AllComps
                 .OfType<IEnergyNode>()
-                .Do(node => node.ConnectTo(net));
+                .Do(node => node.Disconnect());
         }
     }
 

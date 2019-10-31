@@ -32,6 +32,11 @@ namespace FrontierDevelopments.Cyberization.Power
             _provider.ConnectTo(net);
         }
 
+        public void Disconnect()
+        {
+            _provider.Disconnect();
+        }
+
         public override void Initialize(CompProperties props)
         {
             var providerProps = (CompPowerProviderProperties) props;
