@@ -35,16 +35,17 @@ namespace FrontierDevelopments.Cyberization.Power.Job
         {
             this.FailOnDestroyedOrNull(PowerSourceIndex);
             this.FailOn(() => !charger.Available);
-            
+            this.FailOn(() =>
+                EnergyNeed == null
+                || !EnergyNeed.CanBeSatisfied
+                || EnergyNeed.Satisfied
+                || charger == null
+                || !charger.Available
+                || !pawn.CanReach(PowerSource, pathMode, Danger.Deadly));
+
             yield return Toils_Goto
                 .GotoThing(PowerSourceIndex, pathMode)
-                .FailOnDestroyedNullOrForbidden(PowerSourceIndex)
-                .FailOn(() =>
-                    EnergyNeed == null
-                    || !EnergyNeed.CanBeSatisfied
-                    || charger == null
-                    || !charger.Available
-                    || !pawn.CanReach(PowerSource, pathMode, Danger.Deadly));
+                .FailOnDestroyedNullOrForbidden(PowerSourceIndex);
 
             var charge = new Toil()
                 .WithProgressBar(PowerSourceIndex, () => EnergyNeed.CurLevelPercentage, true);
