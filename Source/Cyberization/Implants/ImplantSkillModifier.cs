@@ -46,7 +46,8 @@ namespace FrontierDevelopments.Cyberization.Implants
         static IEnumerable<ImplantSkillModifier> Implants(Pawn pawn)
         {
             return pawn.health.hediffSet.hediffs
-                .OfType<HediffWithComps>()
+                .OfType<ImplantPowered>()
+                .Where(implant => implant.Powered)
                 .SelectMany(hediff => hediff.comps)
                 .OfType<ImplantSkillModifier>();
         }

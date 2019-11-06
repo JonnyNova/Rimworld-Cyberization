@@ -11,6 +11,8 @@ namespace FrontierDevelopments.Cyberization.Implants
         // not used. allows setting negative values to reduce XML
         public override float Severity { get; set; }
 
+        public bool Powered => _consumer.Powered;
+
         public IPowerConsumer Consumer => _consumer;
 
         public override void PostMake()
