@@ -14,7 +14,13 @@ namespace FrontierDevelopments.Cyberization.Power
         bool Powered { get; }
         
         bool Enabled { get; set; }
-        
+
+        float RateWanted { get; set; }
+
+        float MatRate { get; }
+
+        float Efficiency { get; }
+
         IEnumerable<BodyPartTagDef> Tags { get; }
     }
 }

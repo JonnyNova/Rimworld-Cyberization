@@ -23,6 +23,7 @@ namespace FrontierDevelopments.Cyberization.Power
         private IEnergyNet _parent;
         private bool _enabled = true;
         private bool _powered;
+        private float _rate;
 
         private PartPowerConsumerProperties Props => (PartPowerConsumerProperties) props;
 
@@ -33,6 +34,10 @@ namespace FrontierDevelopments.Cyberization.Power
         public int Priority => Props.priority;
 
         public bool Essential => Props.essential;
+
+        public float Efficiency => _rate / Props.powerPerTick;
+
+        public float MatRate => Props.powerPerTick;
 
         public bool Enabled
         {
@@ -65,6 +70,7 @@ namespace FrontierDevelopments.Cyberization.Power
         public override void CompPostMake()
         {
             ConnectTo(parent.pawn.AllComps.OfType<IEnergyNet>().First());
+            _rate = Props.powerPerTick;
         }
 
         public override void CompPostPostRemoved()
@@ -83,7 +89,26 @@ namespace FrontierDevelopments.Cyberization.Power
             if(last != Powered) Pawn.health.Notify_HediffChanged(parent);
         }
 
-        public float Rate => ShouldConsume && _enabled ? Props.powerPerTick : 0f;
+        public float RateWanted
+        {
+            get => _rate;
+            set
+            {
+                var last = _rate;
+
+                if (value < 0) _rate = 0;
+                else if (value > Props.powerPerTick) _rate = Props.powerPerTick;
+                else _rate = value;
+
+                if (last != _rate)
+                {
+                    _parent?.Changed();
+                    Pawn.health.Notify_HediffChanged(parent);
+                }
+            }
+        }
+
+        public float Rate => ShouldConsume && _enabled ? _rate : 0f;
 
         public override string CompTipStringExtra => Powered ? null : "NoPower".Translate();
 
@@ -92,6 +117,7 @@ namespace FrontierDevelopments.Cyberization.Power
             Scribe_References.Look(ref _parent, "partConsumerNetParent");
             Scribe_Values.Look(ref _enabled, "partConsumerPowered");
             Scribe_Values.Look(ref _powered, "partConsumerNetPowered");
+            Scribe_Values.Look(ref _rate, "partConsumerRate", Props.powerPerTick);
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {

@@ -20,7 +20,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             get
             {
                 if (!Mod.Settings.UsePartPower) return 1f;
-                return Powered && !_disabled ? 1f : 0f;
+                return Powered && !_disabled ? Efficiency : 0f;
             }
         }
 

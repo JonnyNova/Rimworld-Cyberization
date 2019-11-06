@@ -11,7 +11,7 @@ namespace FrontierDevelopments.Cyberization.Power
     public class ITab_Pawn_PartPower : ITab
     {
         private const float ViewMargin = 20f;
-        private const float RowHeight = 60f;
+        private const float RowHeight = 72f;
 
         private Vector2 scrollPosition = Vector2.zero;
         
@@ -41,7 +41,8 @@ namespace FrontierDevelopments.Cyberization.Power
 
         private static void DrawPowerSlider(Listing_Standard section, IPowerConsumer consumer)
         {
-            
+            consumer.RateWanted = Mathf.RoundToInt(section.Slider(Mathf.RoundToInt(consumer.RateWanted), 0f, consumer.MatRate));
+            section.Gap();
         }
 
         private void RenderProvider(Listing_Standard list, IPowerProvider provider)
@@ -61,18 +62,18 @@ namespace FrontierDevelopments.Cyberization.Power
             var section = list.BeginSection(RowHeight);
             DrawIcon(section, 32);
             DrawLabel(section, consumer);
-            DrawPowerSlider(section, consumer);
             
             if (!consumer.Essential && SelPawn.Faction == Faction.OfPlayer)
             {
                 var enabled = consumer.Enabled;
-                section.CheckboxLabeled("enabled", ref enabled);
+                section.CheckboxLabeled("CommandTogglePowerLabel".Translate(), ref enabled);
                 consumer.Enabled = enabled;
             }
             else
             {
                 section.Label("cant be disabled");
             }
+            DrawPowerSlider(section, consumer);
             
             list.EndSection(section);
             list.Gap();
