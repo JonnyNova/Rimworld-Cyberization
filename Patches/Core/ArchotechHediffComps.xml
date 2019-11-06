@@ -6,7 +6,7 @@
         <success>Always</success>
         <operations>
             <li Class="PatchOperationAdd">
-                <xpath>Defs/HediffDef[defName="ArchotechEye" or defName="ArchotechLeg" or defName="ArchotechSpine" or defName="ArchotechHeart" or defName="ArchotechStomach" or defName="ArchotechEar"]</xpath>
+                <xpath>Defs/HediffDef[defName="ArchotechEye" or defName="ArchotechLeg" or defName="ArchotechSpine"]</xpath>
                 <value>
                     <comps>
                     </comps>
