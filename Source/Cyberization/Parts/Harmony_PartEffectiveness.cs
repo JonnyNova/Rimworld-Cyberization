@@ -15,7 +15,7 @@ namespace FrontierDevelopments.Cyberization.Parts
                 case HediffWithComps hediffWithComps:
                     return hediffWithComps.comps
                         .OfType<AddedPartEffectivenessModifier>()
-                        .Aggregate(1f, (multiplier, modifier) => multiplier * modifier.PartEffectiveness);
+                        .Aggregate(hediff.def.addedPartProps.partEfficiency, (multiplier, modifier) => multiplier * modifier.PartEffectiveness);
                 default:
                     return hediff.def.addedPartProps.partEfficiency;
             }

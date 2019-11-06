@@ -24,7 +24,7 @@ namespace FrontierDevelopments.Cyberization.Parts
         public AddedPartBreakdownableProperties Props => (AddedPartBreakdownableProperties) props;
 
         public float PartEffectiveness =>
-            IsBrokenDown ? Props.partEffectiveness : parent.def.addedPartProps.partEfficiency;
+            IsBrokenDown ? Props.partEffectiveness : 1f;
 
         public override string CompTipStringExtra => IsBrokenDown
             ? AddedPartEffectivenessModifierUtils.EffectivenessString("BrokenDown".Translate(), PartEffectiveness) 
