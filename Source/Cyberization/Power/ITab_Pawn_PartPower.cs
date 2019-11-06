@@ -29,6 +29,11 @@ namespace FrontierDevelopments.Cyberization.Power
             return node.MaxRate - node.RateAvailable + "/" + node.MaxRate;
         }
 
+        private static string FormatCapacity(IEnergyProvider node)
+        {
+            return node.AmountAvailable + "/" + node.TotalAvailable;
+        }
+
         private static void DrawIcon(Listing_Standard section, int size)
         {
             
@@ -50,9 +55,10 @@ namespace FrontierDevelopments.Cyberization.Power
             var section = list.BeginSection(RowHeight);
             DrawIcon(section, 32);
             DrawLabel(section, provider);
-            
+
             section.Label(FormatDischarge(provider));
-            
+            section.Label(FormatCapacity(provider));
+
             list.EndSection(section);
             list.Gap();
         }
