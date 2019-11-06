@@ -27,7 +27,7 @@ namespace FrontierDevelopments.Cyberization.Parts
         
         private long _condition;
         private bool _maintainedLastTick;
-        private bool _disabled = false;
+        private bool _disabled;
 
         private AddedPartMaintenanceProperties Props => (AddedPartMaintenanceProperties) props;
         
@@ -79,6 +79,7 @@ namespace FrontierDevelopments.Cyberization.Parts
         public void SetDisabled(bool disabled)
         {
             _disabled = disabled;
+            Pawn.health.Notify_HediffChanged(parent);
         }
 
         public void DoMaintenance(int amount)
