@@ -3,6 +3,7 @@
     <HediffDef Name="ArchotechBodyPartBase" ParentName="AddedBodyPartBase" Abstract="True">
         <addedPartProps>
             <solid>true</solid>
+            <betterThanNatural>true</betterThanNatural>
             <partEfficiency>1.5</partEfficiency>
         </addedPartProps>
         <comps>

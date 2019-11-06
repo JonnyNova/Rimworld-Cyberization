@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <HediffDef Name="BionicBodyPartBase" ParentName="AddedBodyPartBase" Abstract="True">
+        <addedPartProps>
+            <solid>true</solid>
+            <betterThanNatural>true</betterThanNatural>
+            <partEfficiency>1.25</partEfficiency>
+        </addedPartProps>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartSolarFlareVulnerabilityProperties">
                 <partEffectiveness>0.5</partEffectiveness>
@@ -14,11 +19,6 @@
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartDamageableProperties">
             </li>
         </comps>
-        <addedPartProps>
-            <solid>true</solid>
-            <betterThanNatural>true</betterThanNatural>
-            <partEfficiency>1.25</partEfficiency>
-        </addedPartProps>
     </HediffDef>
 
     <HediffDef Name="BionicBodyPartOrganBase" ParentName="BionicBodyPartBase" Abstract="True">
