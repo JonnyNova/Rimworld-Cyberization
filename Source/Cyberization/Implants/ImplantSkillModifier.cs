@@ -14,6 +14,7 @@ namespace FrontierDevelopments.Cyberization.Implants
         public float skillLearnIncrease;
         public float skillDecayFactor;
         public List<SkillDef> skillsAffected = new List<SkillDef>();
+        public List<string> workTypesGranted = new List<string>();
         
         public ImplantSkillModifierProperties()
         {
@@ -23,7 +24,7 @@ namespace FrontierDevelopments.Cyberization.Implants
     
     public class ImplantSkillModifier : HediffComp
     {
-        private ImplantSkillModifierProperties Props => (ImplantSkillModifierProperties) props;
+        public ImplantSkillModifierProperties Props => (ImplantSkillModifierProperties) props;
 
         public float ShouldReduceDecay(SkillDef skill)
         {
@@ -54,7 +55,7 @@ namespace FrontierDevelopments.Cyberization.Implants
         }
 
         [HarmonyPatch(typeof(SkillRecord), nameof(SkillRecord.Interval))]
-        static class Patch_SkillRecord
+        static class Patch_SkillRecord_Interval
         {
             private static float ShouldReduceDecay(Pawn pawn, SkillRecord skill)
             {
@@ -81,7 +82,7 @@ namespace FrontierDevelopments.Cyberization.Implants
                                 yield return instruction;
                                 yield return new CodeInstruction(OpCodes.Ldarg_0);
                                 yield return new CodeInstruction(OpCodes.Call, 
-                                    AccessTools.Method(typeof(Patch_SkillRecord), 
+                                    AccessTools.Method(typeof(Patch_SkillRecord_Interval), 
                                         nameof(ShouldReduceDecay)));
                             }
                             break;
@@ -162,6 +163,72 @@ namespace FrontierDevelopments.Cyberization.Implants
                         yield return instruction;
                     }
                 }
+            }
+        }
+
+        [HarmonyPatch(typeof(SkillRecord), nameof(SkillRecord.TotallyDisabled), MethodType.Getter)]
+        static class Patch_SkillRecord_TotallyDisabled
+        {
+            private static bool SkillShouldBeEnabled(Pawn pawn, SkillDef def)
+            {
+                return Implants(pawn)
+                    .SelectMany(implant => implant.Props.skillsAffected)
+                    .Any(skill => skill == def);
+            }
+
+            [HarmonyPostfix]
+            static bool CheckForImplantEnablingSkill(bool __result, SkillDef ___def, Pawn ___pawn)
+            {
+                if (__result == false)
+                {
+                    Log.Message("work should be enabled");
+                    return SkillShouldBeEnabled(___pawn, ___def);
+                }
+                return __result;
+            }
+        }
+
+        [HarmonyPatch(typeof(Pawn_StoryTracker), nameof(Pawn_StoryTracker.DisabledWorkTypes), MethodType.Getter)]
+        static class Patch_Pawn_StoryTracker_DisabledWorkTypes
+        {
+            private static bool RemoveNowEnabledWorktype(Pawn pawn, WorkTypeDef def)
+            {
+                Log.Message("checking work type");
+                
+                var result = Implants(pawn)
+                    .SelectMany(implant => implant.Props.workTypesGranted)
+                    .Any(skill => skill == def.defName);
+
+                Log.Message("work type " + def.defName + " is now enabled = " + !result);
+                return result;
+            }
+            
+            [HarmonyPostfix]
+            static List<WorkTypeDef> CheckForImplantEnablingWorkType(List<WorkTypeDef> __result, Pawn ___pawn)
+            {
+                return __result.Where(workType => RemoveNowEnabledWorktype(___pawn, workType)).ToList();
+            }
+        }
+        
+        [HarmonyPatch(typeof(Pawn_StoryTracker), nameof(Pawn_StoryTracker.DisabledWorkTypes), MethodType.Getter)]
+        static class Patch_Pawn_StoryTracker_DisabledWorkTypes
+        {
+            private static bool RemoveNowEnabledWorktype(Pawn pawn, WorkTypeDef def)
+            {
+                Log.Message("checking work type");
+                
+                var result = Implants(pawn)
+                    .SelectMany(implant => implant.Props.workTypesGranted)
+                    .Any(skill => skill == def.defName);
+
+                Log.Message("work type " + def.defName + " is now enabled = " + !result);
+                return result;
+            }
+            
+            [HarmonyPostfix]
+            static List<WorkTypeDef> CheckForImplantEnablingWorkType(List<WorkTypeDef> __result, Pawn ___pawn)
+            {
+                return __result.Where(workType => RemoveNowEnabledWorktype(___pawn, workType)).ToList();
             }
         }
     }
