@@ -14,7 +14,7 @@
         <filthLeaving>Filth_RubbleBuilding</filthLeaving>
         <blockLight>true</blockLight>
         <drawerType>MapMeshAndRealTime</drawerType>
-        <fillPercent>1</fillPercent>
+        <fillPercent>0</fillPercent>
         <size>(1,1)</size>
         <rotatable>false</rotatable>
         <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
@@ -55,6 +55,9 @@
             <Steel>25</Steel>
             <ComponentIndustrial>1</ComponentIndustrial>
         </costList>
+        <building>
+            <isEdifice>false</isEdifice>
+        </building>
         <comps>
             <li Class="FrontierDevelopments.General.Energy.CompPropertiesEnergyNet"/>
             <li Class="FrontierDevelopments.General.EnergySources.CompProperties_ElectricEnergySource">
@@ -69,5 +72,8 @@
             <li Class="CompProperties_Flickable"/>
             <li Class="CompProperties_Breakdownable"/>
         </comps>
+        <placeWorkers>
+            <li>FrontierDevelopments.General.PlaceWorkers.PlaceWorker_NeverUnstandable</li>
+        </placeWorkers>
     </ThingDef>
 </Defs>
