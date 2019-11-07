@@ -25,6 +25,13 @@
         </value>
     </Operation>
 
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="ArchotechEye" or defName="ArchotechEar"]</xpath>
+        <value>
+            <causesNeed>PartEnergy</causesNeed>
+        </value>
+    </Operation>
+
     <!-- Add power consumption for medium parts -->
     <Operation Class="PatchOperationAdd">
         <xpath>Defs/HediffDef[defName="ArchotechArm"]/comps</xpath>
@@ -35,6 +42,13 @@
         </value>
     </Operation>
 
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="ArchotechArm"]</xpath>
+        <value>
+            <causesNeed>PartEnergy</causesNeed>
+        </value>
+    </Operation>
+
     <!-- Add power consumption for large parts -->
     <Operation Class="PatchOperationAdd">
         <xpath>Defs/HediffDef[defName="ArchotechLeg" or defName="ArchotechSpine"]/comps</xpath>
@@ -42,6 +56,13 @@
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>5</powerPerTick>
             </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="ArchotechLeg" or defName="ArchotechSpine"]</xpath>
+        <value>
+            <causesNeed>PartEnergy</causesNeed>
         </value>
     </Operation>
 

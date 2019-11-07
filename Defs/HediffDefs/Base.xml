@@ -3,6 +3,7 @@
 
     <HediffDef Name="ImplantBase" Abstract="True">
         <hediffClass>FrontierDevelopments.Cyberization.Implants.ImplantPowered</hediffClass>
+        <causesNeed>PartEnergy</causesNeed>
         <defaultLabelColor>(244,210,131)</defaultLabelColor>
         <isBad>false</isBad>
         <addedPartProps>

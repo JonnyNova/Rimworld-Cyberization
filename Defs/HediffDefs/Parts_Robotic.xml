@@ -21,6 +21,7 @@
     </HediffDef>
 
     <HediffDef Name="RoboticBodyPartSmallBase" ParentName="RoboticBodyPartBase" Abstract="True">
+        <causesNeed>PartEnergy</causesNeed>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>1</powerPerTick>
@@ -29,6 +30,7 @@
     </HediffDef>
 
     <HediffDef Name="RoboticBodyPartMediumBase" ParentName="RoboticBodyPartBase" Abstract="True">
+        <causesNeed>PartEnergy</causesNeed>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>2</powerPerTick>
@@ -37,6 +39,7 @@
     </HediffDef>
 
     <HediffDef Name="RoboticBodyPartLargeBase" ParentName="RoboticBodyPartBase" Abstract="True">
+        <causesNeed>PartEnergy</causesNeed>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>3</powerPerTick>

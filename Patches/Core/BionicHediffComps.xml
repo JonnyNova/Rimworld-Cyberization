@@ -35,6 +35,14 @@
         </value>
     </Operation>
 
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="BionicEye" or defName="BionicEar"]</xpath>
+        <value>
+            <causesNeed>PartEnergy</causesNeed>
+        </value>
+    </Operation>
+
+
     <!-- Add power consumption for medium parts -->
     <Operation Class="PatchOperationAdd">
         <xpath>Defs/HediffDef[defName="BionicArm" or defName="PowerClaw"]/comps</xpath>
@@ -42,6 +50,13 @@
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerConsumerProperties">
                 <powerPerTick>3</powerPerTick>
             </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="BionicArm" or defName="PowerClaw"]</xpath>
+        <value>
+            <causesNeed>PartEnergy</causesNeed>
         </value>
     </Operation>
 
@@ -55,6 +70,13 @@
         </value>
     </Operation>
 
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="BionicLeg" or defName="BionicSpine"]</xpath>
+        <value>
+            <causesNeed>PartEnergy</causesNeed>
+        </value>
+    </Operation>
+
     <!-- Add power consumption for non idle organs -->
     <Operation Class="PatchOperationAdd">
         <xpath>Defs/HediffDef[defName="BionicHeart" or defName="BionicStomach"]/comps</xpath>
@@ -63,6 +85,13 @@
                 <powerPerTick>3</powerPerTick>
                 <essential>true</essential>
             </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/HediffDef[defName="BionicHeart" or defName="BionicStomach"]</xpath>
+        <value>
+            <causesNeed>PartEnergy</causesNeed>
         </value>
     </Operation>
 
