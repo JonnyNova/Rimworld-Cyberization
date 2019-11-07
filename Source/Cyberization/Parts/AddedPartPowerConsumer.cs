@@ -27,7 +27,6 @@ namespace FrontierDevelopments.Cyberization.Parts
         public void SetDisabled(bool disabled)
         {
             _disabled = disabled;
-            Pawn.health.Notify_HediffChanged(parent);
         }
 
         public override string CompTipStringExtra => 
