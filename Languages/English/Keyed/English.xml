@@ -50,5 +50,6 @@
     <Cyberization.ITab.Power.WhileNotDrafted>Enable while not drafted</Cyberization.ITab.Power.WhileNotDrafted>
     <Cyberization.ITab.Power.InCombat>Enable while in combat</Cyberization.ITab.Power.InCombat>
     <Cyberization.ITab.Power.OutOfCombat>Enable out of combat</Cyberization.ITab.Power.OutOfCombat>
+    <Cyberization.ITab.Power.CantDisable>Can't be disabled</Cyberization.ITab.Power.CantDisable>
 
 </LanguageData>

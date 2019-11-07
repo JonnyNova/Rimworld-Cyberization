@@ -87,7 +87,7 @@ namespace FrontierDevelopments.Cyberization.Power
             }
             else
             {
-                section.Label("cant be disabled");
+                section.Label("Cyberization.ITab.Power.CantDisable".Translate());
             }
             DrawPowerSlider(section, consumer);
             
