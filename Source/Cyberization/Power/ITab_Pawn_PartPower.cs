@@ -47,7 +47,7 @@ namespace FrontierDevelopments.Cyberization.Power
 
         private static void DrawPowerSlider(Listing_Standard section, IPowerConsumer consumer)
         {
-            consumer.RateWanted = Mathf.RoundToInt(section.Slider(Mathf.RoundToInt(consumer.RateWanted), 0f, consumer.MatRate));
+            consumer.RateWanted = Mathf.RoundToInt(section.Slider(Mathf.RoundToInt(consumer.RateWanted), 0f, consumer.MaxRate));
             section.Gap();
         }
 
