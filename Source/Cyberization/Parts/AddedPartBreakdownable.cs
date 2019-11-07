@@ -1,4 +1,5 @@
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
 
 namespace FrontierDevelopments.Cyberization.Parts
@@ -19,7 +20,7 @@ namespace FrontierDevelopments.Cyberization.Parts
         private bool _disabled;
 
         public bool IsBrokenDown => _brokenDown;
-        public bool CanBreakdown => !IsBrokenDown;
+        public bool CanBreakdown => !IsBrokenDown && !parent.pawn.IsWorldPawn();
 
         public AddedPartBreakdownableProperties Props => (AddedPartBreakdownableProperties) props;
 
@@ -29,6 +30,16 @@ namespace FrontierDevelopments.Cyberization.Parts
         public override string CompTipStringExtra => IsBrokenDown
             ? AddedPartEffectivenessModifierUtils.EffectivenessString("BrokenDown".Translate(), PartEffectiveness) 
             : null;
+
+        public override void CompPostMake()
+        {
+            IncidentWorker_AddedPartBreakdown.Add(this);
+        }
+
+        public override void CompPostPostRemoved()
+        {
+            IncidentWorker_AddedPartBreakdown.Remove(this);
+        }
 
         public bool BreakDown()
         {
@@ -60,9 +71,17 @@ namespace FrontierDevelopments.Cyberization.Parts
             Pawn.health.Notify_HediffChanged(parent);
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + " in " + parent;
+        }
+
         public override void CompExposeData()
         {
             Scribe_Values.Look(ref _brokenDown, "brokenDown");
+
+            if(Scribe.mode == LoadSaveMode.ResolvingCrossRefs)
+                IncidentWorker_AddedPartBreakdown.Add(this);
         }
     }
 }

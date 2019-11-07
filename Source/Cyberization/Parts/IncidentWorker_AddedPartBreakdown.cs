@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Harmony;
 using RimWorld;
 using Verse;
 
@@ -7,15 +8,21 @@ namespace FrontierDevelopments.Cyberization.Parts
 {
     public class IncidentWorker_AddedPartBreakdown : IncidentWorker
     {
+        private static readonly HashSet<AddedPartBreakdownable> Parts = new HashSet<AddedPartBreakdownable>();
+
+        public static void Add(AddedPartBreakdownable part)
+        {
+            Parts.Add(part);
+        }
+
+        public static void Remove(AddedPartBreakdownable part)
+        {
+            Parts.Remove(part);
+        }
+
         private IEnumerable<AddedPartBreakdownable> FindTargets()
         {
-            return Find.WorldObjects.Caravans.SelectMany(caravan => caravan.PawnsListForReading)
-                .Concat(Find.Maps.SelectMany(map => map.mapPawns.AllPawns))
-                .SelectMany(p => p.health.hediffSet.hediffs)
-                .OfType<Hediff_AddedPart>()
-                .SelectMany(h => h.comps.Where(comp => comp is AddedPartBreakdownable))
-                .OfType<AddedPartBreakdownable>()
-                .Where(comp => comp.CanBreakdown);
+            return Parts.Where(part => part.CanBreakdown);
         }
 
         protected override bool CanFireNowSub(IncidentParms parms)
@@ -26,6 +33,16 @@ namespace FrontierDevelopments.Cyberization.Parts
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
             return FindTargets().RandomElement().BreakDown();
+        }
+
+        [HarmonyPatch(typeof(SavedGameLoaderNow), nameof(SavedGameLoaderNow.LoadGameFromSaveFileNow))]
+        private static class Patch_OnLoad
+        {
+            [HarmonyPrefix]
+            private static void ClearCachedSolarFlareState()
+            {
+                Parts.Clear();
+            }
         }
     }
 }
