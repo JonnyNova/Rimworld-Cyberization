@@ -12,7 +12,7 @@ namespace FrontierDevelopments.Cyberization.Power
     {
         private const float ViewMargin = 20f;
         private const float ProviderHeight = 72f;
-        private const float ConsumerHeight = 128f;
+        private const float ConsumerHeight = 144f;
 
         private Vector2 scrollPosition = Vector2.zero;
         
@@ -75,12 +75,15 @@ namespace FrontierDevelopments.Cyberization.Power
                 var enableWhileDrafted = consumer.EnableWhileDrafted;
                 var enableWhileNotDrafted = consumer.EnabledWhileNotDrafted;
                 var enableInCombat = consumer.EnabledInCombat;
+                var enableOutOfCombat = consumer.EnabledOutOfCombat;
                 section.CheckboxLabeled("Cyberization.ITab.Power.WhileDrafted".Translate(), ref enableWhileDrafted);
                 section.CheckboxLabeled("Cyberization.ITab.Power.WhileNotDrafted".Translate(), ref enableWhileNotDrafted);
                 section.CheckboxLabeled("Cyberization.ITab.Power.InCombat".Translate(), ref enableInCombat);
+                section.CheckboxLabeled("Cyberization.ITab.Power.OutOfCombat".Translate(), ref enableOutOfCombat);
                 consumer.EnableWhileDrafted = enableWhileDrafted;
                 consumer.EnabledWhileNotDrafted = enableWhileNotDrafted;
                 consumer.EnabledInCombat = enableInCombat;
+                consumer.EnabledOutOfCombat = enableOutOfCombat;
             }
             else
             {

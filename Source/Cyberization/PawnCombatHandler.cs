@@ -85,7 +85,7 @@ namespace FrontierDevelopments.Cyberization
             [HarmonyPostfix]
             private static void SetCombatParts(bool __result, Pawn __instance)
             {
-                NotifyInCombat(__instance, __result);
+                NotifyInCombat(__instance, __result || IsInCombat(__instance));
             }
         }
 
@@ -117,7 +117,7 @@ namespace FrontierDevelopments.Cyberization
             [HarmonyPostfix]
             private static void SetCombatParts(Verb __result, Pawn __instance)
             {
-                NotifyInCombat(__instance, __result != null);
+                NotifyInCombat(__instance, __result != null || IsInCombat(__instance));
             }
         }
 

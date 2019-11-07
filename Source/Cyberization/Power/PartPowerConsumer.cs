@@ -27,6 +27,7 @@ namespace FrontierDevelopments.Cyberization.Power
         private bool _enableWhileDrafted = true;
         private bool _enableWhileNotDrafted = true;
         private bool _enableInCombat = true;
+        private bool _enableOutOfCombat = true;
 
         private PartPowerConsumerProperties Props => (PartPowerConsumerProperties) props;
 
@@ -84,6 +85,16 @@ namespace FrontierDevelopments.Cyberization.Power
             {
                 _enableInCombat = value;
                 if (PawnCombatHandler.IsInCombat(parent.pawn)) Enabled = value;
+            }
+        }
+
+        public bool EnabledOutOfCombat
+        {
+            get => _enableOutOfCombat;
+            set
+            {
+                _enableOutOfCombat = value;
+                if (!PawnCombatHandler.IsInCombat(parent.pawn)) Enabled = value;
             }
         }
 
@@ -156,6 +167,7 @@ namespace FrontierDevelopments.Cyberization.Power
             Scribe_Values.Look(ref _enableWhileDrafted, "partConsumerEnableWhileDrafted", true);
             Scribe_Values.Look(ref _enableWhileNotDrafted, "partConsumerEnableWhileNotDrafted", true);
             Scribe_Values.Look(ref _enableInCombat, "partConsumerEnableInCombat", true);
+            Scribe_Values.Look(ref _enableOutOfCombat, "partConsumerEnableOutOfCombat", true);
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
@@ -173,20 +185,25 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public void Drafted(bool drafted)
         {
-            switch (drafted)
-            {
-                case true:
-                    Enabled = EnableWhileDrafted;
-                    break;
-                case false:
-                    Enabled = EnabledWhileNotDrafted;
-                    break;
-            }
+            CheckStateChange(drafted, null);
         }
 
         public void InCombat(bool inCombat)
         {
-            Enabled = EnabledInCombat == inCombat;
+            CheckStateChange(null, inCombat);
+        }
+
+        private void CheckStateChange(bool? drafted, bool? inCombat)
+        {
+            if (drafted == null) drafted = Pawn.Drafted;
+            if (inCombat == null) inCombat = PawnCombatHandler.IsInCombat(Pawn);
+
+            var combatWantOn = inCombat.Value && EnabledInCombat;
+            var noCombatWantOn = !inCombat.Value && EnabledOutOfCombat;
+            var draftWantOn = drafted.Value && EnableWhileDrafted;
+            var noDraftWanton = !drafted.Value && EnabledWhileNotDrafted;
+
+            Enabled = combatWantOn || noCombatWantOn || draftWantOn || noDraftWanton;
         }
     }
 }

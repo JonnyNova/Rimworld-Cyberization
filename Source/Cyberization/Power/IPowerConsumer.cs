@@ -21,6 +21,8 @@ namespace FrontierDevelopments.Cyberization.Power
 
         bool EnabledInCombat { get; set; }
 
+        bool EnabledOutOfCombat { get; set; }
+
         float RateWanted { get; set; }
 
         float MatRate { get; }
