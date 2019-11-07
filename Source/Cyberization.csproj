@@ -80,7 +80,6 @@
     <Compile Include="Cyberization\Parts\Harmony_FloatMenuMakerMap.cs" />
     <Compile Include="Cyberization\Parts\Harmony_HealthAIUtility.cs" />
     <Compile Include="Cyberization\Parts\Harmony_PartEffectiveness.cs" />
-    <Compile Include="Cyberization\Parts\Harmony_SolarFlare.cs" />
     <Compile Include="Cyberization\Parts\IncidentWorker_AddedPartBreakdown.cs" />
     <Compile Include="Cyberization\Parts\PartUtility.cs" />
     <Compile Include="Cyberization\PawnCombatHandler.cs" />
@@ -107,6 +106,7 @@
     <Compile Include="Cyberization\Power\PartPowerConsumer.cs" />
     <Compile Include="Cyberization\Power\PawnPartPowerNet.cs" />
     <Compile Include="Cyberization\Settings.cs" />
+    <Compile Include="Cyberization\SolarFlareHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
