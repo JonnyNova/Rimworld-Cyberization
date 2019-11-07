@@ -18,12 +18,15 @@ namespace FrontierDevelopments.Cyberization.Power
         }
     }
 
-    public class PartPowerConsumer : HediffComp, IPowerConsumer
+    public class PartPowerConsumer : HediffComp, IPowerConsumer, ICombatListener
     {
         private IEnergyNet _parent;
         private bool _enabled = true;
         private bool _powered;
         private float _rate;
+        private bool _enableWhileDrafted = true;
+        private bool _enableWhileNotDrafted = true;
+        private bool _enableInCombat = true;
 
         private PartPowerConsumerProperties Props => (PartPowerConsumerProperties) props;
 
@@ -54,6 +57,36 @@ namespace FrontierDevelopments.Cyberization.Power
             }
         }
 
+        public bool EnableWhileDrafted
+        {
+            get => _enableWhileDrafted;
+            set
+            {
+                _enableWhileDrafted = value;
+                if (parent.pawn.Drafted) Enabled = value;
+            }
+        }
+
+        public bool EnabledWhileNotDrafted
+        {
+            get => _enableWhileNotDrafted;
+            set
+            {
+                _enableWhileNotDrafted = value;
+                if (!parent.pawn.Drafted) Enabled = value;
+            }
+        }
+
+        public bool EnabledInCombat
+        {
+            get => _enableInCombat;
+            set
+            {
+                _enableInCombat = value;
+                if (PawnCombatHandler.IsInCombat(parent.pawn)) Enabled = value;
+            }
+        }
+
         public void ConnectTo(IEnergyNet net)
         {
             _parent?.Disconnect(this);
@@ -71,11 +104,13 @@ namespace FrontierDevelopments.Cyberization.Power
         {
             ConnectTo(parent.pawn.AllComps.OfType<IEnergyNet>().First());
             _rate = Props.powerPerTick;
+            PawnCombatHandler.Add(parent.pawn, this);
         }
 
         public override void CompPostPostRemoved()
         {
             _parent?.Disconnect(this);
+            PawnCombatHandler.Remove(parent.pawn, this);
         }
 
         public IEnergyNet Parent => _parent;
@@ -118,18 +153,40 @@ namespace FrontierDevelopments.Cyberization.Power
             Scribe_Values.Look(ref _enabled, "partConsumerPowered");
             Scribe_Values.Look(ref _powered, "partConsumerNetPowered");
             Scribe_Values.Look(ref _rate, "partConsumerRate", Props.powerPerTick);
+            Scribe_Values.Look(ref _enableWhileDrafted, "partConsumerEnableWhileDrafted", true);
+            Scribe_Values.Look(ref _enableWhileNotDrafted, "partConsumerEnableWhileNotDrafted", true);
+            Scribe_Values.Look(ref _enableInCombat, "partConsumerEnableInCombat", true);
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
                 ConnectTo(_parent);
+                PawnCombatHandler.Add(parent.pawn, this);
             }
         }
-        
+
         public override string ToString()
         {
             return base.ToString() + " in " + parent;
         }
 
         public string Label => parent.Label;
+
+        public void Drafted(bool drafted)
+        {
+            switch (drafted)
+            {
+                case true:
+                    Enabled = EnableWhileDrafted;
+                    break;
+                case false:
+                    Enabled = EnabledWhileNotDrafted;
+                    break;
+            }
+        }
+
+        public void InCombat(bool inCombat)
+        {
+            Enabled = EnabledInCombat == inCombat;
+        }
     }
 }

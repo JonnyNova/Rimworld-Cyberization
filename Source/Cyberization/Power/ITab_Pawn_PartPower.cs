@@ -11,7 +11,8 @@ namespace FrontierDevelopments.Cyberization.Power
     public class ITab_Pawn_PartPower : ITab
     {
         private const float ViewMargin = 20f;
-        private const float RowHeight = 72f;
+        private const float ProviderHeight = 72f;
+        private const float ConsumerHeight = 128f;
 
         private Vector2 scrollPosition = Vector2.zero;
         
@@ -52,7 +53,7 @@ namespace FrontierDevelopments.Cyberization.Power
 
         private void RenderProvider(Listing_Standard list, IPowerProvider provider)
         {
-            var section = list.BeginSection(RowHeight);
+            var section = list.BeginSection(ProviderHeight);
             DrawIcon(section, 32);
             DrawLabel(section, provider);
 
@@ -65,15 +66,21 @@ namespace FrontierDevelopments.Cyberization.Power
 
         private void RenderConsumer(Listing_Standard list, IPowerConsumer consumer)
         {
-            var section = list.BeginSection(RowHeight);
+            var section = list.BeginSection(ConsumerHeight);
             DrawIcon(section, 32);
             DrawLabel(section, consumer);
             
             if (!consumer.Essential && SelPawn.Faction == Faction.OfPlayer)
             {
-                var enabled = consumer.Enabled;
-                section.CheckboxLabeled("CommandTogglePowerLabel".Translate(), ref enabled);
-                consumer.Enabled = enabled;
+                var enableWhileDrafted = consumer.EnableWhileDrafted;
+                var enableWhileNotDrafted = consumer.EnabledWhileNotDrafted;
+                var enableInCombat = consumer.EnabledInCombat;
+                section.CheckboxLabeled("Cyberization.ITab.Power.WhileDrafted".Translate(), ref enableWhileDrafted);
+                section.CheckboxLabeled("Cyberization.ITab.Power.WhileNotDrafted".Translate(), ref enableWhileNotDrafted);
+                section.CheckboxLabeled("Cyberization.ITab.Power.InCombat".Translate(), ref enableInCombat);
+                consumer.EnableWhileDrafted = enableWhileDrafted;
+                consumer.EnabledWhileNotDrafted = enableWhileNotDrafted;
+                consumer.EnabledInCombat = enableInCombat;
             }
             else
             {

@@ -46,4 +46,8 @@
     <!-- Power tab -->
     <Cyberization.ITab.Power.Name>Power</Cyberization.ITab.Power.Name>
 
+    <Cyberization.ITab.Power.WhileDrafted>Enable while drafted</Cyberization.ITab.Power.WhileDrafted>
+    <Cyberization.ITab.Power.WhileNotDrafted>Enable while not drafted</Cyberization.ITab.Power.WhileNotDrafted>
+    <Cyberization.ITab.Power.InCombat>Enable while in combat</Cyberization.ITab.Power.InCombat>
+
 </LanguageData>
