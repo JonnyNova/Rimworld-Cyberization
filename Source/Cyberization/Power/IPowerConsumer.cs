@@ -25,6 +25,8 @@ namespace FrontierDevelopments.Cyberization.Power
 
         float RateWanted { get; set; }
 
+        float MinRate { get; }
+
         float MaxRate { get; }
 
         float Efficiency { get; }

@@ -41,6 +41,8 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public float Efficiency => _rate / Props.powerPerTick;
 
+        public float MinRate => Props.essential ? 1f : 0f;
+
         public float MaxRate => Props.powerPerTick;
 
         public bool Enabled
