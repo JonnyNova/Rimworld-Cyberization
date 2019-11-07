@@ -64,7 +64,7 @@ namespace FrontierDevelopments.Cyberization.Power
             set
             {
                 _enableWhileDrafted = value;
-                if (parent.pawn.Drafted) Enabled = value;
+                CheckStateChange(null, null);
             }
         }
 
@@ -74,7 +74,7 @@ namespace FrontierDevelopments.Cyberization.Power
             set
             {
                 _enableWhileNotDrafted = value;
-                if (!parent.pawn.Drafted) Enabled = value;
+                CheckStateChange(null, null);
             }
         }
 
@@ -84,7 +84,7 @@ namespace FrontierDevelopments.Cyberization.Power
             set
             {
                 _enableInCombat = value;
-                if (PawnCombatHandler.IsInCombat(parent.pawn)) Enabled = value;
+                CheckStateChange(null, null);
             }
         }
 
@@ -94,7 +94,7 @@ namespace FrontierDevelopments.Cyberization.Power
             set
             {
                 _enableOutOfCombat = value;
-                if (!PawnCombatHandler.IsInCombat(parent.pawn)) Enabled = value;
+                CheckStateChange(null, null);
             }
         }
 
