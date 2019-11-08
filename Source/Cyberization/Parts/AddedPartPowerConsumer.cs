@@ -13,20 +13,21 @@ namespace FrontierDevelopments.Cyberization.Parts
 
     public class AddedPartPowerConsumer : PartPowerConsumer, AddedPartEffectivenessModifier
     {
-        private bool _disabled;
+        private bool? _overrideState;
 
         public float PartEffectiveness
         {
             get
             {
                 if (!Mod.Settings.UsePartPower) return 1f;
-                return Powered && !_disabled ? Efficiency : 0f;
+                if (_overrideState != null) return _overrideState.Value ? 1f : 0f;
+                return Powered ? Efficiency : 0f;
             }
         }
 
-        public void SetDisabled(bool disabled)
+        public void OverrideEffectivenessState(bool? state)
         {
-            _disabled = disabled;
+            _overrideState = state;
         }
 
         public override string CompTipStringExtra => 

@@ -17,16 +17,27 @@ namespace FrontierDevelopments.Cyberization.Parts
     public class AddedPartBreakdownable : HediffComp, AddedPartEffectivenessModifier
     {
         private bool _brokenDown;
-        private bool _disabled;
+        private bool? _overrideState;
 
         public bool IsBrokenDown => _brokenDown;
         public bool CanBreakdown => !IsBrokenDown && !parent.pawn.IsWorldPawn();
 
         public AddedPartBreakdownableProperties Props => (AddedPartBreakdownableProperties) props;
 
-        public float PartEffectiveness =>
-            IsBrokenDown || _disabled ? Props.partEffectiveness : 1f;
-
+        public float PartEffectiveness
+        {
+            get
+            {
+                if (_overrideState != null)
+                {
+                    return _overrideState.Value ? 1f : 0f;
+                }
+                else
+                {
+                    return IsBrokenDown ? Props.partEffectiveness : 1f;
+                }
+            }
+        }
         public override string CompTipStringExtra => IsBrokenDown
             ? AddedPartEffectivenessModifierUtils.EffectivenessString("BrokenDown".Translate(), PartEffectiveness) 
             : null;
@@ -65,10 +76,9 @@ namespace FrontierDevelopments.Cyberization.Parts
             return true;
         }
 
-        public void SetDisabled(bool disabled)
+        public void OverrideEffectivenessState(bool? state)
         {
-            _disabled = disabled;
-            Pawn.health.Notify_HediffChanged(parent);
+            _overrideState = state;
         }
 
         public override string ToString()

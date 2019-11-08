@@ -5,7 +5,7 @@ namespace FrontierDevelopments.Cyberization.Parts
     public interface AddedPartEffectivenessModifier
     {
         float PartEffectiveness { get; }
-        void SetDisabled(bool disabled);
+        void OverrideEffectivenessState(bool? state);
     }
 
     public class AddedPartEffectivenessModifierUtils

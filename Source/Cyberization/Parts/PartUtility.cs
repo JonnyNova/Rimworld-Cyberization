@@ -94,12 +94,12 @@ namespace FrontierDevelopments.Cyberization.Parts
             var comp = part.TryGetComp<T>();
             if (comp == null) return fallback;
             
-            comp.SetDisabled(true);
+            comp.OverrideEffectivenessState(false);
             part.pawn.health.capacities.Notify_CapacityLevelsDirty();
 
             var result = callback();
 
-            comp.SetDisabled(false);
+            comp.OverrideEffectivenessState(null);
             part.pawn.health.capacities.Notify_CapacityLevelsDirty();
 
             return result;
@@ -114,7 +114,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             parts
                 .SelectMany(part => part.comps)
                 .OfType<T>()
-                .Do(comp => comp.SetDisabled(true));
+                .Do(comp => comp.OverrideEffectivenessState(false));
             pawn.health.capacities.Notify_CapacityLevelsDirty();
 
             var result = callback();
@@ -123,7 +123,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             parts
                 .SelectMany(part => part.comps)
                 .OfType<T>()
-                .Do(comp => comp.SetDisabled(false));
+                .Do(comp => comp.OverrideEffectivenessState(null));
             pawn.health.capacities.Notify_CapacityLevelsDirty();
 
             return result;

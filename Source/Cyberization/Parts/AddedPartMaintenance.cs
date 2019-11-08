@@ -27,7 +27,7 @@ namespace FrontierDevelopments.Cyberization.Parts
         
         private long _condition;
         private bool _maintainedLastTick;
-        private bool _disabled;
+        private bool? _overrideState;
 
         private AddedPartMaintenanceProperties Props => (AddedPartMaintenanceProperties) props;
         
@@ -44,7 +44,7 @@ namespace FrontierDevelopments.Cyberization.Parts
         {
             get
             {
-                if (_disabled) return 0f;
+                if (_overrideState != null) return _overrideState.Value ? 1f : 0f;
 
                 switch(Status)
                 {
@@ -76,10 +76,9 @@ namespace FrontierDevelopments.Cyberization.Parts
                                             ? Mod.Settings.SatisfiedMaintenancePercent
                                             : Mod.Settings.SeekMaintenancePercent);
 
-        public void SetDisabled(bool disabled)
+        public void OverrideEffectivenessState(bool? state)
         {
-            _disabled = disabled;
-            Pawn.health.Notify_HediffChanged(parent);
+            _overrideState = state;
         }
 
         public void DoMaintenance(int amount)
