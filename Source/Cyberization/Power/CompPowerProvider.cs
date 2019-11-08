@@ -58,6 +58,11 @@ namespace FrontierDevelopments.Cyberization.Power
             return _provider.Consume(amount);
         }
 
+        public float Request(float amount)
+        {
+            return _provider.Request(amount);
+        }
+
         public override void PostExposeData()
         {
             Scribe_Deep.Look(ref _provider, "provider");

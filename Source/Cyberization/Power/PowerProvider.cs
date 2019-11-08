@@ -74,10 +74,16 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public float Consume(float amount)
         {
+            amount = Request(amount);
+            _energy -= amount;
+            return amount;
+        }
+
+        public float Request(float amount)
+        {
             if (amount > RateAvailable) amount = RateAvailable;
             if (amount > AmountAvailable) amount = AmountAvailable;
             _drawThisTick += amount;
-            _energy -= amount;
             return amount;
         }
 

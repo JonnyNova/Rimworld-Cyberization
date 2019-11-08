@@ -72,6 +72,11 @@ namespace FrontierDevelopments.Cyberization.Parts
             return _provider.Consume(amount);
         }
 
+        public float Request(float amount)
+        {
+            return _provider.Request(amount);
+        }
+
         public override void CompExposeData()
         {
             Scribe_Deep.Look(ref _provider, "provider");
