@@ -89,54 +89,94 @@ namespace FrontierDevelopments.Cyberization.Parts
             return PoweredPartsFor(pawn).Any();
         }
 
-        private static bool ToggleAndCheckPart<T>(Hediff_AddedPart part, Func<bool> callback, bool fallback = false)  where T : HediffComp, AddedPartEffectivenessModifier
+        private static bool CheckFeature<T>(
+            T feature,
+            bool? state,
+            Func<bool> callback
+            ) where T : HediffComp, AddedPartEffectivenessModifier
+        {
+            feature.OverrideEffectivenessState(state);
+            feature.parent.pawn.health.capacities.Notify_CapacityLevelsDirty();
+            return callback();
+        }
+
+        private static bool CheckFeatures<T>(
+            Pawn pawn,
+            IEnumerable<T> features,
+            bool? state,
+            Func<bool> callback
+            ) where T : HediffComp, AddedPartEffectivenessModifier
+        {
+            features.Do(feature => feature.OverrideEffectivenessState(state));
+            pawn.health.capacities.Notify_CapacityLevelsDirty();
+            return callback();
+        }
+
+        private static bool ToggleAndCheckPart<T>(
+            Hediff_AddedPart part,
+            Func<bool> check,
+            bool fallback = false
+            ) where T : HediffComp, AddedPartEffectivenessModifier
         {
             var comp = part.TryGetComp<T>();
             if (comp == null) return fallback;
-            
-            comp.OverrideEffectivenessState(false);
-            part.pawn.health.capacities.Notify_CapacityLevelsDirty();
 
-            var result = callback();
+            var enabled = CheckFeature(comp, true, check);
+            var disabled = CheckFeature(comp, false, check);
+            CheckFeature(comp, null, () => true);
 
-            comp.OverrideEffectivenessState(null);
-            part.pawn.health.capacities.Notify_CapacityLevelsDirty();
-
-            return result;
+            return enabled != disabled;
         }
 
-        private static bool ToggleAndCheckParts<T>(Pawn pawn, Func<bool> callback) where T : HediffComp, AddedPartEffectivenessModifier
+        private static bool ToggleAndCheckParts<T>(
+            Pawn pawn,
+            Predicate<T> predicate,
+            Func<bool> check
+            ) where T : HediffComp, AddedPartEffectivenessModifier
         {
-            var parts = PoweredPartsFor(pawn).ToList();
+            var features = AddedParts(pawn)
+                .SelectMany(part => part.comps)
+                .OfType<T>()
+                .Where(predicate.Invoke)
+                .ToList();
             
-            // turn off all parts
+            // enable features
+            var enabled = CheckFeatures(pawn, features, true, check);
+
+            // disable features
             // checks if things such as both kidneys would be impacted
-            parts
-                .SelectMany(part => part.comps)
-                .OfType<T>()
-                .Do(comp => comp.OverrideEffectivenessState(false));
-            pawn.health.capacities.Notify_CapacityLevelsDirty();
+            var disabled = CheckFeatures(pawn, features, false, check);
 
-            var result = callback();
-            
-            // turn on all parts
-            parts
-                .SelectMany(part => part.comps)
-                .OfType<T>()
-                .Do(comp => comp.OverrideEffectivenessState(null));
-            pawn.health.capacities.Notify_CapacityLevelsDirty();
+            // restore features
+            CheckFeatures(pawn, features, null, () => true);
 
-            return result;
+            return enabled != disabled;
         }
 
         public static bool RequiresPartsToLive<T>(Pawn pawn) where T : HediffComp, AddedPartEffectivenessModifier
         {
-            return ToggleAndCheckParts<T>(pawn, () => pawn.health.ShouldBeDeadFromRequiredCapacity() != null);
+            return RequiresPartsToLive<T>(pawn, part => true);
+        }
+
+        public static bool RequiresPartsToLive<T>(Pawn pawn, Predicate<T> predicate) where T : HediffComp, AddedPartEffectivenessModifier
+        {
+            return ToggleAndCheckParts(
+                pawn,
+                predicate,
+                () => pawn.health.ShouldBeDeadFromRequiredCapacity() != null);
         }
 
         public static bool RequiresPartsForMovement<T>(Pawn pawn) where T : HediffComp, AddedPartEffectivenessModifier
         {
-            return ToggleAndCheckParts<T>(pawn, () => !pawn.health.capacities.CapableOf(PawnCapacityDefOf.Moving));
+            return RequiresPartsForMovement<T>(pawn, part => true);
+        }
+
+        public static bool RequiresPartsForMovement<T>(Pawn pawn, Predicate<T> predicate) where T : HediffComp, AddedPartEffectivenessModifier
+        {
+            return ToggleAndCheckParts(
+                pawn,
+                predicate,
+                () => !pawn.health.capacities.CapableOf(PawnCapacityDefOf.Moving));
         }
 
         public static bool RequiresPartToLive<T>(Hediff_AddedPart part) where T : HediffComp, AddedPartEffectivenessModifier
