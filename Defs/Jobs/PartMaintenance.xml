@@ -43,4 +43,18 @@
         <alwaysShowWeapon>false</alwaysShowWeapon>
         <suspendable>true</suspendable>
     </JobDef>
+
+    <WorkGiverDef>
+        <defName>Cyberization_RescuePartUserToPower</defName>
+        <label>charge power for downed allies</label>
+        <giverClass>FrontierDevelopments.Cyberization.Parts.Job.WorkGiver_MaintainPart</giverClass>
+        <priorityInType>100</priorityInType>
+        <workType>Doctor</workType>
+        <emergency>false</emergency>
+        <verb>rescue</verb>
+        <gerund>rescuing</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </WorkGiverDef>
 </Defs>

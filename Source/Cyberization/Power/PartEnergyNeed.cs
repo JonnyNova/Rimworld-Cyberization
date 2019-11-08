@@ -38,6 +38,8 @@ namespace FrontierDevelopments.Cyberization.Power
         // Needed since power can tick before charging happens leaving a pawn unable to charge to 100%
         public bool Satisfied => CurLevelPercentage >= (Mod.Settings.SeekPowerChargeTo >= 1f ? 0.99f : Mod.Settings.SeekPowerChargeTo);
 
+        public bool Empty => CurLevel <= 0;
+
         public override bool ShowOnNeedList => Mod.Settings.UsePartPower;
 
         public override void NeedInterval()
