@@ -2,7 +2,7 @@
 <Defs>
     <ThingDef Name="UltratechBionicBase" ParentName="BodyPartBase" Abstract="True">
         <graphicData>
-            <texPath>Things/Item/Health/HealthItemBionic</texPath>
+            <texPath>Things/Item/Health/HealthItem</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>0.80</drawSize>
         </graphicData>
@@ -10,11 +10,11 @@
             <li>Advanced</li>
         </techHediffsTags>
         <tradeTags>
-            <li>UltratechParts</li>
+            <li>ExoticMisc</li>
             <li>BodyPart</li>
         </tradeTags>
         <thingCategories>
-            <li>UltratechParts</li>
+            <li>BodyPartsUltra</li>
         </thingCategories>
     </ThingDef>
 

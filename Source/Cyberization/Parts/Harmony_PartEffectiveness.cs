@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
-using Harmony;
+using HarmonyLib;
 using Verse;
 
 namespace FrontierDevelopments.Cyberization.Parts
@@ -34,11 +35,11 @@ namespace FrontierDevelopments.Cyberization.Parts
             // ldfld class Verse.AddedBodyPartProps Verse.HediffDef::addedPartProps
             // ldfld float32 Verse.AddedBodyPartProps::partEfficiency
             return instruction.opcode == OpCodes.Ldfld
-                   && instruction.operand == AccessTools.Field(typeof(Hediff), nameof(Hediff.def))
+                   && (FieldInfo)instruction.operand == AccessTools.Field(typeof(Hediff), nameof(Hediff.def))
                    && nextInstruction.opcode == OpCodes.Ldfld
-                   && nextInstruction.operand == AccessTools.Field(typeof(HediffDef), nameof(HediffDef.addedPartProps))
+                   && (FieldInfo)nextInstruction.operand == AccessTools.Field(typeof(HediffDef), nameof(HediffDef.addedPartProps))
                    && nextNextInstruction.opcode == OpCodes.Ldfld
-                   && nextNextInstruction.operand == AccessTools.Field(typeof(AddedBodyPartProps), nameof(AddedBodyPartProps.partEfficiency));
+                   && (FieldInfo)nextNextInstruction.operand == AccessTools.Field(typeof(AddedBodyPartProps), nameof(AddedBodyPartProps.partEfficiency));
         }
 
         private static CodeInstruction CallCalculatePartEfficiency()
@@ -50,12 +51,14 @@ namespace FrontierDevelopments.Cyberization.Parts
                     nameof(CalculatePartEfficiency)));
         }
 
-        private static IEnumerable<CodeInstruction> ReplaceAllPartEfficiency(List<CodeInstruction> instructions)
+        private static IEnumerable<CodeInstruction> ReplaceAllPartEfficiency(List<CodeInstruction> instructions, string patchedMethod)
         {
+            var success = false;
             for (int i = 0; i < instructions.Count; i++)
             {
                 if (InstructionsForPartEfficiency(i , instructions))
                 {
+                    success = true;
                     i += 2;
                     yield return CallCalculatePartEfficiency();
                 }
@@ -63,6 +66,11 @@ namespace FrontierDevelopments.Cyberization.Parts
                 {
                     yield return instructions[i];
                 }
+            }
+
+            if (!success)
+            {
+                Log.Error("Failed to patch " + patchedMethod);
             }
         }
         
@@ -72,7 +80,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             [HarmonyTranspiler]
             static IEnumerable<CodeInstruction> Transpile(IEnumerable<CodeInstruction> instructions)
             {
-                return ReplaceAllPartEfficiency(instructions.ToList());
+                return ReplaceAllPartEfficiency(instructions.ToList(), "PawnCapacityUtility.CalculatePartEfficiency");
             }
         }
 
@@ -82,7 +90,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             [HarmonyTranspiler]
             static IEnumerable<CodeInstruction> Transpile(IEnumerable<CodeInstruction> instructions)
             {
-                return ReplaceAllPartEfficiency(instructions.ToList());
+                return ReplaceAllPartEfficiency(instructions.ToList(), "Hediff_AddedPart.TipStringExtra");
             }
         }
     }

@@ -51,6 +51,8 @@
         <defName>RoboticEye</defName>
         <label>robotic visual orb</label>
         <labelNoun>a robotic visual orb</labelNoun>
+        <description>An installed robotic visual orb.</description>
+        <descriptionHyperlinks><ThingDef>RoboticEye</ThingDef></descriptionHyperlinks>
         <spawnThingOnRemoved>RoboticEye</spawnThingOnRemoved>
         <addedPartProps>
             <partEfficiency>0.65</partEfficiency>
@@ -61,6 +63,8 @@
         <defName>RoboticArm</defName>
         <label>robotic arm</label>
         <labelNoun>a robotic arm</labelNoun>
+        <description>An installed robotic arm.</description>
+        <descriptionHyperlinks><ThingDef>RoboticArm</ThingDef></descriptionHyperlinks>
         <comps>
             <li Class="HediffCompProperties_VerbGiver">
                 <tools>
@@ -82,6 +86,8 @@
         <defName>RoboticHand</defName>
         <label>robotic hand</label>
         <labelNoun>a robotic hand</labelNoun>
+        <description>An installed robotic hand.</description>
+        <descriptionHyperlinks><ThingDef>RoboticHand</ThingDef></descriptionHyperlinks>
         <comps>
             <li Class="HediffCompProperties_VerbGiver">
                 <tools>
@@ -103,6 +109,8 @@
         <defName>RoboticLeg</defName>
         <label>robotic leg</label>
         <labelNoun>a robotic leg</labelNoun>
+        <description>An installed robotic leg.</description>
+        <descriptionHyperlinks><ThingDef>RoboticLeg</ThingDef></descriptionHyperlinks>
         <spawnThingOnRemoved>RoboticLeg</spawnThingOnRemoved>
     </HediffDef>
 
@@ -110,6 +118,8 @@
         <defName>RoboticJaw</defName>
         <label>robotic jaw</label>
         <labelNoun>a robotic jaw</labelNoun>
+        <description>An installed robotic jaw.</description>
+        <descriptionHyperlinks><ThingDef>RoboticJaw</ThingDef></descriptionHyperlinks>
         <spawnThingOnRemoved>RoboticJaw</spawnThingOnRemoved>
     </HediffDef>
 </Defs>

@@ -110,7 +110,7 @@ namespace FrontierDevelopments.Cyberization.Parts
         public override string CompTipStringExtra => 
             "Condition: " + (int) (Percent * 100) + "%" + 
             (Status != AddedPartCondition.Good 
-                ? ", -" + 100 * (1 - PartEffectiveness) + "% " + "PartEfficiency".Translate() 
+                ? ", -" + 100 * (1 - PartEffectiveness) + "% " + "PartEfficiency".Translate().ToString()
                 : "");
 
         public override void CompExposeData()

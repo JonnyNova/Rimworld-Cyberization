@@ -1,5 +1,5 @@
 using System.Reflection;
-using Harmony;
+using HarmonyLib;
 using UnityEngine;
 using Verse;
 
@@ -13,7 +13,7 @@ namespace FrontierDevelopments.Cyberization
         {
             Settings = GetSettings<Settings>();
 
-            var harmony = HarmonyInstance.Create("frontierdevelopment.cyberization");
+            var harmony = new Harmony("frontierdevelopment.cyberization");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
