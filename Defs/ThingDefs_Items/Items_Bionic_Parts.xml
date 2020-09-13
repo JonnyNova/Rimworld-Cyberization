@@ -35,9 +35,6 @@
             <WorkToMake>26000</WorkToMake>
             <Mass>1</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="BodyPartBionicBase">
@@ -55,9 +52,6 @@
             <WorkToMake>18000</WorkToMake>
             <Mass>0.5</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="BodyPartBionicBase">
@@ -75,9 +69,6 @@
             <WorkToMake>38000</WorkToMake>
             <Mass>1</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
     
     <!-- Implants -->
@@ -97,9 +88,6 @@
             <WorkToMake>26000</WorkToMake>
             <Mass>0.1</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="BodyPartBionicBase">
@@ -117,9 +105,6 @@
             <WorkToMake>26000</WorkToMake>
             <Mass>0.1</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="BodyPartBionicBase">
@@ -137,9 +122,6 @@
             <WorkToMake>26000</WorkToMake>
             <Mass>0.1</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="BodyPartBionicBase">
@@ -157,9 +139,6 @@
             <WorkToMake>26000</WorkToMake>
             <Mass>0.5</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="BodyPartBionicBase">
@@ -177,9 +156,6 @@
             <WorkToMake>26000</WorkToMake>
             <Mass>0.25</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
     
 </Defs>

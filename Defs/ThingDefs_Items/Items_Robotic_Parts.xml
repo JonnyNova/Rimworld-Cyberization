@@ -12,6 +12,9 @@
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>0.80</drawSize>
         </graphicData>
+        <techHediffsTags>
+            <li>Simple</li>
+        </techHediffsTags>
         <recipeMaker>
             <workSpeedStat>SmithingSpeed</workSpeedStat>
             <workSkill>Crafting</workSkill>
@@ -41,9 +44,6 @@
         <WorkToMake>19000</WorkToMake>
         <Mass>0.6</Mass>
     </statBases>
-    <techHediffsTags>
-        <li>Simple</li>
-    </techHediffsTags>
     </ThingDef>
     
     <ThingDef ParentName="BodyPartRoboticBase">
@@ -60,9 +60,6 @@
         <WorkToMake>13000</WorkToMake>
         <Mass>10</Mass>
     </statBases>
-    <techHediffsTags>
-        <li>Simple</li>
-    </techHediffsTags>
     </ThingDef>
     
     <ThingDef ParentName="BodyPartRoboticBase">
@@ -79,9 +76,6 @@
         <WorkToMake>6500</WorkToMake>
         <Mass>1</Mass>
     </statBases>
-    <techHediffsTags>
-        <li>Simple</li>
-    </techHediffsTags>
     </ThingDef>
     
     <ThingDef ParentName="BodyPartRoboticBase">
@@ -98,9 +92,6 @@
         <WorkToMake>13000</WorkToMake>
         <Mass>10</Mass>
     </statBases>
-    <techHediffsTags>
-        <li>Simple</li>
-    </techHediffsTags>
     </ThingDef>
     
     <ThingDef ParentName="BodyPartRoboticBase">
@@ -117,8 +108,5 @@
         <WorkToMake>13000</WorkToMake>
         <Mass>2</Mass>
     </statBases>
-    <techHediffsTags>
-        <li>Simple</li>
-    </techHediffsTags>
     </ThingDef>
 </Defs>

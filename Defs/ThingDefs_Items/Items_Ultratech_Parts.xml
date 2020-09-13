@@ -6,6 +6,9 @@
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>0.80</drawSize>
         </graphicData>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
         <tradeTags>
             <li>UltratechParts</li>
             <li>BodyPart</li>
@@ -23,9 +26,6 @@
             <MarketValue>4500</MarketValue>
             <Mass>0.5</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="UltratechBionicBase">
@@ -36,9 +36,6 @@
             <MarketValue>2500</MarketValue>
             <Mass>0.5</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="UltratechBionicBase">
@@ -49,9 +46,6 @@
             <MarketValue>3500</MarketValue>
             <Mass>0.1</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="UltratechBionicBase">
@@ -62,9 +56,6 @@
             <MarketValue>3500</MarketValue>
             <Mass>0.1</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="UltratechBionicBase">
@@ -75,9 +66,6 @@
             <MarketValue>3500</MarketValue>
             <Mass>0.1</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="UltratechBionicBase">
@@ -88,9 +76,6 @@
             <MarketValue>3500</MarketValue>
             <Mass>0.1</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="UltratechBionicBase">
@@ -101,9 +86,6 @@
             <MarketValue>3500</MarketValue>
             <Mass>0.1</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="UltratechBionicBase">
@@ -114,9 +96,6 @@
             <MarketValue>2500</MarketValue>
             <Mass>0.1</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 
     <ThingDef ParentName="UltratechBionicBase">
@@ -127,8 +106,5 @@
             <MarketValue>5000</MarketValue>
             <Mass>0.1</Mass>
         </statBases>
-        <techHediffsTags>
-            <li>Advanced</li>
-        </techHediffsTags>
     </ThingDef>
 </Defs>
