@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -145,7 +146,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             }
 
             [HarmonyTranspiler]
-            static IEnumerable<CodeInstruction> DontSpawmFullyHeadledMessaged(IEnumerable<CodeInstruction> instructions)
+            static IEnumerable<CodeInstruction> DontSpamFullyHealedMessaged(IEnumerable<CodeInstruction> instructions)
             {
                 const int localHealedBool = 7;
                 var phase = 0;
@@ -157,7 +158,7 @@ namespace FrontierDevelopments.Cyberization.Parts
                     {
                         case 0:
                             if (instruction.opcode == OpCodes.Call
-                                && instruction.operand == AccessTools.Method(
+                                && (MethodInfo)instruction.operand == AccessTools.Method(
                                     typeof(PawnUtility),
                                     nameof(PawnUtility.ShouldSendNotificationAbout)))
                             {
@@ -191,6 +192,11 @@ namespace FrontierDevelopments.Cyberization.Parts
                     }
 
                     yield return instruction;
+                }
+
+                if (phase > 0)
+                {
+                    Log.Error("Failed to patch Pawn_HealthTracker.HealthTick for DontSpamFullyHealedMessaged, phase reached " + phase);
                 }
             }
         }

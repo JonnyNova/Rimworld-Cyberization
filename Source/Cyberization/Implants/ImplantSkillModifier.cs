@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
 using FrontierDevelopments.Cyberization.Power;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -72,7 +73,7 @@ namespace FrontierDevelopments.Cyberization.Implants
                     {
                         case 0:
                             if (instruction.opcode == OpCodes.Ldfld
-                                && instruction.operand == AccessTools.Field(typeof(SkillRecord), "pawn"))
+                                && (FieldInfo)instruction.operand == AccessTools.Field(typeof(SkillRecord), "pawn"))
                             {
                                 emitExisting = false;
                                 phase = 1;
@@ -95,6 +96,11 @@ namespace FrontierDevelopments.Cyberization.Implants
 
                     if (emitExisting)
                         yield return instruction;
+                }
+
+                if (phase > 0)
+                {
+                    Log.Error("Failed to patch SkillRecord.Interval for reducing skill decay, phase reached " + phase);
                 }
             }
         }

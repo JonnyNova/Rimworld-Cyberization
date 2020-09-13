@@ -44,6 +44,8 @@
         <defName>ArchotechVibroblade</defName>
         <label>Archotech vibroblade</label>
         <labelNoun>an archotech vibroblade</labelNoun>
+        <description>An installed archotech vibroblade.</description>
+        <descriptionHyperlinks><ThingDef>ArchotechVibroblade</ThingDef></descriptionHyperlinks>
         <comps>
             <li Class="HediffCompProperties_VerbGiver">
                 <tools>

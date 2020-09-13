@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -89,23 +89,22 @@ namespace FrontierDevelopments.Cyberization
             }
         }
 
-        [HarmonyPatch(typeof(Toils_Combat))]
+        [HarmonyPatch]
         private static class CheckForCombatFromToilsCombat
         {
             [HarmonyTargetMethod]
-            private static MethodInfo FindAnonymousFunction(HarmonyInstance instance)
+            private static MethodInfo FindAnonymousFunction(Harmony instance)
             {
-                return typeof(Toils_Combat).GetNestedTypes(BindingFlags.NonPublic | BindingFlags.Instance)
-                    .First(method => method.Name.Contains(nameof(Toils_Combat.TrySetJobToUseAttackVerb)))
-                    .GetMethods(BindingFlags.NonPublic | BindingFlags.Instance)
+                return typeof(Toils_Combat)
+                    .GetNestedTypes(BindingFlags.NonPublic | BindingFlags.Instance)
+                    .SelectMany(type => type.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance))
                     .Where(method => !method.IsConstructor)
                     .Where(method => method.ReturnType == typeof(void))
-                    .Where(method => method.Name != "Finalize")
-                    .First(method => method.Name.Contains("0"));
+                    .First(method => method.Name.Contains("TrySetJobToUseAttackVerb"));
             }
 
             [HarmonyPostfix]
-            private static void SetCombatParts(Toil ___toil)
+            private static void Postfix(Toil ___toil)
             {
                 NotifyInCombat(___toil.actor, true);
             }

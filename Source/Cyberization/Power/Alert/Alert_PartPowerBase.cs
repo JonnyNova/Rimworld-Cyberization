@@ -1,4 +1,5 @@
 using System.Text;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -32,13 +33,10 @@ namespace FrontierDevelopments.Cyberization.Power.Alert
             }
         }
 
-        public override bool Active
+        public override AlertReport GetReport()
         {
-            get
-            {
-                Update();
-                return Mod.Settings.UsePartPower && UsersCount > 0;
-            }
+            Update();
+            return Mod.Settings.UsePartPower && UsersCount > 0;
         }
 
         protected override Color BGColor
@@ -60,7 +58,7 @@ namespace FrontierDevelopments.Cyberization.Power.Alert
                 .Replace("{0}", UsersCount.ToString());
         }
 
-        public override string GetExplanation()
+        public override TaggedString GetExplanation()
         {
             var result = new StringBuilder();
 

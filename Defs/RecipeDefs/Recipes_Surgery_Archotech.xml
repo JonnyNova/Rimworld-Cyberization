@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <RecipeDef ParentName="SurgeryFlesh">
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
     <defName>InstallVirboblade</defName>
     <label>install archotech virboblade</label>
     <description>Install a vibroblade.</description>
-    <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
     <jobString>Installing vibroblade.</jobString>
     <workAmount>2500</workAmount>
     <skillRequirements>
@@ -42,11 +41,10 @@
     <addsHediff>ArchotechVibroblade</addsHediff>
   </RecipeDef>
 
-  <RecipeDef ParentName="SurgeryFlesh">
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
         <defName>InstallArchotechQuantumCell</defName>
         <label>install archotech quantum cell</label>
         <description>Install an archotech quantum cell.</description>
-        <workerClass>Recipe_InstallImplant</workerClass>
         <jobString>Installing archotech quantum cell.</jobString>
         <workAmount>4000</workAmount>
         <deathOnFailedSurgeryChance>0.01</deathOnFailedSurgeryChance>
@@ -85,11 +83,10 @@
         <addsHediff>ArchotechQuantumCell</addsHediff>
     </RecipeDef>
 
-    <RecipeDef ParentName="SurgeryFlesh">
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
         <defName>InstallVanometricMinicell</defName>
         <label>install vanometric mini-cell</label>
         <description>Install a vanometric mini-cell.</description>
-        <workerClass>Recipe_InstallImplant</workerClass>
         <jobString>Installing vanometric mini-cell.</jobString>
         <workAmount>4000</workAmount>
         <deathOnFailedSurgeryChance>0.01</deathOnFailedSurgeryChance>

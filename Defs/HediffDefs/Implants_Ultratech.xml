@@ -12,6 +12,8 @@
         <defName>Sleepstopper</defName>
         <label>sleepstopper</label>
         <labelNoun>a sleepstopper</labelNoun>
+        <description>An installed sleepstopper.</description>
+        <descriptionHyperlinks><ThingDef>Sleepstopper</ThingDef></descriptionHyperlinks>
         <stages>
             <li>
                 <restFallFactor>0.0</restFallFactor>
@@ -23,7 +25,9 @@
     <HediffDef ParentName="UltraTechImplantBase">
         <defName>Megastopper</defName>
         <label>megastopper</label>
-        <labelNoun>a megashunt</labelNoun>
+        <labelNoun>a megastopper</labelNoun>
+        <description>An installed megastopper.</description>
+        <descriptionHyperlinks><ThingDef>Megastopper</ThingDef></descriptionHyperlinks>
         <stages>
             <li>
                 <restFallFactor>0.0</restFallFactor>
@@ -37,6 +41,8 @@
         <defName>CombatImplant</defName>
         <label>combat implant</label>
         <labelNoun>a combat implant</labelNoun>
+        <description>An installed combat implant.</description>
+        <descriptionHyperlinks><ThingDef>CombatImplant</ThingDef></descriptionHyperlinks>
         <spawnThingOnRemoved>CombatImplant</spawnThingOnRemoved>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Implants.ImplantSkillModifierProperties">
@@ -66,6 +72,8 @@
         <defName>DomesticImplant</defName>
         <label>domestic implant</label>
         <labelNoun>a domestic implant</labelNoun>
+        <description>An installed domestic implant.</description>
+        <descriptionHyperlinks><ThingDef>DomesticImplant</ThingDef></descriptionHyperlinks>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Implants.ImplantSkillModifierProperties">
                 <skillLearnIncrease>0.5</skillLearnIncrease>
@@ -98,6 +106,8 @@
         <defName>CreativeImplant</defName>
         <label>creative implant</label>
         <labelNoun>a creative implant</labelNoun>
+        <description>An installed creative implant.</description>
+        <descriptionHyperlinks><ThingDef>CreativeImplant</ThingDef></descriptionHyperlinks>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Implants.ImplantSkillModifierProperties">
                 <skillLearnIncrease>0.5</skillLearnIncrease>
@@ -116,7 +126,6 @@
                     <SocialImpact>+0.1</SocialImpact>
                     <DrugSynthesisSpeed>+0.25</DrugSynthesisSpeed>
                     <ResearchSpeed>+0.15</ResearchSpeed>
-                    <SculptingSpeed>+0.25</SculptingSpeed>
                 </statOffsets>
             </li>
         </stages>
@@ -127,6 +136,8 @@
         <defName>LaborImplant</defName>
         <label>labor implant</label>
         <labelNoun>a labor implant</labelNoun>
+        <description>An installed labor implant.</description>
+        <descriptionHyperlinks><ThingDef>LaborImplant</ThingDef></descriptionHyperlinks>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Implants.ImplantSkillModifierProperties">
                 <skillDecayFactor>0.5</skillDecayFactor>
@@ -147,8 +158,6 @@
                     <ButcheryMechanoidEfficiency>+0.15</ButcheryMechanoidEfficiency>
                     <ButcheryMechanoidSpeed>+0.25</ButcheryMechanoidSpeed>
                     <SmeltingSpeed>+0.25</SmeltingSpeed>
-                    <SmithingSpeed>+0.25</SmithingSpeed>
-                    <TailoringSpeed>+0.25</TailoringSpeed>
                 </statOffsets>
             </li>
         </stages>
@@ -159,6 +168,8 @@
         <defName>MedicalImplant</defName>
         <label>medical implant</label>
         <labelNoun>a medical implant</labelNoun>
+        <description>An installed medical implant.</description>
+        <descriptionHyperlinks><ThingDef>MedicalImplant</ThingDef></descriptionHyperlinks>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Implants.ImplantSkillModifierProperties">
                 <skillLearnIncrease>0.5</skillLearnIncrease>

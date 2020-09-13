@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using FrontierDevelopments.Cyberization.Power;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -46,7 +46,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             {
                 if (pawn.Downed || !PartEnergyNeed.HasNeed(pawn)) return __result;
                 
-                foreach (var target in GenUI.TargetsAt(clickPos, ForChargers))
+                foreach (var target in GenUI.TargetsAt(clickPos, ForChargers, false))
                 {
                     if (ChargeSourceUtility.FindSources(target.Thing).Any(charger => charger.Available))
                     {

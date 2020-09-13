@@ -4,27 +4,9 @@
 <!--Prostheses-->
   
   <ThingCategoryDef>
-    <defName>RoboticBodyParts</defName>
-    <label>Robotic parts</label>
-    <parent>BodyPartsArtificial</parent>
-  </ThingCategoryDef>
-
-  <ThingCategoryDef>
-    <defName>BionicBodyParts</defName>
-    <label>Bionic parts</label>
-    <parent>BodyPartsArtificial</parent>
-  </ThingCategoryDef>
-
-  <ThingCategoryDef>
-    <defName>UltratechParts</defName>
-    <label>Ultratech parts</label>
-    <parent>BodyPartsArtificial</parent>
-  </ThingCategoryDef>
-
-  <ThingCategoryDef>
-    <defName>ArchotechBodyParts</defName>
-    <label>Archotech parts</label>
-    <parent>BodyPartsArtificial</parent>
+    <defName>BodyPartsRobotic</defName>
+    <label>robotic</label>
+    <parent>BodyParts</parent>
   </ThingCategoryDef>
   
 </Defs>
