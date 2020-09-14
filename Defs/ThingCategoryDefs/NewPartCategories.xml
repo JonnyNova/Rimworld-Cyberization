@@ -16,14 +16,14 @@
   </ThingCategoryDef>
 
   <ThingCategoryDef>
-    <defName>GlittertierParts</defName>
-    <label>Glittertier parts</label>
+    <defName>UltratechParts</defName>
+    <label>Ultratech parts</label>
     <parent>BodyPartsArtificial</parent>
   </ThingCategoryDef>
 
   <ThingCategoryDef>
     <defName>ArchotechBodyParts</defName>
-    <label>archotech parts</label>
+    <label>Archotech parts</label>
     <parent>BodyPartsArtificial</parent>
   </ThingCategoryDef>
   

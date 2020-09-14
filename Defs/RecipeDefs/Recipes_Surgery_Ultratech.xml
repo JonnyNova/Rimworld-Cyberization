@@ -2,10 +2,10 @@
 <Defs>
   <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallAMCore</defName>
-    <label>install anti-matter core</label>
-    <description>Install an anti-matter core.</description>
+    <label>install ultratech anti-matter core</label>
+    <description>Install an ultratech anti-matter core.</description>
     <workerClass>Recipe_InstallImplant</workerClass>
-    <jobString>Installing anti-matter core.</jobString>
+    <jobString>Installing ultratech anti-matter core.</jobString>
     <workAmount>2500</workAmount>
     <skillRequirements>
       <Medicine>8</Medicine>
@@ -22,7 +22,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>AdvancedAMCore</li>
+            <li>UltratechAMCore</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -33,21 +33,21 @@
         <li>Medicine</li>
       </categories>
       <thingDefs>
-        <li>AdvancedAMCore</li>
+        <li>UltratechAMCore</li>
       </thingDefs>
     </fixedIngredientFilter>
     <appliedOnFixedBodyParts>
       <li>Torso</li>
     </appliedOnFixedBodyParts>
-    <addsHediff>AdvancedAMCore</addsHediff>
+    <addsHediff>UltratechAMCore</addsHediff>
   </RecipeDef>
 
   <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallFusionHub</defName>
-    <label>install fusion-hub</label>
-    <description>Install a fusion-hub.</description>
+    <label>install ultratech fusion-hub</label>
+    <description>Install an ultratech fusion-hub.</description>
     <workerClass>Recipe_InstallImplant</workerClass>
-    <jobString>Installing fusion-hub.</jobString>
+    <jobString>Installing ultratech fusion-hub.</jobString>
     <workAmount>2500</workAmount>
     <skillRequirements>
       <Medicine>8</Medicine>
@@ -64,7 +64,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>AdvancedFusionHub</li>
+            <li>UltratechFusionHub</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -75,12 +75,12 @@
         <li>Medicine</li>
       </categories>
       <thingDefs>
-        <li>AdvancedFusionHub</li>
+        <li>UltratechFusionHub</li>
       </thingDefs>
     </fixedIngredientFilter>
     <appliedOnFixedBodyParts>
       <li>Torso</li>
     </appliedOnFixedBodyParts>
-    <addsHediff>AdvancedFusionHub</addsHediff>
+    <addsHediff>UltratechFusionHub</addsHediff>
   </RecipeDef>  
 </Defs>

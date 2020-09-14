@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <HediffDef Name="GlitterWorldImplantBase" ParentName="ImplantBase" Abstract="True">
+    <HediffDef Name="UltraTechImplantBase" ParentName="ImplantBase" Abstract="True">
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Power.PartPowerConsumerProperties">
                 <powerPerTick>3</powerPerTick>
@@ -8,7 +8,7 @@
         </comps>
     </HediffDef>
 
-    <HediffDef ParentName="GlitterWorldImplantBase">
+    <HediffDef ParentName="UltraTechImplantBase">
         <defName>Sleepstopper</defName>
         <label>sleepstopper</label>
         <labelNoun>a sleepstopper</labelNoun>
@@ -20,7 +20,7 @@
         <spawnThingOnRemoved>Sleepstopper</spawnThingOnRemoved>
     </HediffDef>
 
-    <HediffDef ParentName="GlitterWorldImplantBase">
+    <HediffDef ParentName="UltraTechImplantBase">
         <defName>Megastopper</defName>
         <label>megastopper</label>
         <labelNoun>a megashunt</labelNoun>
@@ -33,7 +33,7 @@
         <spawnThingOnRemoved>Megastopper</spawnThingOnRemoved>
     </HediffDef>
 
-    <HediffDef ParentName="GlitterWorldImplantBase">
+    <HediffDef ParentName="UltraTechImplantBase">
         <defName>CombatImplant</defName>
         <label>combat implant</label>
         <labelNoun>a combat implant</labelNoun>
@@ -62,7 +62,7 @@
         </stages>
     </HediffDef>
 
-    <HediffDef ParentName="GlitterWorldImplantBase">
+    <HediffDef ParentName="UltraTechImplantBase">
         <defName>DomesticImplant</defName>
         <label>domestic implant</label>
         <labelNoun>a domestic implant</labelNoun>
@@ -94,7 +94,7 @@
         <spawnThingOnRemoved>DomesticImplant</spawnThingOnRemoved>
     </HediffDef>
 
-    <HediffDef ParentName="GlitterWorldImplantBase">
+    <HediffDef ParentName="UltraTechImplantBase">
         <defName>CreativeImplant</defName>
         <label>creative implant</label>
         <labelNoun>a creative implant</labelNoun>
@@ -123,7 +123,7 @@
         <spawnThingOnRemoved>CreativeImplant</spawnThingOnRemoved>
     </HediffDef>
 
-    <HediffDef ParentName="GlitterWorldImplantBase">
+    <HediffDef ParentName="UltraTechImplantBase">
         <defName>LaborImplant</defName>
         <label>labor implant</label>
         <labelNoun>a labor implant</labelNoun>
@@ -155,7 +155,7 @@
         <spawnThingOnRemoved>LaborImplant</spawnThingOnRemoved>
     </HediffDef>
 
-    <HediffDef ParentName="GlitterWorldImplantBase">
+    <HediffDef ParentName="UltraTechImplantBase">
         <defName>MedicalImplant</defName>
         <label>medical implant</label>
         <labelNoun>a medical implant</labelNoun>
