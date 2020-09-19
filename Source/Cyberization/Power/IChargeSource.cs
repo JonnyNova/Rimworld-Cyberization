@@ -12,6 +12,7 @@ namespace FrontierDevelopments.Cyberization.Power
     {
         bool Available { get; }
         float RateAvailable { get; }
+        bool WirelessCharging { get; }
         void Charge(Pawn pawn);
         bool CanUse(Pawn pawn);
     }

@@ -21,14 +21,11 @@ namespace FrontierDevelopments.Cyberization.Power.Job
         protected override IEnumerable<Toil> MakeNewToils()
         {
             var charger = PowerSource.AllComps.OfType<IChargeSource>().First();
-
-            switch (PowerSource.def.passability)
-            {
-                case Traversability.Standable:
-                    return ChargeToils(charger, PathEndMode.OnCell, () => pawn.pather.StopDead(), null);
-                default:
-                    return ChargeToils(charger, PathEndMode.Touch, null, () => charger.Charge(pawn));
-            }
+            
+            if(charger.WirelessCharging) 
+                return ChargeToils(charger, PathEndMode.OnCell, () => pawn.pather.StopDead(), null);
+            else
+                return ChargeToils(charger, PathEndMode.Touch, null, () => charger.Charge(pawn));
         }
 
         private IEnumerable<Toil> ChargeToils(IChargeSource charger, PathEndMode pathMode, Action initAction, Action tickAction)

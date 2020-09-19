@@ -28,6 +28,8 @@ namespace FrontierDevelopments.Cyberization.Power
 
         public float RateAvailable => _parent?.RateAvailable ?? 0f;
 
+        public bool WirelessCharging => Props.wirelessCharging;
+
         public void ConnectTo(IEnergyNet net)
         {
             _parent?.Disconnect(this);
