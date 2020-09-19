@@ -157,9 +157,17 @@ namespace FrontierDevelopments.Cyberization.Implants
             static IEnumerable<CodeInstruction> UseActualValueInDescription(IEnumerable<CodeInstruction> instructions)
             {
                 var patchCount = 0;
+                var traversedRateSaturated = false;
                 foreach (var instruction in instructions)
                 {
-                    if (instruction.opcode == OpCodes.Ldc_R4)
+                    if (instruction.opcode == OpCodes.Callvirt &&
+                        (MethodInfo) instruction.operand == AccessTools
+                            .Property(typeof(SkillRecord), nameof(SkillRecord.LearningSaturatedToday)).GetGetMethod())
+                    {
+                        traversedRateSaturated = true;
+                    }
+                    
+                    if (instruction.opcode == OpCodes.Ldc_R4 && traversedRateSaturated == false)
                     {
                         yield return new CodeInstruction(OpCodes.Ldarg_0);
                         yield return new CodeInstruction(OpCodes.Ldc_I4_0);
