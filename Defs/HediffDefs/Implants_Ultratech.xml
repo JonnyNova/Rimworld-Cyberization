@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <HediffDef Name="UltraTechImplantBase" ParentName="ImplantBase" Abstract="True">
+    <HediffDef Name="UltraTechImplantBase" ParentName="PoweredImplantBase" Abstract="True">
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Power.PartPowerConsumerProperties">
                 <powerPerTick>3</powerPerTick>

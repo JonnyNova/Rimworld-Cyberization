@@ -6,27 +6,25 @@
         <success>Normal</success>
         <operations>
             <!-- Changes to the base for Joywire and Painstopper -->
-            <li Class="PatchOperationReplace">
-                <xpath>Defs/HediffDef[@Name="ImplantHediffBase"]/hediffClass</xpath>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/HediffDef[defName="Joywire" or defName="Painstopper"]</xpath>
                 <value>
                     <hediffClass>FrontierDevelopments.Cyberization.Implants.ImplantPowered</hediffClass>
                 </value>
             </li>
 
-            <li Class="PatchOperationAdd">
-                <xpath>Defs/HediffDef[@Name="ImplantHediffBase"]</xpath>
+            <li Class="PatchOperationInsert">
+                <xpath>Defs/HediffDef[defName="Joywire" or defName="Painstopper"]/stages/li</xpath>
                 <value>
-                    <stages>
-                        <li>
-                            <minSeverity>-1.0</minSeverity>
-                            <label>Offline</label>
-                        </li>
-                    </stages>
+                    <li>
+                        <minSeverity>-1.0</minSeverity>
+                        <label>Offline</label>
+                    </li>
                 </value>
             </li>
 
             <li Class="PatchOperationAdd">
-                <xpath>Defs/HediffDef[@Name="ImplantHediffBase"]</xpath>
+                <xpath>Defs/HediffDef[defName="Joywire" or defName="Painstopper"]</xpath>
                 <value>
                     <comps>
                         <li Class="FrontierDevelopments.Cyberization.Power.PartPowerConsumerProperties">
