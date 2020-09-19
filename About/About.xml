@@ -2,8 +2,10 @@
 <ModMetaData>
   <name>Cyberization</name>
   <author>Jetpack Maniac and JohnnyNova</author>
+  <url></url>
+  <packageId>frontierdevelopments.cyberization</packageId>
   <supportedVersions>
-    <li>1.0</li>
+    <li>1.2</li>
   </supportedVersions>
   <description>Cyberize. Verb. To fit with a cybernetic implant or prosthesis; To make into a cyborg.</description>
 </ModMetaData>

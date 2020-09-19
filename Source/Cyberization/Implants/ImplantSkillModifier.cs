@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
 using FrontierDevelopments.Cyberization.Power;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -72,7 +73,7 @@ namespace FrontierDevelopments.Cyberization.Implants
                     {
                         case 0:
                             if (instruction.opcode == OpCodes.Ldfld
-                                && instruction.operand == AccessTools.Field(typeof(SkillRecord), "pawn"))
+                                && (FieldInfo)instruction.operand == AccessTools.Field(typeof(SkillRecord), "pawn"))
                             {
                                 emitExisting = false;
                                 phase = 1;
@@ -96,6 +97,11 @@ namespace FrontierDevelopments.Cyberization.Implants
                     if (emitExisting)
                         yield return instruction;
                 }
+
+                if (phase > 0)
+                {
+                    Log.Error("Failed to patch SkillRecord.Interval for reducing skill decay, phase reached " + phase);
+                }
             }
         }
 
@@ -110,6 +116,7 @@ namespace FrontierDevelopments.Cyberization.Implants
             [HarmonyTranspiler]
             static IEnumerable<CodeInstruction> AdjustWithImplant(IEnumerable<CodeInstruction> instructions, ILGenerator il)
             {
+                var patchCount = 0;
                 var label = il.DefineLabel();
                 
                 foreach (var instruction in instructions)
@@ -130,9 +137,15 @@ namespace FrontierDevelopments.Cyberization.Implants
                         yield return new CodeInstruction(OpCodes.Ldloc_0);
                         yield return new CodeInstruction(OpCodes.Add);
                         yield return new CodeInstruction(OpCodes.Stloc_0);
+                        patchCount++;
                     }
 
                     yield return instruction;
+                }
+
+                if (patchCount < 1)
+                {
+                    Log.Error("Patch for SkillRecord.LearnRateFactor failed");
                 }
             }
         }
@@ -143,18 +156,33 @@ namespace FrontierDevelopments.Cyberization.Implants
             [HarmonyTranspiler]
             static IEnumerable<CodeInstruction> UseActualValueInDescription(IEnumerable<CodeInstruction> instructions)
             {
+                var patchCount = 0;
+                var traversedRateSaturated = false;
                 foreach (var instruction in instructions)
                 {
-                    if (instruction.opcode == OpCodes.Ldc_R4)
+                    if (instruction.opcode == OpCodes.Callvirt &&
+                        (MethodInfo) instruction.operand == AccessTools
+                            .Property(typeof(SkillRecord), nameof(SkillRecord.LearningSaturatedToday)).GetGetMethod())
+                    {
+                        traversedRateSaturated = true;
+                    }
+                    
+                    if (instruction.opcode == OpCodes.Ldc_R4 && traversedRateSaturated == false)
                     {
                         yield return new CodeInstruction(OpCodes.Ldarg_0);
                         yield return new CodeInstruction(OpCodes.Ldc_I4_0);
                         yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(SkillRecord), nameof(SkillRecord.LearnRateFactor)));
+                        patchCount++;
                     }
                     else
                     {
                         yield return instruction;
                     }
+                }
+                
+                if (patchCount < 1)
+                {
+                    Log.Error("Patch for SkillUI.GetSkillDescription failed");
                 }
             }
         }

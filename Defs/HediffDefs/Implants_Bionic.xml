@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <HediffDef Name="BionicImplantBase" ParentName="ImplantBase" Abstract="True">
+    <HediffDef Name="BionicImplantBase" ParentName="PoweredImplantBase" Abstract="True">
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Power.PartPowerConsumerProperties">
                 <powerPerTick>2</powerPerTick>
@@ -13,6 +13,8 @@
         <defName>Painshunt</defName>
         <label>painshunt</label>
         <labelNoun>a painshunt</labelNoun>
+        <description>An installed painshunt.</description>
+        <descriptionHyperlinks><ThingDef>Painshunt</ThingDef></descriptionHyperlinks>
         <stages>
             <li>
                 <painFactor>0.5</painFactor>
@@ -25,6 +27,8 @@
         <defName>Sleepshunt</defName>
         <label>sleepshunt</label>
         <labelNoun>a sleepshunt</labelNoun>
+        <description>An installed sleephunt.</description>
+        <descriptionHyperlinks><ThingDef>Sleepshunt</ThingDef></descriptionHyperlinks>
         <stages>
             <li>
                 <restFallFactor>0.5</restFallFactor>
@@ -37,6 +41,8 @@
         <defName>Megashunt</defName>
         <label>megashunt</label>
         <labelNoun>a megashunt</labelNoun>
+        <description>An installed megashunt.</description>
+        <descriptionHyperlinks><ThingDef>Megashunt</ThingDef></descriptionHyperlinks>
         <stages>
             <li>
                 <restFallFactor>0.5</restFallFactor>

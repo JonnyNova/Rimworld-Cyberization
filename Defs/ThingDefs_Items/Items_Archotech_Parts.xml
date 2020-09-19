@@ -19,9 +19,6 @@
         <label>archotech quantum cell</label>
         <description>A quantum-vacuum energy storage unit built by an archotech. It can hold and deliver more power than any other known device in existence for its size and mass. This is the ultimate power source for bionics users and beats out Glitterworld tech at every metric.</description>
         <techLevel>Archotech</techLevel>
-        <thingSetMakerTags>
-            <li>RewardSpecial</li>
-        </thingSetMakerTags>
         <statBases>
             <MarketValue>9800</MarketValue>
             <Mass>0.3</Mass>
@@ -33,9 +30,6 @@
         <label>vanoemtric mini-cell</label>
         <description>A small-scale vanometric power cell built by an archotech. It generates a steady stream of continuous energy and never needs refueling. Theories say it makes energy from resonance in the quantum field, but that's honestly just a best guess.</description>
         <techLevel>Archotech</techLevel>
-        <thingSetMakerTags>
-            <li>RewardSpecial</li>
-        </thingSetMakerTags>
         <statBases>
             <MarketValue>7800</MarketValue>
             <Mass>0.3</Mass>

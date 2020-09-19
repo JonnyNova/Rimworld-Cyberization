@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -26,7 +27,7 @@ namespace FrontierDevelopments.Cyberization.Parts
             }
             else
             {
-                FilthMaker.MakeFilth(
+                FilthMaker.TryMakeFilth(
                     pawn.PositionHeld, 
                     pawn.MapHeld, 
                     ThingDefOf.Filth_Trash, 
@@ -41,10 +42,11 @@ namespace FrontierDevelopments.Cyberization.Parts
             [HarmonyTranspiler]
             static IEnumerable<CodeInstruction> AddPartFilthCheck(IEnumerable<CodeInstruction> instructions)
             {
+                var success = false;
                 foreach (var instruction in instructions)
                 {
                     if (instruction.opcode == OpCodes.Callvirt
-                        && instruction.operand == AccessTools.Method(
+                        && (MethodInfo)instruction.operand == AccessTools.Method(
                             typeof(Pawn_HealthTracker),
                             nameof(Pawn_HealthTracker.DropBloodFilth)))
                     {
@@ -56,11 +58,17 @@ namespace FrontierDevelopments.Cyberization.Parts
                             AccessTools.Method(
                                 typeof(Harmony_AddedPart),
                                 nameof(DropBloodOnDamageApply)));
+                        success = true;
                     }
                     else
                     {
                         yield return instruction;
                     }
+                }
+
+                if (!success)
+                {
+                    Log.Error("Failed to patch Pawn.PostApplyDamage");
                 }
             }
         }
