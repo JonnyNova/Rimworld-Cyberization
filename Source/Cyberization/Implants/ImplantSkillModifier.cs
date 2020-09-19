@@ -116,6 +116,7 @@ namespace FrontierDevelopments.Cyberization.Implants
             [HarmonyTranspiler]
             static IEnumerable<CodeInstruction> AdjustWithImplant(IEnumerable<CodeInstruction> instructions, ILGenerator il)
             {
+                var patchCount = 0;
                 var label = il.DefineLabel();
                 
                 foreach (var instruction in instructions)
@@ -136,9 +137,15 @@ namespace FrontierDevelopments.Cyberization.Implants
                         yield return new CodeInstruction(OpCodes.Ldloc_0);
                         yield return new CodeInstruction(OpCodes.Add);
                         yield return new CodeInstruction(OpCodes.Stloc_0);
+                        patchCount++;
                     }
 
                     yield return instruction;
+                }
+
+                if (patchCount < 1)
+                {
+                    Log.Error("Patch for SkillRecord.LearnRateFactor failed");
                 }
             }
         }
@@ -149,6 +156,7 @@ namespace FrontierDevelopments.Cyberization.Implants
             [HarmonyTranspiler]
             static IEnumerable<CodeInstruction> UseActualValueInDescription(IEnumerable<CodeInstruction> instructions)
             {
+                var patchCount = 0;
                 foreach (var instruction in instructions)
                 {
                     if (instruction.opcode == OpCodes.Ldc_R4)
@@ -156,11 +164,17 @@ namespace FrontierDevelopments.Cyberization.Implants
                         yield return new CodeInstruction(OpCodes.Ldarg_0);
                         yield return new CodeInstruction(OpCodes.Ldc_I4_0);
                         yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(SkillRecord), nameof(SkillRecord.LearnRateFactor)));
+                        patchCount++;
                     }
                     else
                     {
                         yield return instruction;
                     }
+                }
+                
+                if (patchCount < 1)
+                {
+                    Log.Error("Patch for SkillUI.GetSkillDescription failed");
                 }
             }
         }
