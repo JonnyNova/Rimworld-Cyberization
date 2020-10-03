@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <HediffDef Name="BodyPartSyntheticOrganBase" ParentName="AddedBodyPartBase" Abstract="True">
+        <addedPartProps>
+            <solid>true</solid>
+            <betterThanNatural>true</betterThanNatural>
+            <partEfficiency>1.25</partEfficiency>
+        </addedPartProps>
+    </HediffDef>
+
+    <HediffDef ParentName="BodyPartSyntheticOrganBase">
+        <defName>SyntheticLung</defName>
+        <label>synthetic lung</label>
+        <labelNoun>a synthetic lung</labelNoun>
+        <description>An installed synthetic lung.</description>
+        <descriptionHyperlinks><ThingDef>SyntheticLung</ThingDef></descriptionHyperlinks>
+        <spawnThingOnRemoved>SyntheticLung</spawnThingOnRemoved>
+    </HediffDef>
+
+    <HediffDef ParentName="BodyPartSyntheticOrganBase">
+        <defName>SyntheticKidney</defName>
+        <label>synthetic kidney</label>
+        <labelNoun>a synthetic kidney</labelNoun>
+        <description>An installed synthetic kidney.</description>
+        <descriptionHyperlinks><ThingDef>SyntheticKidney</ThingDef></descriptionHyperlinks>
+        <spawnThingOnRemoved>SyntheticKidney</spawnThingOnRemoved>
+    </HediffDef>
+
+    <HediffDef ParentName="BodyPartSyntheticOrganBase">
+        <defName>SyntheticLiver</defName>
+        <label>synthetic liver</label>
+        <labelNoun>a synthetic liver</labelNoun>
+        <description>An installed synthetic liver.</description>
+        <descriptionHyperlinks><ThingDef>SyntheticLiver</ThingDef></descriptionHyperlinks>
+        <spawnThingOnRemoved>SyntheticLiver</spawnThingOnRemoved>
+    </HediffDef>
+</Defs>

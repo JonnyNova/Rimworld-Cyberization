@@ -81,31 +81,4 @@
         </comps>
         <spawnThingOnRemoved>BionicHand</spawnThingOnRemoved>
     </HediffDef>
-
-    <HediffDef ParentName="BionicBodyPartOrganBase">
-        <defName>BionicLung</defName>
-        <label>bionic lung</label>
-        <labelNoun>a bionic lung</labelNoun>
-        <description>An installed bionic lung.</description>
-        <descriptionHyperlinks><ThingDef>BionicLung</ThingDef></descriptionHyperlinks>
-        <spawnThingOnRemoved>BionicLung</spawnThingOnRemoved>
-    </HediffDef>
-
-    <HediffDef ParentName="BionicBodyPartOrganBase">
-        <defName>BionicKidney</defName>
-        <label>bionic kidney</label>
-        <labelNoun>a bionic kidney</labelNoun>
-        <description>An installed bionic kidney.</description>
-        <descriptionHyperlinks><ThingDef>BionicKidney</ThingDef></descriptionHyperlinks>
-        <spawnThingOnRemoved>BionicKidney</spawnThingOnRemoved>
-    </HediffDef>
-
-    <HediffDef ParentName="BionicBodyPartOrganBase">
-        <defName>BionicLiver</defName>
-        <label>bionic liver</label>
-        <labelNoun>a bionic liver</labelNoun>
-        <description>An installed bionic liver.</description>
-        <descriptionHyperlinks><ThingDef>BionicLiver</ThingDef></descriptionHyperlinks>
-        <spawnThingOnRemoved>BionicLiver</spawnThingOnRemoved>
-    </HediffDef>
 </Defs>

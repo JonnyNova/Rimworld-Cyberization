@@ -14,17 +14,17 @@
         <ingredients>
         <li>
             <filter>
-            <categories>
-                <li>Medicine</li>
-            </categories>
+                <categories>
+                    <li>Medicine</li>
+                </categories>
             </filter>
             <count>2</count>
         </li>
         <li>
             <filter>
-            <thingDefs>
-                <li>BionicHand</li>
-            </thingDefs>
+                <thingDefs>
+                    <li>BionicHand</li>
+                </thingDefs>
             </filter>
             <count>1</count>
         </li>
@@ -38,135 +38,9 @@
         </thingDefs>
         </fixedIngredientFilter>
         <appliedOnFixedBodyParts>
-        <li>Hand</li>
+            <li>Hand</li>
         </appliedOnFixedBodyParts>
         <addsHediff>BionicHand</addsHediff>
-    </RecipeDef>
-
-    <RecipeDef ParentName="SurgeryFlesh">
-        <defName>InstallBionicLung</defName>
-        <label>install bionic lung</label>
-        <description>Install a bionic lung.</description>
-        <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
-        <jobString>Installing bionic lung.</jobString>
-        <workAmount>2500</workAmount>
-        <skillRequirements>
-        <Medicine>5</Medicine>
-        </skillRequirements>
-        <ingredients>
-        <li>
-            <filter>
-            <categories>
-                <li>Medicine</li>
-            </categories>
-            </filter>
-            <count>2</count>
-        </li>
-        <li>
-            <filter>
-            <thingDefs>
-                <li>BionicLung</li>
-            </thingDefs>
-            </filter>
-            <count>1</count>
-        </li>
-        </ingredients>
-        <fixedIngredientFilter>
-        <categories>
-            <li>Medicine</li>
-        </categories>
-        <thingDefs>
-            <li>BionicLung</li>
-        </thingDefs>
-        </fixedIngredientFilter>
-        <appliedOnFixedBodyParts>
-        <li>Lung</li>
-        </appliedOnFixedBodyParts>
-        <addsHediff>BionicLung</addsHediff>
-    </RecipeDef>
-
-    <RecipeDef ParentName="SurgeryFlesh">
-        <defName>InstallBionicKidney</defName>
-        <label>install bionic kidney</label>
-        <description>Install a bionic kidney.</description>
-        <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
-        <jobString>Installing bionic kidney.</jobString>
-        <workAmount>2500</workAmount>
-        <skillRequirements>
-        <Medicine>5</Medicine>
-        </skillRequirements>
-        <ingredients>
-        <li>
-            <filter>
-            <categories>
-                <li>Medicine</li>
-            </categories>
-            </filter>
-            <count>2</count>
-        </li>
-        <li>
-            <filter>
-            <thingDefs>
-                <li>BionicKidney</li>
-            </thingDefs>
-            </filter>
-            <count>1</count>
-        </li>
-        </ingredients>
-        <fixedIngredientFilter>
-        <categories>
-            <li>Medicine</li>
-        </categories>
-        <thingDefs>
-            <li>BionicKidney</li>
-        </thingDefs>
-        </fixedIngredientFilter>
-        <appliedOnFixedBodyParts>
-        <li>Kidney</li>
-        </appliedOnFixedBodyParts>
-        <addsHediff>BionicKidney</addsHediff>
-    </RecipeDef>
-
-    <RecipeDef ParentName="SurgeryFlesh">
-        <defName>InstallBionicLiver</defName>
-        <label>install bionic liver</label>
-        <description>Install a bionic liver.</description>
-        <workerClass>Recipe_InstallArtificialBodyPart</workerClass>
-        <jobString>Installing bionic liver.</jobString>
-        <workAmount>2500</workAmount>
-        <skillRequirements>
-        <Medicine>5</Medicine>
-        </skillRequirements>
-        <ingredients>
-        <li>
-            <filter>
-            <categories>
-                <li>Medicine</li>
-            </categories>
-            </filter>
-            <count>2</count>
-        </li>
-        <li>
-            <filter>
-            <thingDefs>
-                <li>BionicLiver</li>
-            </thingDefs>
-            </filter>
-            <count>1</count>
-        </li>
-        </ingredients>
-        <fixedIngredientFilter>
-        <categories>
-            <li>Medicine</li>
-        </categories>
-        <thingDefs>
-            <li>BionicLiver</li>
-        </thingDefs>
-        </fixedIngredientFilter>
-        <appliedOnFixedBodyParts>
-        <li>Liver</li>
-        </appliedOnFixedBodyParts>
-        <addsHediff>BionicLiver</addsHediff>
     </RecipeDef>
 
     <RecipeDef ParentName="SurgeryFlesh">
@@ -183,9 +57,9 @@
         <ingredients>
         <li>
             <filter>
-            <categories>
-                <li>Medicine</li>
-            </categories>
+                <categories>
+                    <li>Medicine</li>
+                </categories>
             </filter>
             <count>3</count>
         </li>
@@ -207,7 +81,7 @@
         </thingDefs>
         </fixedIngredientFilter>
         <appliedOnFixedBodyParts>
-        <li>Brain</li>
+            <li>Brain</li>
         </appliedOnFixedBodyParts>
         <addsHediff>Painshunt</addsHediff>
     </RecipeDef>
@@ -226,9 +100,9 @@
         <ingredients>
         <li>
             <filter>
-            <categories>
-                <li>Medicine</li>
-            </categories>
+                <categories>
+                    <li>Medicine</li>
+                </categories>
             </filter>
             <count>3</count>
         </li>
@@ -250,7 +124,7 @@
         </thingDefs>
         </fixedIngredientFilter>
         <appliedOnFixedBodyParts>
-        <li>Brain</li>
+            <li>Brain</li>
         </appliedOnFixedBodyParts>
         <addsHediff>Sleepshunt</addsHediff>
     </RecipeDef>
@@ -269,17 +143,17 @@
         <ingredients>
         <li>
             <filter>
-            <categories>
-                <li>Medicine</li>
-            </categories>
+                <categories>
+                    <li>Medicine</li>
+                </categories>
             </filter>
             <count>3</count>
         </li>
         <li>
             <filter>
-            <thingDefs>
-                <li>Megashunt</li>
-            </thingDefs>
+                <thingDefs>
+                    <li>Megashunt</li>
+                </thingDefs>
             </filter>
             <count>1</count>
         </li>
@@ -293,7 +167,7 @@
         </thingDefs>
         </fixedIngredientFilter>
         <appliedOnFixedBodyParts>
-        <li>Brain</li>
+            <li>Brain</li>
         </appliedOnFixedBodyParts>
         <addsHediff>Megashunt</addsHediff>
     </RecipeDef>
@@ -312,9 +186,9 @@
         <ingredients>
         <li>
             <filter>
-            <categories>
-                <li>Medicine</li>
-            </categories>
+                <categories>
+                    <li>Medicine</li>
+                </categories>
             </filter>
             <count>3</count>
         </li>
@@ -355,17 +229,17 @@
         <ingredients>
         <li>
             <filter>
-            <categories>
-                <li>Medicine</li>
-            </categories>
+                <categories>
+                    <li>Medicine</li>
+                </categories>
             </filter>
             <count>3</count>
         </li>
         <li>
             <filter>
-            <thingDefs>
-                <li>BionicSupercapacitor</li>
-            </thingDefs>
+                <thingDefs>
+                    <li>BionicSupercapacitor</li>
+                </thingDefs>
             </filter>
             <count>1</count>
         </li>

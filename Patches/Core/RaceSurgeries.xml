@@ -27,10 +27,10 @@
           <li>InstallPowerClaw</li>
           <li>InstallBionicSpine</li>
           <li>InstallBionicHeart</li>
-          <li>InstallBionicLung</li>
           <li>InstallBionicStomach</li>
-          <li>InstallBionicKidney</li>
-          <li>InstallBionicLiver</li>
+          <li>InstallSyntheticLung</li>
+          <li>InstallSyntheticKidney</li>
+          <li>InstallSyntheticLiver</li>
           <li>InstallPainshunt</li>
           <li>InstallSleepshunt</li>
           <li>InstallMegashunt</li>
