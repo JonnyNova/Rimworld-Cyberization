@@ -4,8 +4,50 @@
         <addedPartProps>
             <solid>true</solid>
             <betterThanNatural>true</betterThanNatural>
-            <partEfficiency>1.25</partEfficiency>
         </addedPartProps>
+        <hediffClass>HediffWithComps</hediffClass>
+        <initialSeverity>0.001</initialSeverity>
+        <minSeverity>0.001</minSeverity>
+        <maxSeverity>1</maxSeverity>
+        <tendable>true</tendable>
+        <cureAllAtOnceIfCuredByItem>true</cureAllAtOnceIfCuredByItem>
+        <comps>
+        <li Class="HediffCompProperties_Immunizable">
+            <severityPerDayNotImmune>0.0667</severityPerDayNotImmune>
+        </li>
+        <li Class="HediffCompProperties_TendDuration">
+            <baseTendDurationHours>180</baseTendDurationHours>
+            <tendAllAtOnce>true</tendAllAtOnce>
+            <severityPerDayTended>-0.5</severityPerDayTended>
+        </li>
+        </comps>
+        <stages>
+            <li>
+                <label>optimal</label>
+                <partEfficiencyOffset>0.25</partEfficiencyOffset>
+            </li>
+            <li>
+                <label>near optimal</label>
+                <minSeverity>0.1</minSeverity>
+                <partEfficiencyOffset>0.1</partEfficiencyOffset>
+            </li>
+            <li>
+                <label>degraded</label>
+                <minSeverity>0.5</minSeverity>
+                <painOffset>0.1</painOffset>
+            </li>
+            <li>
+                <label>very degraded</label>
+                <minSeverity>0.75</minSeverity>
+                <partEfficiencyOffset>-0.2</partEfficiencyOffset>
+            </li>
+            <li>
+                <label>minimal</label>
+                <minSeverity>1</minSeverity>
+                <painOffset>0.1</painOffset>
+                <partEfficiencyOffset>-0.4</partEfficiencyOffset>
+            </li>
+        </stages>
     </HediffDef>
 
     <HediffDef ParentName="BodyPartSyntheticOrganBase">
