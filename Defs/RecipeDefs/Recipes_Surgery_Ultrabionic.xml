@@ -2,10 +2,10 @@
 <Defs>
   <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallAMCore</defName>
-    <label>install ultratech anti-matter core</label>
-    <description>Install an ultratech anti-matter core.</description>
+    <label>install ultrabionic anti-matter core</label>
+    <description>Install an ultrabionic anti-matter core.</description>
     <workerClass>Recipe_InstallImplant</workerClass>
-    <jobString>Installing ultratech anti-matter core.</jobString>
+    <jobString>Installing ultrabionic anti-matter core.</jobString>
     <workAmount>2500</workAmount>
     <skillRequirements>
       <Medicine>8</Medicine>
@@ -22,7 +22,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>UltratechAMCore</li>
+            <li>UltrabionicAMCore</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -33,21 +33,21 @@
         <li>Medicine</li>
       </categories>
       <thingDefs>
-        <li>UltratechAMCore</li>
+        <li>UltrabionicAMCore</li>
       </thingDefs>
     </fixedIngredientFilter>
     <appliedOnFixedBodyParts>
       <li>Torso</li>
     </appliedOnFixedBodyParts>
-    <addsHediff>UltratechAMCore</addsHediff>
+    <addsHediff>UltrabionicAMCore</addsHediff>
   </RecipeDef>
 
   <RecipeDef ParentName="SurgeryFlesh">
     <defName>InstallFusionHub</defName>
-    <label>install ultratech fusion-hub</label>
-    <description>Install an ultratech fusion-hub.</description>
+    <label>install ultrabionic fusion-hub</label>
+    <description>Install an ultrabionic fusion-hub.</description>
     <workerClass>Recipe_InstallImplant</workerClass>
-    <jobString>Installing ultratech fusion-hub.</jobString>
+    <jobString>Installing ultrabionic fusion-hub.</jobString>
     <workAmount>2500</workAmount>
     <skillRequirements>
       <Medicine>8</Medicine>
@@ -64,7 +64,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>UltratechFusionHub</li>
+            <li>UltrabionicFusionHub</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -75,12 +75,12 @@
         <li>Medicine</li>
       </categories>
       <thingDefs>
-        <li>UltratechFusionHub</li>
+        <li>UltrabionicFusionHub</li>
       </thingDefs>
     </fixedIngredientFilter>
     <appliedOnFixedBodyParts>
       <li>Torso</li>
     </appliedOnFixedBodyParts>
-    <addsHediff>UltratechFusionHub</addsHediff>
+    <addsHediff>UltrabionicFusionHub</addsHediff>
   </RecipeDef>  
 </Defs>

@@ -39,10 +39,10 @@
     </HediffDef>
 
     <HediffDef ParentName="EnergyCellBase">
-        <defName>UltratechAMCore</defName>
-        <label>Ultratech Anti-Matter Core</label>
+        <defName>UltrabionicAMCore</defName>
+        <label>Ultrabionic Anti-Matter Core</label>
         <description>An installed advanced anti-matter core.</description>
-        <descriptionHyperlinks><ThingDef>UltratechAMCore</ThingDef></descriptionHyperlinks>
+        <descriptionHyperlinks><ThingDef>UltrabionicAMCore</ThingDef></descriptionHyperlinks>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerProviderProperties">
                 <maxEnergy>1000000</maxEnergy>
@@ -52,10 +52,10 @@
     </HediffDef>
 
     <HediffDef ParentName="EnergyCellBase">
-        <defName>UltratechFusionHub</defName>
-        <label>Ultratech Fusion-Hub</label>
+        <defName>UltrabionicFusionHub</defName>
+        <label>Ultrabionic Fusion-Hub</label>
         <description>An installed advanced fusion hub.</description>
-        <descriptionHyperlinks><ThingDef>UltratechFusionHub</ThingDef></descriptionHyperlinks>
+        <descriptionHyperlinks><ThingDef>UltrabionicFusionHub</ThingDef></descriptionHyperlinks>
         <comps>
             <li Class="FrontierDevelopments.Cyberization.Parts.AddedPartPowerProviderProperties">
                 <maxEnergy>750000</maxEnergy>

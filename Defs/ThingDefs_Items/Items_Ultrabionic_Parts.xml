@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <ThingDef Name="UltratechBionicBase" ParentName="BodyPartBase" Abstract="True">
+    <ThingDef Name="UltrabionicBase" ParentName="BodyPartBase" Abstract="True">
         <graphicData>
             <texPath>Things/Item/Health/HealthItem</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -18,9 +18,9 @@
         </thingCategories>
     </ThingDef>
 
-    <ThingDef ParentName="UltratechBionicBase">
-        <defName>UltratechAMCore</defName>
-        <label>ultratech anti-matter core</label>
+    <ThingDef ParentName="UltrabionicBase">
+        <defName>UltrabionicAMCore</defName>
+        <label>ultrabionic anti-matter core</label>
         <description>A special energy storage unit of Glitterworld origin. This AM core houses all the components needed to maintain reaction mass to power components in a small footprint. It is the perfect device for the enthusiast advanced-tier user with high output and high capacity and meets any need.</description>
         <statBases>
             <MarketValue>4500</MarketValue>
@@ -28,9 +28,9 @@
         </statBases>
     </ThingDef>
 
-    <ThingDef ParentName="UltratechBionicBase">
-        <defName>UltratechFusionHub</defName>
-        <label>ultratech fusion-hub</label>
+    <ThingDef ParentName="UltrabionicBase">
+        <defName>UltrabionicFusionHub</defName>
+        <label>ultrabionic fusion-hub</label>
         <description>A special energy storage unit of Glitterworld origin. This fusion-hub houses all the components needed to maintain reaction mass to power components in a small footprint.  The design is similar to the anti-matter core although a weaker version for a more attractive pricepoint. It is sufficient for the advanced-tier user.  It has low output and high capacity for its class (although its output is higher than lower tier tech).</description>
         <statBases>
             <MarketValue>2500</MarketValue>
@@ -38,7 +38,7 @@
         </statBases>
     </ThingDef>
 
-    <ThingDef ParentName="UltratechBionicBase">
+    <ThingDef ParentName="UltrabionicBase">
         <defName>CombatImplant</defName>
         <label>combat implant</label>
         <description>A special brain implant of Glitterworld origin. This series has multiple offerings and this one will enhance a person's abilities in combat. It promises users will perform faster, learn quicker, and forget slower. It is the perfect implant for those chasing mastery.</description>
@@ -48,7 +48,7 @@
         </statBases>
     </ThingDef>
 
-    <ThingDef ParentName="UltratechBionicBase">
+    <ThingDef ParentName="UltrabionicBase">
         <defName>DomesticImplant</defName>
         <label>domestic implant</label>
         <description>A special brain implant of Glitterworld origin. This series has multiple offerings and this one will enhance a person's abilities in cooking, animals, and growing. It promises users will perform faster, learn quicker, and forget slower. It is the perfect implant for those chasing mastery.</description>
@@ -58,7 +58,7 @@
         </statBases>
     </ThingDef>
 
-    <ThingDef ParentName="UltratechBionicBase">
+    <ThingDef ParentName="UltrabionicBase">
         <defName>CreativeImplant</defName>
         <label>creative implant</label>
         <description>A special brain implant of Glitterworld origin. This series has multiple offerings and this one will enhance a person's abilities in social, art, and intellectual tasks.  It promises users will perform faster, learn quicker, and forget slower. It is the perfect implant for those chasing mastery.</description>
@@ -68,7 +68,7 @@
         </statBases>
     </ThingDef>
 
-    <ThingDef ParentName="UltratechBionicBase">
+    <ThingDef ParentName="UltrabionicBase">
         <defName>LaborImplant</defName>
         <label>labor implant</label>
         <description>A special brain implant of Glitterworld origin. This series has multiple offerings and this one will enhance a person's abilities in mining, construction, and crafting.  It promises users will perform faster, learn quicker, and forget slower. It is the perfect implant for those chasing mastery.</description>
@@ -78,7 +78,7 @@
         </statBases>
     </ThingDef>
 
-    <ThingDef ParentName="UltratechBionicBase">
+    <ThingDef ParentName="UltrabionicBase">
         <defName>MedicalImplant</defName>
         <label>medical implant</label>
         <description>A special brain implant of Glitterworld origin. This series has multiple offerings and this one will enhance a person's abilities in medicine.  It promises users will perform faster, learn quicker, and forget slower. It is the perfect implant for those chasing mastery.</description>
@@ -88,7 +88,7 @@
         </statBases>
     </ThingDef>
 
-    <ThingDef ParentName="UltratechBionicBase">
+    <ThingDef ParentName="UltrabionicBase">
         <defName>Sleepstopper</defName>
         <label>sleepstopper</label>
         <description>A special brain implant of Glitterworld origin. This will stop the user from naturally needing sleep. However, users who take substances might find themselves falling asleep anyway. It is popular among glitterworlds among students and doctors alike for the productivity boost experienced.</description>
@@ -98,7 +98,7 @@
         </statBases>
     </ThingDef>
 
-    <ThingDef ParentName="UltratechBionicBase">
+    <ThingDef ParentName="UltrabionicBase">
         <defName>Megastopper</defName>
         <label>megastopper</label>
         <description>A special brain implant of Glitterworld origin. This combines the painstopper and sleepstopper, rendering the user superhuman. The user will not experience pain and will not naturally need sleep. Same caveat from the sleepstopper, substance users might occassionally find themselves falling asleep or needing sleep.</description>
